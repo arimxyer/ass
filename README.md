@@ -18,8 +18,51 @@ bun install
 
 ## Usage
 
+### Claude Desktop
+
+Add to your `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "awesome-search": {
+      "command": "bun",
+      "args": ["run", "/path/to/ass/src/index.ts"]
+    }
+  }
+}
+```
+
+**Config locations:**
+- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+- Linux: `~/.config/Claude/claude_desktop_config.json`
+
+### Claude Code
+
+Add to your project's `.mcp.json` or global settings:
+
+```json
+{
+  "mcpServers": {
+    "awesome-search": {
+      "command": "bun",
+      "args": ["run", "/path/to/ass/src/index.ts"]
+    }
+  }
+}
+```
+
+### Manual testing
+
 ```bash
 bun run start
+```
+
+Or use the MCP Inspector:
+
+```bash
+npx @modelcontextprotocol/inspector bun run src/index.ts
 ```
 
 ## Tools
