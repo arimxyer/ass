@@ -1,0 +1,25 @@
+{
+  "name": "ass",
+  "version": "0.1.0",
+  "description": "Awesome Search Services - MCP server and CLI for searching curated awesome lists",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun run --watch src/index.ts"
+  },
+  "keywords": [
+    "mcp",
+    "awesome-lists",
+    "search",
+    "claude"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "fuse.js": "^7.0.0"
+  }
+}

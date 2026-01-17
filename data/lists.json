@@ -1,0 +1,5050 @@
+[
+  {
+    "repo": "codecrafters-io/build-your-own-x",
+    "name": "build-your-own-x",
+    "stars": 412089,
+    "description": "Master programming by recreating your favorite technologies from scratch.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-26"
+  },
+  {
+    "repo": "sindresorhus/awesome",
+    "name": "awesome",
+    "stars": 393125,
+    "description": "\ud83d\ude0e Awesome lists about all kinds of interesting topics",
+    "source": "both",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "ebookfoundation/free-programming-books",
+    "name": "free-programming-books",
+    "stars": 380593,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "public-apis/public-apis",
+    "name": "public-apis",
+    "stars": 361964,
+    "description": "A collective list of free APIs",
+    "source": "both",
+    "pushed_at": "2025-11-04"
+  },
+  {
+    "repo": "vinta/awesome-python",
+    "name": "awesome-python",
+    "stars": 255778,
+    "description": "An opinionated list of awesome Python frameworks, libraries, software and resources.",
+    "source": "both",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "awesome-selfhosted/awesome-selfhosted",
+    "name": "awesome-selfhosted",
+    "stars": 242702,
+    "description": "A list of Free Software network services and web applications which can be hosted on your own servers",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "ossu/computer-science",
+    "name": "computer-science",
+    "stars": 190638,
+    "description": "\ud83c\udf93 Path to a free self-taught education in Computer Science!",
+    "source": "both",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "avelino/awesome-go",
+    "name": "awesome-go",
+    "stars": 150315,
+    "description": "A curated list of awesome Go frameworks, libraries and software",
+    "source": "both",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "f/awesome-chatgpt-prompts",
+    "name": "awesome-chatgpt-prompts",
+    "stars": 132896,
+    "description": "This repo includes ChatGPT prompt curation to use ChatGPT and other LLM tools better.",
+    "source": "both",
+    "pushed_at": "2026-01-17"
+  },
+  {
+    "repo": "ripienaar/free-for-dev",
+    "name": "free-for-dev",
+    "stars": 110417,
+    "description": "A list of SaaS, PaaS and IaaS offerings that have free tiers of interest to devops and infradev",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "papers-we-love/papers-we-love",
+    "name": "papers-we-love",
+    "stars": 97284,
+    "description": "Papers from the computer science community to read and discuss.",
+    "source": "both",
+    "pushed_at": "2025-10-10"
+  },
+  {
+    "repo": "hack-with-github/awesome-hacking",
+    "name": "awesome-hacking",
+    "stars": 96518,
+    "description": "A collection of various awesome lists for hackers, pentesters and security researchers",
+    "source": "both",
+    "pushed_at": "2025-01-18"
+  },
+  {
+    "repo": "jaywcjlove/awesome-mac",
+    "name": "awesome-mac",
+    "stars": 87360,
+    "description": "\uf8ff Now we have become very big, Different from the original idea. Collect premium software in various categories.",
+    "source": "both",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "vuejs/awesome-vue",
+    "name": "awesome-vue",
+    "stars": 73188,
+    "description": "\ud83c\udf89 A curated list of awesome things related to Vue.js",
+    "source": "both",
+    "pushed_at": "2025-12-29"
+  },
+  {
+    "repo": "thedaviddias/front-end-checklist",
+    "name": "front-end-checklist",
+    "stars": 70667,
+    "description": "\ud83d\uddc2 The perfect Front-End Checklist for modern websites and meticulous developers",
+    "source": "context-awesome",
+    "pushed_at": "2025-02-14"
+  },
+  {
+    "repo": "enaqx/awesome-react",
+    "name": "awesome-react",
+    "stars": 69463,
+    "description": "A collection of awesome things regarding React ecosystem",
+    "source": "both",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "josephmisiti/awesome-machine-learning",
+    "name": "awesome-machine-learning",
+    "stars": 69371,
+    "description": "A curated list of awesome Machine Learning frameworks, libraries and software.",
+    "source": "both",
+    "pushed_at": "2026-01-02"
+  },
+  {
+    "repo": "punkpeye/awesome-mcp-servers",
+    "name": "awesome-mcp-servers",
+    "stars": 66626,
+    "description": "A collection of MCP servers.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "fffaraz/awesome-cpp",
+    "name": "awesome-cpp",
+    "stars": 65749,
+    "description": "A curated list of awesome C++ (or C) frameworks, libraries, resources, and shiny things. Inspired by awesome-... stuff.",
+    "source": "both",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "binhnguyennus/awesome-scalability",
+    "name": "awesome-scalability",
+    "stars": 64617,
+    "description": "The Patterns of Scalable, Reliable, and Performant Large-Scale Systems",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-04"
+  },
+  {
+    "repo": "sindresorhus/awesome-nodejs",
+    "name": "awesome-nodejs",
+    "stars": 62271,
+    "description": ":zap: Delightful Node.js packages and resources",
+    "source": "both",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "solido/awesome-flutter",
+    "name": "awesome-flutter",
+    "stars": 56894,
+    "description": "An awesome list that curates the best Flutter libraries, tools, tutorials, articles and more.",
+    "source": "both",
+    "pushed_at": "2025-11-19"
+  },
+  {
+    "repo": "rust-unofficial/awesome-rust",
+    "name": "awesome-rust",
+    "stars": 52124,
+    "description": "A curated list of Rust code and resources.",
+    "source": "both",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "vsouza/awesome-ios",
+    "name": "awesome-ios",
+    "stars": 49669,
+    "description": "A curated list of awesome iOS ecosystem, including Objective-C and Swift Projects ",
+    "source": "both",
+    "pushed_at": "2025-09-29"
+  },
+  {
+    "repo": "serhii-londar/open-source-mac-os-apps",
+    "name": "open-source-mac-os-apps",
+    "stars": 47019,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-12-07"
+  },
+  {
+    "repo": "akullpp/awesome-java",
+    "name": "awesome-java",
+    "stars": 44754,
+    "description": "A curated list of awesome frameworks, libraries and software for the Java programming language.",
+    "source": "both",
+    "pushed_at": "2026-01-11"
+  },
+  {
+    "repo": "lukasz-madon/awesome-remote-job",
+    "name": "awesome-remote-job",
+    "stars": 39469,
+    "description": "A curated list of awesome remote jobs and resources. Inspired by https://github.com/vinta/awesome-python",
+    "source": "both",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "cloudcommunity/free-certifications",
+    "name": "free-certifications",
+    "stars": 37370,
+    "description": "A curated list of free courses with certifications. Also available at https://free-certifications.com/",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-22"
+  },
+  {
+    "repo": "alebcay/awesome-shell",
+    "name": "awesome-shell",
+    "stars": 35001,
+    "description": "A curated list of awesome command-line frameworks, toolkits, guides and gizmos. Inspired by awesome-php.",
+    "source": "both",
+    "pushed_at": "2025-08-28"
+  },
+  {
+    "repo": "sorrycc/awesome-javascript",
+    "name": "awesome-javascript",
+    "stars": 34498,
+    "description": "\ud83d\udc22 A collection of awesome browser-side  JavaScript libraries, resources and shiny things.",
+    "source": "both",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "veggiemonk/awesome-docker",
+    "name": "awesome-docker",
+    "stars": 33383,
+    "description": ":whale: A curated list of Docker resources and projects",
+    "source": "both",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "ziadoz/awesome-php",
+    "name": "awesome-php",
+    "stars": 31824,
+    "description": "A curated list of amazingly awesome PHP libraries, resources and shiny things.",
+    "source": "both",
+    "pushed_at": "2025-12-15"
+  },
+  {
+    "repo": "kuchin/awesome-cto",
+    "name": "awesome-cto",
+    "stars": 31466,
+    "description": "A curated and opinionated list of resources for Chief Technology Officers, with the emphasis on startups",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-03"
+  },
+  {
+    "repo": "awesome-foss/awesome-sysadmin",
+    "name": "awesome-sysadmin",
+    "stars": 30638,
+    "description": "A curated list of amazingly awesome open-source sysadmin resources.",
+    "source": "both",
+    "pushed_at": "2026-01-11"
+  },
+  {
+    "repo": "allthingssmitty/css-protips",
+    "name": "css-protips",
+    "stars": 29757,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-03-20"
+  },
+  {
+    "repo": "academic/awesome-datascience",
+    "name": "awesome-datascience",
+    "stars": 27209,
+    "description": ":memo: An awesome Data Science repository to learn and apply for real world problems.",
+    "source": "both",
+    "pushed_at": "2026-01-01"
+  },
+  {
+    "repo": "sindresorhus/awesome-electron",
+    "name": "awesome-electron",
+    "stars": 26601,
+    "description": "Useful resources for creating apps with Electron",
+    "source": "both",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "kdeldycke/awesome-falsehood",
+    "name": "awesome-falsehood",
+    "stars": 26045,
+    "description": "\ud83d\ude31 Falsehoods Programmers Believe in",
+    "source": "both",
+    "pushed_at": "2025-11-05"
+  },
+  {
+    "repo": "christoschristofidis/awesome-deep-learning",
+    "name": "awesome-deep-learning",
+    "stars": 26040,
+    "description": "A curated list of awesome Deep Learning tutorials, projects and communities.",
+    "source": "both",
+    "pushed_at": "2025-05-26"
+  },
+  {
+    "repo": "matteocrippa/awesome-swift",
+    "name": "awesome-swift",
+    "stars": 25582,
+    "description": "A collaborative list of awesome Swift libraries and resources. Feel free to contribute!",
+    "source": "both",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "ashishps1/awesome-system-design-resources",
+    "name": "awesome-system-design-resources",
+    "stars": 25463,
+    "description": "Learn System Design concepts and prepare for interviews using free resources.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-11"
+  },
+  {
+    "repo": "hannibal046/awesome-llm",
+    "name": "awesome-llm",
+    "stars": 24745,
+    "description": "Awesome-LLM: a curated list of Large Language Model",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-31"
+  },
+  {
+    "repo": "luong-komorebi/awesome-linux-software",
+    "name": "awesome-linux-software",
+    "stars": 23866,
+    "description": "\ud83d\udc27 A list of awesome Linux softwares ",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-02"
+  },
+  {
+    "repo": "enaqx/awesome-pentest",
+    "name": "awesome-pentest",
+    "stars": 23763,
+    "description": "A collection of awesome penetration testing resources, tools and other shiny things",
+    "source": "both",
+    "pushed_at": "2025-12-17"
+  },
+  {
+    "repo": "tayllan/awesome-algorithms",
+    "name": "awesome-algorithms",
+    "stars": 23423,
+    "description": "A curated list of awesome places to learn and/or practice algorithms.",
+    "source": "both",
+    "pushed_at": "2026-01-11"
+  },
+  {
+    "repo": "jivoi/awesome-osint",
+    "name": "awesome-osint",
+    "stars": 22422,
+    "description": ":scream: A curated list of amazingly awesome OSINT",
+    "source": "both",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "lissy93/dashy",
+    "name": "dashy",
+    "stars": 22281,
+    "description": "\ud83d\ude80 A self-hostable personal dashboard built for you. Includes status-checking, widgets, themes, icon packs, a UI editor and tons more!",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "wilsonfreitas/awesome-quant",
+    "name": "awesome-quant",
+    "stars": 21737,
+    "description": "A curated list of insanely awesome libraries, packages and resources for Quants (Quantitative Finance)",
+    "source": "both",
+    "pushed_at": "2026-01-17"
+  },
+  {
+    "repo": "e2b-dev/awesome-ai-agents",
+    "name": "awesome-ai-agents",
+    "stars": 21335,
+    "description": "A list of AI autonomous agents",
+    "source": "context-awesome",
+    "pushed_at": "2025-02-26"
+  },
+  {
+    "repo": "thangchung/awesome-dotnet-core",
+    "name": "awesome-dotnet-core",
+    "stars": 20715,
+    "description": ":honeybee: A collection of awesome .NET core libraries, tools, frameworks and software",
+    "source": "both",
+    "pushed_at": "2025-04-03"
+  },
+  {
+    "repo": "quozd/awesome-dotnet",
+    "name": "awesome-dotnet",
+    "stars": 20460,
+    "description": "A collection of awesome .NET libraries, tools, frameworks and software",
+    "source": "both",
+    "pushed_at": "2025-09-16"
+  },
+  {
+    "repo": "matiassingers/awesome-readme",
+    "name": "awesome-readme",
+    "stars": 19583,
+    "description": "A curated list of awesome READMEs",
+    "source": "both",
+    "pushed_at": "2026-01-08"
+  },
+  {
+    "repo": "ethicalml/awesome-production-machine-learning",
+    "name": "awesome-production-machine-learning",
+    "stars": 19020,
+    "description": "A curated list of awesome open source libraries to deploy, monitor, version and scale your machine learning",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-07"
+  },
+  {
+    "repo": "dariubs/gobooks",
+    "name": "gobooks",
+    "stars": 19013,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-11-20"
+  },
+  {
+    "repo": "dipakkr/a-to-z-resources-for-students",
+    "name": "a-to-z-resources-for-students",
+    "stars": 18889,
+    "description": "\u2705  Curated list of resources for college students ",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-17"
+  },
+  {
+    "repo": "rockerboo/awesome-neovim",
+    "name": "awesome-neovim",
+    "stars": 18816,
+    "description": "Collections of awesome neovim plugins.",
+    "source": "both",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "alexpate/awesome-design-systems",
+    "name": "awesome-design-systems",
+    "stars": 18746,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-07-21"
+  },
+  {
+    "repo": "sindresorhus/quick-look-plugins",
+    "name": "quick-look-plugins",
+    "stars": 18516,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2026-01-03"
+  },
+  {
+    "repo": "runacapital/awesome-oss-alternatives",
+    "name": "awesome-oss-alternatives",
+    "stars": 18027,
+    "description": "Awesome list of open-source startup alternatives to well-known SaaS products \ud83d\ude80",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-03"
+  },
+  {
+    "repo": "universidade-livre/ciencia-da-computacao",
+    "name": "ciencia-da-computacao",
+    "stars": 17624,
+    "description": "\ud83c\udf93 Um caminho para a educa\u00e7\u00e3o autodidata em Ci\u00eancia da Computa\u00e7\u00e3o!",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-15"
+  },
+  {
+    "repo": "keon/awesome-nlp",
+    "name": "awesome-nlp",
+    "stars": 17428,
+    "description": ":book: A curated list of resources dedicated to Natural Language Processing (NLP)",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "jtoy/awesome-tensorflow",
+    "name": "awesome-tensorflow",
+    "stars": 17425,
+    "description": "TensorFlow - A curated list of dedicated resources http://tensorflow.org",
+    "source": "both",
+    "pushed_at": "2025-03-10"
+  },
+  {
+    "repo": "mahmoud/awesome-python-applications",
+    "name": "awesome-python-applications",
+    "stars": 17316,
+    "description": "\ud83d\udcbf Free software that works great, and also happens to be open-source Python. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-04-25"
+  },
+  {
+    "repo": "agarrharr/awesome-cli-apps",
+    "name": "awesome-cli-apps",
+    "stars": 17291,
+    "description": "\ud83d\udda5 \ud83d\udcca \ud83d\udd79 \ud83d\udee0 A curated list of command line apps",
+    "source": "both",
+    "pushed_at": "2026-01-04"
+  },
+  {
+    "repo": "thedaviddias/front-end-performance-checklist",
+    "name": "front-end-performance-checklist",
+    "stars": 17036,
+    "description": "\ud83c\udfae The only Front-End Performance Checklist that runs faster than the others",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-23"
+  },
+  {
+    "repo": "birobirobiro/awesome-shadcn-ui",
+    "name": "awesome-shadcn-ui",
+    "stars": 16912,
+    "description": "A curated list of awesome things related to shadcn/ui.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-26"
+  },
+  {
+    "repo": "unixorn/awesome-zsh-plugins",
+    "name": "awesome-zsh-plugins",
+    "stars": 16693,
+    "description": "A collection of ZSH frameworks, plugins, themes and tutorials.",
+    "source": "both",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "pluja/awesome-privacy",
+    "name": "awesome-privacy",
+    "stars": 16198,
+    "description": "Awesome Privacy - A curated list of services and alternatives that respect your privacy because PRIVACY MATTERS.",
+    "source": "both",
+    "pushed_at": "2025-11-05"
+  },
+  {
+    "repo": "mikeroyal/self-hosting-guide",
+    "name": "self-hosting-guide",
+    "stars": 16165,
+    "description": "Self-Hosting Guide. Learn all about  locally hosting (on premises & private web servers) and managing software applications by yourself or your organization. Including Cloud, LLMs, WireGuard, Automati",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-27"
+  },
+  {
+    "repo": "vitejs/awesome-vite",
+    "name": "awesome-vite",
+    "stars": 16130,
+    "description": "\u26a1\ufe0f A curated list of awesome things related to Vite.js",
+    "source": "both",
+    "pushed_at": "2025-11-21"
+  },
+  {
+    "repo": "bradyfu/awesome-multimodal-large-language-models",
+    "name": "awesome-multimodal-large-language-models",
+    "stars": 16077,
+    "description": ":sparkles::sparkles:Latest Advances on Multimodal Large Language Models",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-26"
+  },
+  {
+    "repo": "ramitsurana/awesome-kubernetes",
+    "name": "awesome-kubernetes",
+    "stars": 15573,
+    "description": "A curated list for awesome kubernetes sources :ship::tada:",
+    "source": "both",
+    "pushed_at": "2025-08-28"
+  },
+  {
+    "repo": "thibmaek/awesome-raspberry-pi",
+    "name": "awesome-raspberry-pi",
+    "stars": 14931,
+    "description": "\ud83d\udcdd A curated list of awesome Raspberry Pi tools, projects, images and resources",
+    "source": "both",
+    "pushed_at": "2026-01-03"
+  },
+  {
+    "repo": "chentsulin/awesome-graphql",
+    "name": "awesome-graphql",
+    "stars": 14797,
+    "description": "Awesome list of GraphQL",
+    "source": "both",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "ellisonleao/magictools",
+    "name": "magictools",
+    "stars": 14729,
+    "description": ":video_game: :pencil: A list of Game Development resources to make magic happen.",
+    "source": "both",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "aniftyco/awesome-tailwindcss",
+    "name": "awesome-tailwindcss",
+    "stars": 14429,
+    "description": "\ud83d\ude0e Awesome things related to Tailwind CSS",
+    "source": "both",
+    "pushed_at": "2025-12-28"
+  },
+  {
+    "repo": "aishwaryanr/awesome-generative-ai-guide",
+    "name": "awesome-generative-ai-guide",
+    "stars": 14118,
+    "description": "A one stop repository for generative AI research updates, interview resources, notebooks and much more!",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "analysis-tools-dev/static-analysis",
+    "name": "static-analysis",
+    "stars": 14025,
+    "description": "\u2699\ufe0f A curated list of static analysis (SAST) tools and linters for all programming languages, config files, build tools, and more. The focus is on tools which improve code quality.",
+    "source": "both",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "markets/awesome-ruby",
+    "name": "awesome-ruby",
+    "stars": 13862,
+    "description": "\ud83d\udc8e A collection of awesome Ruby libraries, tools, frameworks and software",
+    "source": "both",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "terkelg/awesome-creative-coding",
+    "name": "awesome-creative-coding",
+    "stars": 13837,
+    "description": "Creative Coding: Generative Art, Data visualization, Interaction Design, Resources.",
+    "source": "both",
+    "pushed_at": "2025-06-16"
+  },
+  {
+    "repo": "mfornos/awesome-microservices",
+    "name": "awesome-microservices",
+    "stars": 13815,
+    "description": "A curated list of Microservice Architecture related principles and technologies.",
+    "source": "both",
+    "pushed_at": "2025-01-20"
+  },
+  {
+    "repo": "oxnr/awesome-bigdata",
+    "name": "awesome-bigdata",
+    "stars": 13807,
+    "description": "A curated list of awesome big data frameworks, ressources and other awesomeness.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-27"
+  },
+  {
+    "repo": "neutraltone/awesome-stock-resources",
+    "name": "awesome-stock-resources",
+    "stars": 13556,
+    "description": ":city_sunrise: A collection of links for free stock photography, video and Illustration websites",
+    "source": "both",
+    "pushed_at": "2025-12-04"
+  },
+  {
+    "repo": "sbilly/awesome-security",
+    "name": "awesome-security",
+    "stars": 13395,
+    "description": "A collection of awesome software, libraries, documents, books, resources and cools stuffs about security.",
+    "source": "both",
+    "pushed_at": "2026-01-11"
+  },
+  {
+    "repo": "h4cc/awesome-elixir",
+    "name": "awesome-elixir",
+    "stars": 12978,
+    "description": "A curated list of amazingly awesome Elixir and Erlang libraries, resources and shiny things. Updates:",
+    "source": "both",
+    "pushed_at": "2025-10-12"
+  },
+  {
+    "repo": "ashishps1/awesome-leetcode-resources",
+    "name": "awesome-leetcode-resources",
+    "stars": 12625,
+    "description": "Awesome LeetCode resources to learn Data Structures and Algorithms and prepare for Coding Interviews.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-25"
+  },
+  {
+    "repo": "dastergon/awesome-sre",
+    "name": "awesome-sre",
+    "stars": 12580,
+    "description": "A curated list of Site Reliability and Production Engineering resources.",
+    "source": "both",
+    "pushed_at": "2025-08-28"
+  },
+  {
+    "repo": "loverajoel/jstips",
+    "name": "jstips",
+    "stars": 12491,
+    "description": "This is about useful JS tips!",
+    "source": "both",
+    "pushed_at": "2025-04-26"
+  },
+  {
+    "repo": "qazbnm456/awesome-web-security",
+    "name": "awesome-web-security",
+    "stars": 12339,
+    "description": "\ud83d\udc36 A curated list of Web Security materials and resources.",
+    "source": "both",
+    "pushed_at": "2025-05-02"
+  },
+  {
+    "repo": "nestjs/awesome-nestjs",
+    "name": "awesome-nestjs",
+    "stars": 12236,
+    "description": "A curated list of awesome things related to NestJS \ud83d\ude0e",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-02"
+  },
+  {
+    "repo": "owainlewis/awesome-artificial-intelligence",
+    "name": "awesome-artificial-intelligence",
+    "stars": 12185,
+    "description": "A curated list of Artificial Intelligence (AI) courses, books, video lectures and papers.",
+    "source": "both",
+    "pushed_at": "2025-08-12"
+  },
+  {
+    "repo": "heynickc/awesome-ddd",
+    "name": "awesome-ddd",
+    "stars": 11776,
+    "description": "A curated list of Domain-Driven Design (DDD), Command Query Responsibility Segregation (CQRS), Event Sourcing, and Event Storming resources",
+    "source": "both",
+    "pushed_at": "2025-07-04"
+  },
+  {
+    "repo": "hesreallyhim/awesome-claude-code",
+    "name": "awesome-claude-code",
+    "stars": 11723,
+    "description": "A curated list of awesome commands, files, and workflows for Claude Code",
+    "source": "both",
+    "pushed_at": "2026-01-17"
+  },
+  {
+    "repo": "jstumpp/awesome-android",
+    "name": "awesome-android",
+    "stars": 11544,
+    "description": "A curated list of awesome Android packages and resources.",
+    "source": "both",
+    "pushed_at": "2025-10-27"
+  },
+  {
+    "repo": "dhamaniasad/awesome-postgres",
+    "name": "awesome-postgres",
+    "stars": 10960,
+    "description": "A curated list of awesome PostgreSQL software, libraries, tools and resources, inspired by awesome-mysql",
+    "source": "both",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "unicodeveloper/awesome-nextjs",
+    "name": "awesome-nextjs",
+    "stars": 10881,
+    "description": ":notebook_with_decorative_cover: :books: A curated list of awesome resources : books, videos, articles about using Next.js (A minimalistic framework for universal server-rendered React applications) ",
+    "source": "both",
+    "pushed_at": "2025-06-17"
+  },
+  {
+    "repo": "wsvincent/awesome-django",
+    "name": "awesome-django",
+    "stars": 10564,
+    "description": "A curated list of awesome things related to Django",
+    "source": "both",
+    "pushed_at": "2025-12-28"
+  },
+  {
+    "repo": "rothgar/awesome-tuis",
+    "name": "awesome-tuis",
+    "stars": 10552,
+    "description": "List of projects that provide terminal user interfaces",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "jnv/lists",
+    "name": "lists",
+    "stars": 10535,
+    "description": "The definitive list of lists (of lists) curated on GitHub and elsewhere",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-20"
+  },
+  {
+    "repo": "offciercia/defi-developer-road-map",
+    "name": "defi-developer-road-map",
+    "stars": 10433,
+    "description": "DeFi Developer roadmap is a curated Developer handbook which includes a list of the best tools for DApps development, resources and references! ",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-24"
+  },
+  {
+    "repo": "kristories/awesome-guidelines",
+    "name": "awesome-guidelines",
+    "stars": 10257,
+    "description": "A curated list of high quality coding style conventions and standards.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-12"
+  },
+  {
+    "repo": "mjhea0/awesome-fastapi",
+    "name": "awesome-fastapi",
+    "stars": 10206,
+    "description": "A curated list of awesome things related to FastAPI",
+    "source": "both",
+    "pushed_at": "2025-10-27"
+  },
+  {
+    "repo": "steven2358/awesome-generative-ai",
+    "name": "awesome-generative-ai",
+    "stars": 9939,
+    "description": "A curated list of modern Generative Artificial Intelligence projects and services",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-17"
+  },
+  {
+    "repo": "webpro/awesome-dotfiles",
+    "name": "awesome-dotfiles",
+    "stars": 9935,
+    "description": "A curated list of dotfiles resources.",
+    "source": "both",
+    "pushed_at": "2025-06-19"
+  },
+  {
+    "repo": "rossant/awesome-math",
+    "name": "awesome-math",
+    "stars": 9897,
+    "description": "A curated list of awesome mathematics resources",
+    "source": "both",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "patrickjs/awesome-angular",
+    "name": "awesome-angular",
+    "stars": 9829,
+    "description": ":page_facing_up: A curated list of awesome Angular resources",
+    "source": "both",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "swyxio/spark-joy",
+    "name": "spark-joy",
+    "stars": 9630,
+    "description": "\u2728\ud83d\ude02 2000+ ways to add design flair, user delight, and whimsy to your product.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "paralax/awesome-honeypots",
+    "name": "awesome-honeypots",
+    "stars": 9574,
+    "description": "an awesome list of honeypot resources",
+    "source": "both",
+    "pushed_at": "2025-04-01"
+  },
+  {
+    "repo": "adrientorris/awesome-blazor",
+    "name": "awesome-blazor",
+    "stars": 9142,
+    "description": "Resources for Blazor, a .NET web framework using C#/Razor and HTML that runs in the browser with WebAssembly.",
+    "source": "both",
+    "pushed_at": "2025-08-14"
+  },
+  {
+    "repo": "edoardottt/awesome-hacker-search-engines",
+    "name": "awesome-hacker-search-engines",
+    "stars": 9102,
+    "description": "A curated list of awesome search engines useful during Penetration testing, Vulnerability assessments, Red/Blue Team operations, Bug Bounty and more",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "troxler/awesome-css-frameworks",
+    "name": "awesome-css-frameworks",
+    "stars": 8838,
+    "description": "List of awesome CSS frameworks in 2025",
+    "source": "both",
+    "pushed_at": "2025-11-28"
+  },
+  {
+    "repo": "ashishb/android-security-awesome",
+    "name": "android-security-awesome",
+    "stars": 8792,
+    "description": "A collection of android security related resources",
+    "source": "both",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "awesome-lists/awesome-bash",
+    "name": "awesome-bash",
+    "stars": 8785,
+    "description": "A curated list of delightful Bash scripts and resources.",
+    "source": "both",
+    "pushed_at": "2025-11-21"
+  },
+  {
+    "repo": "iptv-org/awesome-iptv",
+    "name": "awesome-iptv",
+    "stars": 8783,
+    "description": "A curated list of resources related to IPTV",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "kyrolabs/awesome-langchain",
+    "name": "awesome-langchain",
+    "stars": 8729,
+    "description": "\ud83d\ude0e Awesome list of tools and projects with the awesome LangChain framework",
+    "source": "both",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "rothgar/awesome-tmux",
+    "name": "awesome-tmux",
+    "stars": 8716,
+    "description": "A list of awesome resources for tmux",
+    "source": "both",
+    "pushed_at": "2026-01-09"
+  },
+  {
+    "repo": "davidsonfellipe/awesome-wpo",
+    "name": "awesome-wpo",
+    "stars": 8609,
+    "description": ":pencil: A curated list of Web Performance Optimization. Everyone can contribute here!",
+    "source": "both",
+    "pushed_at": "2025-07-21"
+  },
+  {
+    "repo": "godotengine/awesome-godot",
+    "name": "awesome-godot",
+    "stars": 8442,
+    "description": "A curated list of free/libre plugins, scripts and add-ons for Godot",
+    "source": "both",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "ai-collection/ai-collection",
+    "name": "ai-collection",
+    "stars": 8363,
+    "description": "The Generative AI Landscape - A Collection of Awesome Generative AI Applications",
+    "source": "both",
+    "pushed_at": "2026-01-17"
+  },
+  {
+    "repo": "humanloop/awesome-chatgpt",
+    "name": "awesome-chatgpt",
+    "stars": 8232,
+    "description": "Curated list of awesome tools, demos, docs for ChatGPT and GPT-3",
+    "source": "both",
+    "pushed_at": "2025-10-15"
+  },
+  {
+    "repo": "lissy93/awesome-privacy",
+    "name": "awesome-privacy",
+    "stars": 8182,
+    "description": "\ud83e\udd84  A curated list of privacy & security-focused software and services",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-17"
+  },
+  {
+    "repo": "0xfa11/multiplayernetworkingresources",
+    "name": "multiplayernetworkingresources",
+    "stars": 8114,
+    "description": "A curated list of Multiplayer Game Network Programming Resources",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "grpc-ecosystem/awesome-grpc",
+    "name": "awesome-grpc",
+    "stars": 8038,
+    "description": "A curated list of useful resources for gRPC",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-28"
+  },
+  {
+    "repo": "markodenic/web-development-resources",
+    "name": "web-development-resources",
+    "stars": 7978,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "detailyang/awesome-cheatsheet",
+    "name": "awesome-cheatsheet",
+    "stars": 7908,
+    "description": ":beers: awesome cheatsheet",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-10"
+  },
+  {
+    "repo": "bnb/awesome-developer-streams",
+    "name": "awesome-developer-streams",
+    "stars": 7874,
+    "description": "\ud83d\udc69\ud83c\udfff\u200d\ud83d\udcbb\ud83d\udc68\ud83c\udffe\u200d\ud83d\udcbb\ud83d\udc69\ud83c\udffc\u200d\ud83d\udcbb\ud83d\udc68\ud83c\udffd\u200d\ud83d\udcbb\ud83d\udc69\ud83c\udffb\u200d\ud83d\udcbb Awesome Developers, Streaming",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-01"
+  },
+  {
+    "repo": "greatfrontend/awesome-front-end-system-design",
+    "name": "awesome-front-end-system-design",
+    "stars": 7751,
+    "description": "Curated front end system design resources for interviews and learning",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-17"
+  },
+  {
+    "repo": "igorbarinov/awesome-data-engineering",
+    "name": "awesome-data-engineering",
+    "stars": 7694,
+    "description": "A curated list of data engineering tools for software developers",
+    "source": "both",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "mrnerf/awesome-3d-gaussian-splatting",
+    "name": "awesome-3d-gaussian-splatting",
+    "stars": 7590,
+    "description": "Curated list of papers and resources focused on 3D Gaussian Splatting, intended to keep pace with the anticipated surge of research in the coming months.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-07"
+  },
+  {
+    "repo": "anaibol/awesome-serverless",
+    "name": "awesome-serverless",
+    "stars": 7534,
+    "description": ":cloud: A curated list of awesome services, solutions and resources for serverless / nobackend applications.",
+    "source": "context-awesome",
+    "pushed_at": "2025-04-22"
+  },
+  {
+    "repo": "nayafia/lemonade-stand",
+    "name": "lemonade-stand",
+    "stars": 7478,
+    "description": "A handy guide to financial support for open source",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-06"
+  },
+  {
+    "repo": "andrew--r/frontend-case-studies",
+    "name": "frontend-case-studies",
+    "stars": 7405,
+    "description": "\ud83d\udcbc A curated list of talks and articles about real world frontend development",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-30"
+  },
+  {
+    "repo": "samber/awesome-prometheus-alerts",
+    "name": "awesome-prometheus-alerts",
+    "stars": 7405,
+    "description": "\ud83d\udea8 Collection of Prometheus alerting rules",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "meirwah/awesome-workflow-engines",
+    "name": "awesome-workflow-engines",
+    "stars": 7286,
+    "description": "A curated list of awesome open source workflow engines",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-15"
+  },
+  {
+    "repo": "arslanbilal/git-cheat-sheet",
+    "name": "git-cheat-sheet",
+    "stars": 7268,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-07-08"
+  },
+  {
+    "repo": "nhivp/awesome-embedded",
+    "name": "awesome-embedded",
+    "stars": 7256,
+    "description": "A curated list of awesome embedded programming.",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-11"
+  },
+  {
+    "repo": "rust-embedded/awesome-embedded-rust",
+    "name": "awesome-embedded-rust",
+    "stars": 7255,
+    "description": "Curated list of resources for Embedded and Low-level development in the Rust programming language",
+    "source": "both",
+    "pushed_at": "2025-12-15"
+  },
+  {
+    "repo": "ryannielson/awesome-unity",
+    "name": "awesome-unity",
+    "stars": 7031,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-01-22"
+  },
+  {
+    "repo": "frenck/awesome-home-assistant",
+    "name": "awesome-home-assistant",
+    "stars": 6889,
+    "description": "A curated list of amazingly awesome Home Assistant resources.",
+    "source": "both",
+    "pushed_at": "2025-12-19"
+  },
+  {
+    "repo": "rehackable/awesome-remarkable",
+    "name": "awesome-remarkable",
+    "stars": 6878,
+    "description": "A curated list of projects related to the reMarkable tablet",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-10"
+  },
+  {
+    "repo": "0xinfection/awesome-waf",
+    "name": "awesome-waf",
+    "stars": 6833,
+    "description": "\ud83d\udd25 Web-application firewalls (WAFs) from security standpoint.",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-28"
+  },
+  {
+    "repo": "hijkzzz/awesome-llm-strawberry",
+    "name": "awesome-llm-strawberry",
+    "stars": 6820,
+    "description": "A collection of LLM papers, blogs, and projects, with a focus on OpenAI o1 \ud83c\udf53 and reasoning techniques.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-17"
+  },
+  {
+    "repo": "josedefreitas/awesome-youtubers",
+    "name": "awesome-youtubers",
+    "stars": 6804,
+    "description": "An awesome list of awesome YouTubers that teach about technology. Tutorials about web development, computer science, machine learning, game development, cybersecurity, and more.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-30"
+  },
+  {
+    "repo": "cipher387/osint_stuff_tool_collection",
+    "name": "osint_stuff_tool_collection",
+    "stars": 6797,
+    "description": "A collection of several hundred online tools for OSINT",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-16"
+  },
+  {
+    "repo": "likedan/awesome-coreml-models",
+    "name": "awesome-coreml-models",
+    "stars": 6786,
+    "description": "Largest list of models for Core ML (for iOS 11+)",
+    "source": "both",
+    "pushed_at": "2025-06-17"
+  },
+  {
+    "repo": "paragonie/awesome-appsec",
+    "name": "awesome-appsec",
+    "stars": 6783,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-02-22"
+  },
+  {
+    "repo": "learn-anything/books",
+    "name": "books",
+    "stars": 6720,
+    "description": "Awesome Books",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-07"
+  },
+  {
+    "repo": "jamez-bondos/awesome-gpt4o-images",
+    "name": "awesome-gpt4o-images",
+    "stars": 6708,
+    "description": "Awesome curated collection of images and prompts generated by GPT-4o and gpt-image-1. Explore AI generated visuals created with ChatGPT and Sora, showcasing OpenAI\u2019s advanced image generation capabili",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-26"
+  },
+  {
+    "repo": "kitspace/awesome-electronics",
+    "name": "awesome-electronics",
+    "stars": 6672,
+    "description": "A curated list of awesome resources for Electronic Engineers and hobbyists",
+    "source": "both",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "ai-boost/awesome-prompts",
+    "name": "awesome-prompts",
+    "stars": 6634,
+    "description": "Curated list of chatgpt prompts from the top-rated GPTs in the GPTs Store. Prompt Engineering, prompt attack & prompt protect. Advanced Prompt Engineering papers.",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-20"
+  },
+  {
+    "repo": "haxxnet/compose-examples",
+    "name": "compose-examples",
+    "stars": 6617,
+    "description": "Various Docker Compose examples of selfhosted FOSS and proprietary projects.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "chromedevtools/awesome-chrome-devtools",
+    "name": "awesome-chrome-devtools",
+    "stars": 6512,
+    "description": "Awesome tooling and resources in the Chrome DevTools & DevTools Protocol ecosystem",
+    "source": "both",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "mmccaff/placestopostyourstartup",
+    "name": "placestopostyourstartup",
+    "stars": 6504,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-10-31"
+  },
+  {
+    "repo": "sobolevn/awesome-cryptography",
+    "name": "awesome-cryptography",
+    "stars": 6430,
+    "description": "A curated list of cryptography resources and links.",
+    "source": "both",
+    "pushed_at": "2025-06-05"
+  },
+  {
+    "repo": "liuchong/awesome-roadmaps",
+    "name": "awesome-roadmaps",
+    "stars": 6383,
+    "description": "A curated list of roadmaps.",
+    "source": "both",
+    "pushed_at": "2025-10-11"
+  },
+  {
+    "repo": "sottlmarek/devsecops",
+    "name": "devsecops",
+    "stars": 6356,
+    "description": "Ultimate DevSecOps library",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-17"
+  },
+  {
+    "repo": "timschneeb/awesome-shizuku",
+    "name": "awesome-shizuku",
+    "stars": 6342,
+    "description": "Curated list of awesome Android apps making use of Shizuku",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-08"
+  },
+  {
+    "repo": "tauri-apps/awesome-tauri",
+    "name": "awesome-tauri",
+    "stars": 6292,
+    "description": "\ud83d\ude80 Awesome Tauri Apps, Plugins and Resources",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "qinwf/awesome-r",
+    "name": "awesome-r",
+    "stars": 6268,
+    "description": "A curated list of awesome R packages, frameworks and software.",
+    "source": "both",
+    "pushed_at": "2025-09-18"
+  },
+  {
+    "repo": "janvanryswyck/awesome-talks",
+    "name": "awesome-talks",
+    "stars": 6187,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-07-07"
+  },
+  {
+    "repo": "shuaibiyy/awesome-tf",
+    "name": "awesome-tf",
+    "stars": 6104,
+    "description": "Curated list of resources on HashiCorp's Terraform and OpenTofu",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-07"
+  },
+  {
+    "repo": "vedenin/useful-java-links",
+    "name": "useful-java-links",
+    "stars": 6048,
+    "description": "A list of useful Java frameworks, libraries, software and hello worlds examples",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-12"
+  },
+  {
+    "repo": "trungdq88/awesome-black-friday-cyber-monday",
+    "name": "awesome-black-friday-cyber-monday",
+    "stars": 6047,
+    "description": "Awesome deals on Black Friday: Apps, SaaS, Books, Courses, etc.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-30"
+  },
+  {
+    "repo": "stoeffel/awesome-fp-js",
+    "name": "awesome-fp-js",
+    "stars": 6021,
+    "description": ":sunglasses: A curated list of awesome functional programming stuff in js",
+    "source": "both",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "paperswithbacktest/awesome-systematic-trading",
+    "name": "awesome-systematic-trading",
+    "stars": 5824,
+    "description": "A curated list of awesome libraries, packages, strategies, books, blogs, tutorials for systematic trading.",
+    "source": "context-awesome",
+    "pushed_at": "2025-01-22"
+  },
+  {
+    "repo": "sindresorhus/awesome-chatgpt",
+    "name": "awesome-chatgpt",
+    "stars": 5797,
+    "description": "\ud83e\udd16 Awesome list for ChatGPT \u2014 an artificial intelligence chatbot developed by OpenAI",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-04"
+  },
+  {
+    "repo": "lauragift21/awesome-learning-resources",
+    "name": "awesome-learning-resources",
+    "stars": 5626,
+    "description": "\ud83d\udd25 Awesome list of resources on Web Development.",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-16"
+  },
+  {
+    "repo": "aboutrss/all-about-rss",
+    "name": "all-about-rss",
+    "stars": 5595,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-12-21"
+  },
+  {
+    "repo": "micromata/awesome-javascript-learning",
+    "name": "awesome-javascript-learning",
+    "stars": 5594,
+    "description": "A tiny list limited to the best JavaScript Learning Resources",
+    "source": "both",
+    "pushed_at": "2025-12-01"
+  },
+  {
+    "repo": "marcelscruz/public-apis",
+    "name": "public-apis",
+    "stars": 5564,
+    "description": "A collaborative list of public APIs for developers",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "redecentralize/alternative-internet",
+    "name": "alternative-internet",
+    "stars": 5497,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-09-15"
+  },
+  {
+    "repo": "onlurking/awesome-infosec",
+    "name": "awesome-infosec",
+    "stars": 5424,
+    "description": " A curated list of awesome infosec courses and training resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-21"
+  },
+  {
+    "repo": "atarity/deploy-your-own-saas",
+    "name": "deploy-your-own-saas",
+    "stars": 5378,
+    "description": "List of \"only yours\" cloud services for everyday needs :black_flag:",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-16"
+  },
+  {
+    "repo": "zhaoxin94/awesome-domain-adaptation",
+    "name": "awesome-domain-adaptation",
+    "stars": 5316,
+    "description": "A collection of AWESOME things about domian adaptation",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-08"
+  },
+  {
+    "repo": "onqtam/awesome-cmake",
+    "name": "awesome-cmake",
+    "stars": 5256,
+    "description": "A curated list of awesome CMake resources, scripts, modules and examples.",
+    "source": "both",
+    "pushed_at": "2025-12-15"
+  },
+  {
+    "repo": "vavkamil/awesome-bugbounty-tools",
+    "name": "awesome-bugbounty-tools",
+    "stars": 5244,
+    "description": "A curated list of various bug bounty tools",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-01"
+  },
+  {
+    "repo": "janikvonrotz/awesome-powershell",
+    "name": "awesome-powershell",
+    "stars": 5220,
+    "description": "This repository has been moved to https://codeberg.org/janikvonrotz/awesome-powershell. Please visit the new location for the latest updates.",
+    "source": "both",
+    "pushed_at": "2025-04-14"
+  },
+  {
+    "repo": "tensorchord/awesome-llmops",
+    "name": "awesome-llmops",
+    "stars": 5206,
+    "description": "An awesome & curated list of best LLMOps tools for developers",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-30"
+  },
+  {
+    "repo": "terrakok/kmp-awesome",
+    "name": "kmp-awesome",
+    "stars": 5170,
+    "description": "An awesome list that curates the best Kotlin Multiplatform libraries, tools and more. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-19"
+  },
+  {
+    "repo": "dzharii/awesome-typescript",
+    "name": "awesome-typescript",
+    "stars": 4944,
+    "description": "A collection of awesome TypeScript resources for client-side and server-side development. Write your awesome JavaScript in TypeScript",
+    "source": "both",
+    "pushed_at": "2025-12-31"
+  },
+  {
+    "repo": "sshuair/awesome-gis",
+    "name": "awesome-gis",
+    "stars": 4925,
+    "description": "\ud83d\ude0eAwesome GIS is a collection of geospatial related sources, including cartographic tools, geoanalysis tools, developer tools, data, conference & communities, news, massive open online course, some ama",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-09"
+  },
+  {
+    "repo": "showlab/awesome-video-diffusion",
+    "name": "awesome-video-diffusion",
+    "stars": 4907,
+    "description": "A curated list of recent diffusion models for video generation, editing, and various other applications.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-15"
+  },
+  {
+    "repo": "timofurrer/awesome-asyncio",
+    "name": "awesome-asyncio",
+    "stars": 4866,
+    "description": "A curated list of awesome Python asyncio frameworks, libraries, software and resources",
+    "source": "both",
+    "pushed_at": "2025-12-01"
+  },
+  {
+    "repo": "promptslab/awesome-prompt-engineering",
+    "name": "awesome-prompt-engineering",
+    "stars": 4843,
+    "description": "This repository contains a hand-curated resources for Prompt Engineering with a focus on Generative Pre-trained Transformer (GPT), ChatGPT, PaLM etc ",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-24"
+  },
+  {
+    "repo": "willianjusten/awesome-audio-visualization",
+    "name": "awesome-audio-visualization",
+    "stars": 4819,
+    "description": "A curated list about Audio Visualization.",
+    "source": "both",
+    "pushed_at": "2026-01-06"
+  },
+  {
+    "repo": "hemanth/awesome-pwa",
+    "name": "awesome-pwa",
+    "stars": 4717,
+    "description": "Awesome list of progressive web apps!",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-09"
+  },
+  {
+    "repo": "zoidyzoidzoid/awesome-ebpf",
+    "name": "awesome-ebpf",
+    "stars": 4710,
+    "description": "A curated list of awesome projects related to eBPF.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "mgramin/awesome-db-tools",
+    "name": "awesome-db-tools",
+    "stars": 4699,
+    "description": "Everything that makes working with databases easier",
+    "source": "both",
+    "pushed_at": "2026-01-06"
+  },
+  {
+    "repo": "wesbos/awesome-uses",
+    "name": "awesome-uses",
+    "stars": 4690,
+    "description": "A list of /uses pages detailing developer setups, gear, software and configs.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-03"
+  },
+  {
+    "repo": "kelvins/awesome-mlops",
+    "name": "awesome-mlops",
+    "stars": 4688,
+    "description": ":sunglasses: A curated list of awesome MLOps tools",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-10"
+  },
+  {
+    "repo": "dustinspecker/awesome-eslint",
+    "name": "awesome-eslint",
+    "stars": 4611,
+    "description": "A list of awesome ESLint plugins, configs, etc.",
+    "source": "both",
+    "pushed_at": "2026-01-09"
+  },
+  {
+    "repo": "sindresorhus/awesome-npm",
+    "name": "awesome-npm",
+    "stars": 4602,
+    "description": "Awesome npm resources and tips",
+    "source": "both",
+    "pushed_at": "2025-11-12"
+  },
+  {
+    "repo": "jorgebucaran/awsm.fish",
+    "name": "awsm.fish",
+    "stars": 4600,
+    "description": "A curation of prompts, plugins & other Fish treasures \ud83d\udc1a\ud83d\udc8e",
+    "source": "both",
+    "pushed_at": "2025-10-11"
+  },
+  {
+    "repo": "sindresorhus/awesome-scifi",
+    "name": "awesome-scifi",
+    "stars": 4576,
+    "description": "Sci-Fi worth consuming",
+    "source": "both",
+    "pushed_at": "2025-12-22"
+  },
+  {
+    "repo": "sacridini/awesome-geospatial",
+    "name": "awesome-geospatial",
+    "stars": 4552,
+    "description": "Long list of geospatial tools and resources",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "cugu/awesome-forensics",
+    "name": "awesome-forensics",
+    "stars": 4519,
+    "description": "\u2b50\ufe0f A curated list of awesome forensic analysis tools and resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-23"
+  },
+  {
+    "repo": "phodal/awesome-iot",
+    "name": "awesome-iot",
+    "stars": 4503,
+    "description": "Awesome IoT. A collaborative list of great resources about IoT Framework, Library,  OS, Platform",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-03"
+  },
+  {
+    "repo": "ipfs/awesome-ipfs",
+    "name": "awesome-ipfs",
+    "stars": 4487,
+    "description": "Community list of awesome projects, apps, tools, pinning services and more related to IPFS.",
+    "source": "both",
+    "pushed_at": "2025-11-13"
+  },
+  {
+    "repo": "karlhorky/learn-to-program",
+    "name": "learn-to-program",
+    "stars": 4469,
+    "description": "Educational resources to learn to program (Foundation in Web Development)",
+    "source": "both",
+    "pushed_at": "2025-05-10"
+  },
+  {
+    "repo": "pluwen/awesome-testflight-link",
+    "name": "awesome-testflight-link",
+    "stars": 4408,
+    "description": "Collection of Testflight public app link\uff08iOS/iPad OS/macOS\uff09\u3002",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-17"
+  },
+  {
+    "repo": "xlite-dev/awesome-llm-inference",
+    "name": "awesome-llm-inference",
+    "stars": 4406,
+    "description": "\ud83d\udcdaA curated list of Awesome LLM/VLM Inference Papers with Codes: Flash-Attention, Paged-Attention, WINT8/4, Parallelism, etc.\ud83c\udf89",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-28"
+  },
+  {
+    "repo": "nikolaydubina/go-recipes",
+    "name": "go-recipes",
+    "stars": 4387,
+    "description": "\ud83e\udda9 Tools for Go projects",
+    "source": "both",
+    "pushed_at": "2025-12-21"
+  },
+  {
+    "repo": "denolib/awesome-deno",
+    "name": "awesome-deno",
+    "stars": 4360,
+    "description": "Curated list of awesome things related to Deno",
+    "source": "both",
+    "pushed_at": "2025-08-19"
+  },
+  {
+    "repo": "markusschanta/awesome-jupyter",
+    "name": "awesome-jupyter",
+    "stars": 4348,
+    "description": "A curated list of awesome Jupyter projects, libraries and resources",
+    "source": "both",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "georgezouq/awesome-ai-in-finance",
+    "name": "awesome-ai-in-finance",
+    "stars": 4340,
+    "description": "\ud83d\udd2c A curated list of awesome LLMs & deep learning strategies & tools in financial market.",
+    "source": "both",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "allthingssmitty/jquery-tips-everyone-should-know",
+    "name": "jquery-tips-everyone-should-know",
+    "stars": 4309,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-03-20"
+  },
+  {
+    "repo": "nix-community/awesome-nix",
+    "name": "awesome-nix",
+    "stars": 4308,
+    "description": "\ud83d\ude0e A curated list of the best resources in the Nix community [maintainer=@cyntheticfox]",
+    "source": "both",
+    "pushed_at": "2025-12-12"
+  },
+  {
+    "repo": "agarrharr/awesome-macos-screensavers",
+    "name": "awesome-macos-screensavers",
+    "stars": 4280,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-10-27"
+  },
+  {
+    "repo": "gbdev/awesome-gbdev",
+    "name": "awesome-gbdev",
+    "stars": 4249,
+    "description": "A curated list of Game Boy development resources such as tools, docs, emulators, related projects and open-source ROMs.",
+    "source": "both",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "zudochkin/awesome-newsletters",
+    "name": "awesome-newsletters",
+    "stars": 4184,
+    "description": "A list of amazing Newsletters",
+    "source": "both",
+    "pushed_at": "2025-12-08"
+  },
+  {
+    "repo": "tortuvshin/open-source-flutter-apps",
+    "name": "open-source-flutter-apps",
+    "stars": 4178,
+    "description": ":iphone: List of open source Flutter applications :octocat:",
+    "source": "both",
+    "pushed_at": "2025-12-22"
+  },
+  {
+    "repo": "xialeiliu/awesome-incremental-learning",
+    "name": "awesome-incremental-learning",
+    "stars": 4177,
+    "description": "Awesome Incremental Learning",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-07"
+  },
+  {
+    "repo": "baba-s/awesome-unity-open-source-on-github",
+    "name": "awesome-unity-open-source-on-github",
+    "stars": 4160,
+    "description": "A categorized collection of awesome Unity open source on GitHub (800+)",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-24"
+  },
+  {
+    "repo": "awesome-jellyfin/awesome-jellyfin",
+    "name": "awesome-jellyfin",
+    "stars": 4148,
+    "description": "A Collection of Awesome Jellyfin Plugins, Themes, Guides and More!",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "junnplus/awesome-python-books",
+    "name": "awesome-python-books",
+    "stars": 4140,
+    "description": ":books: Directory of Python books",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-17"
+  },
+  {
+    "repo": "hahwul/webhackersweapons",
+    "name": "webhackersweapons",
+    "stars": 4139,
+    "description": "\u2694\ufe0f Web Hacker's Weapons / A collection of cool tools used by Web hackers. Happy hacking , Happy bug-hunting",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-31"
+  },
+  {
+    "repo": "oxnr/awesome-analytics",
+    "name": "awesome-analytics",
+    "stars": 4118,
+    "description": "A curated list of analytics frameworks, software and other tools.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-08"
+  },
+  {
+    "repo": "lukasmasuch/best-of-python",
+    "name": "best-of-python",
+    "stars": 4102,
+    "description": "\ud83c\udfc6 A ranked list of awesome Python open-source libraries and tools. Updated weekly.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "opendilab/awesome-rlhf",
+    "name": "awesome-rlhf",
+    "stars": 4100,
+    "description": "A curated list of reinforcement learning with human feedback resources (continually updated)",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-09"
+  },
+  {
+    "repo": "hyprland-community/awesome-hyprland",
+    "name": "awesome-hyprland",
+    "stars": 4016,
+    "description": "Awesome list for Hyprland [maintainer=@yavko]",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-25"
+  },
+  {
+    "repo": "yosriady/awesome-api-devtools",
+    "name": "awesome-api-devtools",
+    "stars": 3960,
+    "description": ":books: A collection of useful resources for building RESTful HTTP+JSON APIs.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-20"
+  },
+  {
+    "repo": "inquest/awesome-yara",
+    "name": "awesome-yara",
+    "stars": 3936,
+    "description": "A curated list of awesome YARA rules, tools, and people.",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-26"
+  },
+  {
+    "repo": "love2d-community/awesome-love2d",
+    "name": "awesome-love2d",
+    "stars": 3922,
+    "description": "A curated list of amazingly awesome L\u00d6VE libraries, resources and shiny things.",
+    "source": "both",
+    "pushed_at": "2026-01-11"
+  },
+  {
+    "repo": "ligurio/awesome-ci",
+    "name": "awesome-ci",
+    "stars": 3921,
+    "description": "The list of continuous integration services and tools",
+    "source": "both",
+    "pushed_at": "2025-08-01"
+  },
+  {
+    "repo": "gt-ripl/awesome-llm-robotics",
+    "name": "awesome-llm-robotics",
+    "stars": 3920,
+    "description": "A comprehensive list of papers using large language/multi-modal models for Robotics/RL, including papers, codes, and related websites",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-03"
+  },
+  {
+    "repo": "p-ranav/awesome-hpp",
+    "name": "awesome-hpp",
+    "stars": 3901,
+    "description": "A curated list of awesome header-only C++ libraries",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-06"
+  },
+  {
+    "repo": "jphall663/awesome-machine-learning-interpretability",
+    "name": "awesome-machine-learning-interpretability",
+    "stars": 3854,
+    "description": "A curated list of awesome responsible machine learning resources.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "tomhuang12/awesome-k8s-resources",
+    "name": "awesome-k8s-resources",
+    "stars": 3832,
+    "description": "A curated list of awesome Kubernetes tools and resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-20"
+  },
+  {
+    "repo": "gramantin/awesome-rails",
+    "name": "awesome-rails",
+    "stars": 3821,
+    "description": "A curated list of awesome things related to Ruby on Rails",
+    "source": "both",
+    "pushed_at": "2025-12-15"
+  },
+  {
+    "repo": "briatte/awesome-network-analysis",
+    "name": "awesome-network-analysis",
+    "stars": 3815,
+    "description": "A curated list of awesome network analysis resources.",
+    "source": "both",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "trinib/linux-bash-commands",
+    "name": "linux-bash-commands",
+    "stars": 3791,
+    "description": ":godmode: Ultimate list of Linux bash commands, cheatsheets and resources",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-07"
+  },
+  {
+    "repo": "marmelab/awesome-rest",
+    "name": "awesome-rest",
+    "stars": 3779,
+    "description": "A collaborative list of great resources about RESTful API architecture, development, test, and performance",
+    "source": "both",
+    "pushed_at": "2026-01-03"
+  },
+  {
+    "repo": "nightrome/really-awesome-gan",
+    "name": "really-awesome-gan",
+    "stars": 3765,
+    "description": "A list of papers on Generative Adversarial (Neural) Networks",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-24"
+  },
+  {
+    "repo": "cheatsnake/backend-cheats",
+    "name": "backend-cheats",
+    "stars": 3727,
+    "description": "\ud83d\udcc3 White paper for Backend developers",
+    "source": "context-awesome",
+    "pushed_at": "2025-02-02"
+  },
+  {
+    "repo": "dkozlov/awesome-knowledge-distillation",
+    "name": "awesome-knowledge-distillation",
+    "stars": 3723,
+    "description": "Awesome Knowledge Distillation",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-25"
+  },
+  {
+    "repo": "jefmari/awesome-wysiwyg-editors",
+    "name": "awesome-wysiwyg-editors",
+    "stars": 3706,
+    "description": "A curated list of awesome WYSIWYG Editors.",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-14"
+  },
+  {
+    "repo": "micromata/awesome-css-learning",
+    "name": "awesome-css-learning",
+    "stars": 3702,
+    "description": "A tiny list limited to the best CSS Learning Resources",
+    "source": "both",
+    "pushed_at": "2025-12-01"
+  },
+  {
+    "repo": "sporto/awesome-elm",
+    "name": "awesome-elm",
+    "stars": 3654,
+    "description": "A curated list of useful Elm tutorials, libraries and software. Inspired by awesome list. Feel free to contribute. :rocket:",
+    "source": "both",
+    "pushed_at": "2025-10-13"
+  },
+  {
+    "repo": "neiesc/awesome-minimalist",
+    "name": "awesome-minimalist",
+    "stars": 3624,
+    "description": "A curated list of awesome minimalist frameworks (simple and lightweight).",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-16"
+  },
+  {
+    "repo": "danielecook/awesome-bioinformatics",
+    "name": "awesome-bioinformatics",
+    "stars": 3599,
+    "description": "A curated list of awesome Bioinformatics libraries and software.",
+    "source": "both",
+    "pushed_at": "2025-03-21"
+  },
+  {
+    "repo": "awesome-devblog/awesome-devblog",
+    "name": "awesome-devblog",
+    "stars": 3561,
+    "description": "\uc5b4\uc378\ub370\ube0c\ube14\ub85c\uadf8. \uad6d\ub0b4 \uac1c\ubc1c/\uae30\uc220 \ube14\ub85c\uadf8 \ubaa8\uc74c(only \uc2e4\uba85\uc73c\ub85c).",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-30"
+  },
+  {
+    "repo": "appcypher/awesome-mcp-servers",
+    "name": "awesome-mcp-servers",
+    "stars": 3540,
+    "description": "Awesome MCP Servers - A curated list of Model Context Protocol servers",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-04"
+  },
+  {
+    "repo": "killop/anything_about_game",
+    "name": "anything_about_game",
+    "stars": 3538,
+    "description": "A wonderful list of Game Development resources.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "unicodeveloper/awesome-opensource-apps",
+    "name": "awesome-opensource-apps",
+    "stars": 3522,
+    "description": ":house::information_source: Curated list of awesome open source crafted web & mobile applications - Learn, Fork, Contribute & Most Importantly Enjoy!",
+    "source": "both",
+    "pushed_at": "2025-08-19"
+  },
+  {
+    "repo": "hqarroum/awesome-iot",
+    "name": "awesome-iot",
+    "stars": 3515,
+    "description": "\ud83e\udd16 A curated list of awesome Internet of Things projects and resources.",
+    "source": "both",
+    "pushed_at": "2025-10-15"
+  },
+  {
+    "repo": "armankhondker/awesome-ai-ml-resources",
+    "name": "awesome-ai-ml-resources",
+    "stars": 3497,
+    "description": "Learn AI/ML for beginners with a roadmap and free resources. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-11"
+  },
+  {
+    "repo": "veelenga/awesome-crystal",
+    "name": "awesome-crystal",
+    "stars": 3467,
+    "description": ":gem: A collection of awesome Crystal libraries, tools, frameworks and software",
+    "source": "both",
+    "pushed_at": "2026-01-04"
+  },
+  {
+    "repo": "seandavi/awesome-single-cell",
+    "name": "awesome-single-cell",
+    "stars": 3456,
+    "description": "Community-curated list of software packages and data resources for single-cell, including RNA-seq, ATAC-seq, etc.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-07"
+  },
+  {
+    "repo": "myles/awesome-static-generators",
+    "name": "awesome-static-generators",
+    "stars": 3427,
+    "description": "A curated list of static web site generators.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-10"
+  },
+  {
+    "repo": "hotheadhacker/awesome-selfhost-docker",
+    "name": "awesome-selfhost-docker",
+    "stars": 3388,
+    "description": "\ud83d\ude80 Curated list of open-source, self-hosted projects deployable with Docker and docker-compose. Your go-to resource for amazing self-hostable software.",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-01"
+  },
+  {
+    "repo": "ivbeg/awesome-status-pages",
+    "name": "awesome-status-pages",
+    "stars": 3381,
+    "description": "Awesome list of status page open source software, services and public status pages of major internet companies",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-18"
+  },
+  {
+    "repo": "arainho/awesome-api-security",
+    "name": "awesome-api-security",
+    "stars": 3380,
+    "description": "A collection of awesome API Security tools and resources. The focus goes to open-source tools and resources that benefit all the community.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-23"
+  },
+  {
+    "repo": "caesar0301/awesome-pcaptools",
+    "name": "awesome-pcaptools",
+    "stars": 3348,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-09-03"
+  },
+  {
+    "repo": "w00t3k/awesome-cellular-hacking",
+    "name": "awesome-cellular-hacking",
+    "stars": 3331,
+    "description": "Awesome-Cellular-Hacking",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-08"
+  },
+  {
+    "repo": "dreamingechoes/awesome-mental-health",
+    "name": "awesome-mental-health",
+    "stars": 3325,
+    "description": "A curated list of awesome articles, websites and resources about mental health in the software industry.",
+    "source": "both",
+    "pushed_at": "2025-05-02"
+  },
+  {
+    "repo": "atfortes/awesome-llm-reasoning",
+    "name": "awesome-llm-reasoning",
+    "stars": 3301,
+    "description": "Reasoning in LLMs: Papers and Resources, including Chain-of-Thought, OpenAI o1, and DeepSeek-R1 \ud83c\udf53",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-07"
+  },
+  {
+    "repo": "mhrimaz/awesomejavafx",
+    "name": "awesomejavafx",
+    "stars": 3300,
+    "description": "A curated list of awesome JavaFX libraries, books, frameworks, etc...",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-05"
+  },
+  {
+    "repo": "snoopysecurity/awesome-burp-extensions",
+    "name": "awesome-burp-extensions",
+    "stars": 3269,
+    "description": "A curated list of amazingly awesome Burp Extensions",
+    "source": "context-awesome",
+    "pushed_at": "2025-02-15"
+  },
+  {
+    "repo": "xinghaochen/awesome-hand-pose-estimation",
+    "name": "awesome-hand-pose-estimation",
+    "stars": 3254,
+    "description": "Awesome work on hand pose estimation/tracking",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-01"
+  },
+  {
+    "repo": "jamesmurdza/awesome-ai-devtools",
+    "name": "awesome-ai-devtools",
+    "stars": 3249,
+    "description": "Curated list of AI-powered developer tools.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-23"
+  },
+  {
+    "repo": "websemantics/awesome-ant-design",
+    "name": "awesome-ant-design",
+    "stars": 3248,
+    "description": "A curated list of Ant Design resources and related projects. The main idea is that everyone can contribute here, so we can have a central repository of informations about Ant Design that we keep up-to",
+    "source": "both",
+    "pushed_at": "2025-07-29"
+  },
+  {
+    "repo": "wmariuss/awesome-devops",
+    "name": "awesome-devops",
+    "stars": 3240,
+    "description": "A curated list of awesome DevOps platforms, tools, practices and resources",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "adamsitnik/awesome-dot-net-performance",
+    "name": "awesome-dot-net-performance",
+    "stars": 3239,
+    "description": "A curated list of awesome .NET Performance books, courses, trainings, conference talks, blogs and most inspiring open source contributors. Inspired by awesome-... stuff.",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-12"
+  },
+  {
+    "repo": "web-padawan/awesome-web-components",
+    "name": "awesome-web-components",
+    "stars": 3234,
+    "description": "A curated list of awesome Web Components resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-30"
+  },
+  {
+    "repo": "huaizhengzhang/ai-infra-from-zero-to-hero",
+    "name": "ai-infra-from-zero-to-hero",
+    "stars": 3205,
+    "description": "\ud83d\ude80 Awesome System for Machine Learning \u26a1\ufe0f AI System Papers and Industry Practice. \u26a1\ufe0f System for Machine Learning, LLM (Large Language Model), GenAI (Generative AI). \ud83c\udf7b OSDI, NSDI, SIGCOMM, SoCC, MLSys, ",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-25"
+  },
+  {
+    "repo": "dangkhoasdc/awesome-ai-residency",
+    "name": "awesome-ai-residency",
+    "stars": 3199,
+    "description": "List of AI Residency Programs",
+    "source": "context-awesome",
+    "pushed_at": "2025-04-04"
+  },
+  {
+    "repo": "rguo12/awesome-causality-algorithms",
+    "name": "awesome-causality-algorithms",
+    "stars": 3181,
+    "description": "An index of algorithms for learning causality with data",
+    "source": "context-awesome",
+    "pushed_at": "2025-01-22"
+  },
+  {
+    "repo": "mhxion/awesome-discord-communities",
+    "name": "awesome-discord-communities",
+    "stars": 3172,
+    "description": "A curated list of awesome Discord communities for programmers",
+    "source": "both",
+    "pushed_at": "2025-11-18"
+  },
+  {
+    "repo": "grananqvist/awesome-quant-machine-learning-trading",
+    "name": "awesome-quant-machine-learning-trading",
+    "stars": 3170,
+    "description": "Quant/Algorithm trading resources with an emphasis on Machine Learning",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-21"
+  },
+  {
+    "repo": "bogdanp/awesome-advent-of-code",
+    "name": "awesome-advent-of-code",
+    "stars": 3148,
+    "description": "A collection of awesome resources related to the yearly Advent of Code challenge.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "oven-sh/awesome-bun",
+    "name": "awesome-bun",
+    "stars": 3148,
+    "description": "\u26a1\ufe0f A curated list of awesome things related to Bun",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-20"
+  },
+  {
+    "repo": "xyflow/awesome-node-based-uis",
+    "name": "awesome-node-based-uis",
+    "stars": 3136,
+    "description": "A curated list with resources about node-based UIs",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-29"
+  },
+  {
+    "repo": "achoarnold/discount-for-student-dev",
+    "name": "discount-for-student-dev",
+    "stars": 3082,
+    "description": "This is list of discounts on software (SaaS, PaaS, IaaS, etc.) and other offerings for developers who are students",
+    "source": "both",
+    "pushed_at": "2025-06-05"
+  },
+  {
+    "repo": "krzjoa/awesome-python-data-science",
+    "name": "awesome-python-data-science",
+    "stars": 3052,
+    "description": "Probably the best curated list of data science software in Python.",
+    "source": "both",
+    "pushed_at": "2025-12-03"
+  },
+  {
+    "repo": "eosphoros-ai/awesome-text2sql",
+    "name": "awesome-text2sql",
+    "stars": 3044,
+    "description": "Curated tutorials and resources for Large Language Models, Text2SQL,  Text2DSL\u3001Text2API\u3001Text2Vis and more.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "dawdle-deer/awesome-learn-gamedev",
+    "name": "awesome-learn-gamedev",
+    "stars": 3041,
+    "description": "A curated collection of game development learning resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-17"
+  },
+  {
+    "repo": "mintisan/awesome-kan",
+    "name": "awesome-kan",
+    "stars": 3025,
+    "description": "A comprehensive collection of KAN(Kolmogorov-Arnold Network)-related resources, including libraries, projects, tutorials, papers, and more, for researchers and developers in the Kolmogorov-Arnold Netw",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-14"
+  },
+  {
+    "repo": "gamontal/awesome-katas",
+    "name": "awesome-katas",
+    "stars": 3004,
+    "description": "A curated list of code katas",
+    "source": "both",
+    "pushed_at": "2025-10-20"
+  },
+  {
+    "repo": "filipecalegario/awesome-generative-ai",
+    "name": "awesome-generative-ai",
+    "stars": 3004,
+    "description": "A curated list of Generative AI tools, works, models, and references",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-18"
+  },
+  {
+    "repo": "zhashkevych/awesome-backend",
+    "name": "awesome-backend",
+    "stars": 2994,
+    "description": "\ud83d\ude80 A curated and opinionated list of resources (English & Russian) for Backend developers | \u0421\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u0441\u043f\u0438\u0441\u043e\u043a \u0440\u0435\u0441\u0443\u0440\u0441\u043e\u0432 \u0434\u043b\u044f \u0438\u0437\u0443\u0447\u0435\u043d\u0438\u044f Backend \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0438",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-07"
+  },
+  {
+    "repo": "mahseema/awesome-ai-tools",
+    "name": "awesome-ai-tools",
+    "stars": 2976,
+    "description": "A curated list of Artificial Intelligence Top Tools",
+    "source": "both",
+    "pushed_at": "2025-12-31"
+  },
+  {
+    "repo": "ocaml-community/awesome-ocaml",
+    "name": "awesome-ocaml",
+    "stars": 2973,
+    "description": "A curated collection of awesome OCaml tools, frameworks, libraries and articles.",
+    "source": "both",
+    "pushed_at": "2025-11-05"
+  },
+  {
+    "repo": "v33ru/awesome-connected-things-sec",
+    "name": "awesome-connected-things-sec",
+    "stars": 2967,
+    "description": "A Curated list of Security Resources for all connected things",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-21"
+  },
+  {
+    "repo": "xcomptek/awesome-saas-boilerplates",
+    "name": "awesome-saas-boilerplates",
+    "stars": 2961,
+    "description": "List of SaaS boilerplates (starter kits)",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-03"
+  },
+  {
+    "repo": "axorax/awesome-free-apps",
+    "name": "awesome-free-apps",
+    "stars": 2943,
+    "description": "Curated list of the best free apps for PC and mobile",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-05"
+  },
+  {
+    "repo": "endymecy/awesome-deeplearning-resources",
+    "name": "awesome-deeplearning-resources",
+    "stars": 2935,
+    "description": "Deep Learning and deep reinforcement learning research papers and some codes",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-10"
+  },
+  {
+    "repo": "lirantal/awesome-nodejs-security",
+    "name": "awesome-nodejs-security",
+    "stars": 2901,
+    "description": "Awesome Node.js Security resources",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "qjcg/awesome-typst",
+    "name": "awesome-typst",
+    "stars": 2898,
+    "description": "Awesome Typst Links",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-07"
+  },
+  {
+    "repo": "cyberalbsecop/awesome_gpt_super_prompting",
+    "name": "awesome_gpt_super_prompting",
+    "stars": 2896,
+    "description": "ChatGPT Jailbreaks, GPT Assistants Prompt Leaks, GPTs Prompt Injection, LLM Prompt Security, Super Prompts, Prompt Hack, Prompt Security, Ai Prompt Engineering, Adversarial Machine Learning.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-12"
+  },
+  {
+    "repo": "manuzhang/awesome-streaming",
+    "name": "awesome-streaming",
+    "stars": 2878,
+    "description": "a curated list of awesome streaming frameworks, applications, etc",
+    "source": "both",
+    "pushed_at": "2025-07-24"
+  },
+  {
+    "repo": "awesome-mlss/awesome-mlss",
+    "name": "awesome-mlss",
+    "stars": 2866,
+    "description": "\ud83e\udd16 Machine Learning Summer School Guide",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-07"
+  },
+  {
+    "repo": "toplap/awesome-livecoding",
+    "name": "awesome-livecoding",
+    "stars": 2851,
+    "description": "All things livecoding",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-25"
+  },
+  {
+    "repo": "minar09/awesome-virtual-try-on",
+    "name": "awesome-virtual-try-on",
+    "stars": 2834,
+    "description": "A curated list of awesome research papers, projects, code, dataset, workshops etc. related to virtual try-on.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-10"
+  },
+  {
+    "repo": "chaofwang/awesome-super-resolution",
+    "name": "awesome-super-resolution",
+    "stars": 2824,
+    "description": "Collect super-resolution related papers, data, repositories",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-31"
+  },
+  {
+    "repo": "codefuse-ai/awesome-code-llm",
+    "name": "awesome-code-llm",
+    "stars": 2820,
+    "description": "[TMLR] A curated list of language modeling researches for code (and other software engineering activities), plus related datasets.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "pico-8/awesome-pico-8",
+    "name": "awesome-pico-8",
+    "stars": 2813,
+    "description": "A curated list of awesome PICO-8 resources, carts, tools and more",
+    "source": "both",
+    "pushed_at": "2025-12-03"
+  },
+  {
+    "repo": "codyreichert/awesome-cl",
+    "name": "awesome-cl",
+    "stars": 2811,
+    "description": "A curated list of awesome Common Lisp frameworks, libraries and other shiny stuff.",
+    "source": "both",
+    "pushed_at": "2026-01-09"
+  },
+  {
+    "repo": "avaloniacommunity/awesome-avalonia",
+    "name": "awesome-avalonia",
+    "stars": 2775,
+    "description": "A collection of interesting libraries and tools for Avalonia project.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-11"
+  },
+  {
+    "repo": "aljazceru/awesome-nostr",
+    "name": "awesome-nostr",
+    "stars": 2772,
+    "description": "nostr.net - awesome-nostr is a collection of projects and resources built on nostr to help developers and users find new things ",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-06"
+  },
+  {
+    "repo": "olilarkin/awesome-musicdsp",
+    "name": "awesome-musicdsp",
+    "stars": 2734,
+    "description": "A curated list of my favourite music DSP and audio programming resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-19"
+  },
+  {
+    "repo": "learn-anything/alfred-workflows",
+    "name": "alfred-workflows",
+    "stars": 2732,
+    "description": "Amazing Alfred Workflows",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-23"
+  },
+  {
+    "repo": "idoka/awesome-canbus",
+    "name": "awesome-canbus",
+    "stars": 2719,
+    "description": ":articulated_lorry: Awesome CAN bus tools, hardware and resources for Cyber Security Researchers, Reverse Engineers, and Automotive Electronics Enthusiasts.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-11"
+  },
+  {
+    "repo": "yvoronoy/awesome-english",
+    "name": "awesome-english",
+    "stars": 2718,
+    "description": "A collection of awesome study resources for learners of English.",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-25"
+  },
+  {
+    "repo": "pawelborkar/awesome-repos",
+    "name": "awesome-repos",
+    "stars": 2716,
+    "description": "A curated list of GitHub Repositories full of FREE Resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-20"
+  },
+  {
+    "repo": "subeeshvasu/awesome-deblurring",
+    "name": "awesome-deblurring",
+    "stars": 2701,
+    "description": "A curated list of resources for Image and Video Deblurring",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-29"
+  },
+  {
+    "repo": "subeeshvasu/awesome-learning-with-label-noise",
+    "name": "awesome-learning-with-label-noise",
+    "stars": 2699,
+    "description": "A curated list of resources for Learning with Noisy Labels",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-03"
+  },
+  {
+    "repo": "dictcp/awesome-git",
+    "name": "awesome-git",
+    "stars": 2696,
+    "description": "A curated list of amazingly awesome Git tools, resources and shiny things",
+    "source": "context-awesome",
+    "pushed_at": "2025-02-04"
+  },
+  {
+    "repo": "brootware/awesome-cyber-security-university",
+    "name": "awesome-cyber-security-university",
+    "stars": 2679,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-08-09"
+  },
+  {
+    "repo": "the-akira/computer-science-resources",
+    "name": "computer-science-resources",
+    "stars": 2657,
+    "description": "A list of resources in different fields of Computer Science",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-19"
+  },
+  {
+    "repo": "rust-in-blockchain/awesome-blockchain-rust",
+    "name": "awesome-blockchain-rust",
+    "stars": 2653,
+    "description": "Collect libraries and packages about blockchain/cryptography in Rust",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-19"
+  },
+  {
+    "repo": "taishi-i/awesome-chatgpt-repositories",
+    "name": "awesome-chatgpt-repositories",
+    "stars": 2646,
+    "description": "A curated list of resources dedicated to open source GitHub repositories related to ChatGPT and OpenAI API",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "yunlong10/awesome-llms-for-video-understanding",
+    "name": "awesome-llms-for-video-understanding",
+    "stars": 2643,
+    "description": "\ud83d\udd25\ud83d\udd25\ud83d\udd25 [TCSVT 2025] Latest Papers, Codes and Datasets on Vid-LLMs.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-20"
+  },
+  {
+    "repo": "editor-js/awesome-editorjs",
+    "name": "awesome-editorjs",
+    "stars": 2634,
+    "description": "\ud83e\udd29 A curated list of awesome Editor.js tools, libraries and resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-13"
+  },
+  {
+    "repo": "jslee02/awesome-robotics-libraries",
+    "name": "awesome-robotics-libraries",
+    "stars": 2621,
+    "description": ":sunglasses: A curated list of robotics libraries and software",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-15"
+  },
+  {
+    "repo": "phmullins/awesome-macos",
+    "name": "awesome-macos",
+    "stars": 2611,
+    "description": "A curated list of awesome software for Apple's macOS.",
+    "source": "context-awesome",
+    "pushed_at": "2025-01-22"
+  },
+  {
+    "repo": "wong2/awesome-mcp-servers",
+    "name": "awesome-mcp-servers",
+    "stars": 2597,
+    "description": "A curated list of Model Context Protocol (MCP) servers",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-17"
+  },
+  {
+    "repo": "logseq/awesome-logseq",
+    "name": "awesome-logseq",
+    "stars": 2595,
+    "description": "Awesome Logseq resources created by the community <3",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-24"
+  },
+  {
+    "repo": "ramnes/awesome-mongodb",
+    "name": "awesome-mongodb",
+    "stars": 2583,
+    "description": ":leaves: A curated list of awesome MongoDB resources, libraries, tools and applications",
+    "source": "both",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "marcobiedermann/search-engine-optimization",
+    "name": "search-engine-optimization",
+    "stars": 2579,
+    "description": "\ud83d\udd0d A helpful checklist/collection of Search Engine Optimization (SEO) tips and techniques.",
+    "source": "both",
+    "pushed_at": "2025-02-24"
+  },
+  {
+    "repo": "ml-tooling/best-of-web-python",
+    "name": "best-of-web-python",
+    "stars": 2579,
+    "description": "\ud83c\udfc6  A ranked list of awesome python libraries for web development. Updated weekly.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "networktocode/awesome-network-automation",
+    "name": "awesome-network-automation",
+    "stars": 2555,
+    "description": "Curated Awesome list about Network Automation",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-30"
+  },
+  {
+    "repo": "woop/awesome-quantified-self",
+    "name": "awesome-quantified-self",
+    "stars": 2552,
+    "description": ":bar_chart: Websites, Resources, Devices, Wearables, Applications, and Platforms for Self Tracking",
+    "source": "both",
+    "pushed_at": "2025-05-29"
+  },
+  {
+    "repo": "gmh5225/awesome-game-security",
+    "name": "awesome-game-security",
+    "stars": 2538,
+    "description": "awesome game security [Welcome to PR]",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-17"
+  },
+  {
+    "repo": "italiaremote/awesome-italia-remote",
+    "name": "awesome-italia-remote",
+    "stars": 2519,
+    "description": "A list of remote-friendly or full-remote companies that targets Italian talents.",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-31"
+  },
+  {
+    "repo": "mapbox/awesome-vector-tiles",
+    "name": "awesome-vector-tiles",
+    "stars": 2517,
+    "description": "Awesome implementations of the Mapbox Vector Tile specification",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-17"
+  },
+  {
+    "repo": "jsuarezruiz/awesome-dotnet-maui",
+    "name": "awesome-dotnet-maui",
+    "stars": 2512,
+    "description": "A curated list of awesome .NET MAUI libraries and resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-20"
+  },
+  {
+    "repo": "insthync/awesome-unity3d",
+    "name": "awesome-unity3d",
+    "stars": 2508,
+    "description": "A categorized collection of awesome opensource unity3d repos",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-19"
+  },
+  {
+    "repo": "gjy3035/awesome-crowd-counting",
+    "name": "awesome-crowd-counting",
+    "stars": 2507,
+    "description": "Awesome Crowd Counting",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-03"
+  },
+  {
+    "repo": "docsifyjs/awesome-docsify",
+    "name": "awesome-docsify",
+    "stars": 2507,
+    "description": "\ud83d\udc96 A curated list of awesome things related to docsify",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-01"
+  },
+  {
+    "repo": "shlomi-noach/awesome-mysql",
+    "name": "awesome-mysql",
+    "stars": 2476,
+    "description": "A curated list of awesome MySQL software, libraries, tools and resources",
+    "source": "both",
+    "pushed_at": "2025-12-31"
+  },
+  {
+    "repo": "rmanluo/awesome-llm-kg",
+    "name": "awesome-llm-kg",
+    "stars": 2446,
+    "description": "Awesome papers about unifying LLMs and KGs",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-02"
+  },
+  {
+    "repo": "ttt30ga/awesome-product-design",
+    "name": "awesome-product-design",
+    "stars": 2439,
+    "description": "A collection of bookmarks, resources, articles for product designers.",
+    "source": "both",
+    "pushed_at": "2025-09-22"
+  },
+  {
+    "repo": "sfermigier/awesome-functional-python",
+    "name": "awesome-functional-python",
+    "stars": 2439,
+    "description": "A curated list of awesome things related to functional programming in Python.",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-28"
+  },
+  {
+    "repo": "tmcw/awesome-geojson",
+    "name": "awesome-geojson",
+    "stars": 2438,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-10-08"
+  },
+  {
+    "repo": "benedekrozemberczki/awesome-decision-tree-papers",
+    "name": "awesome-decision-tree-papers",
+    "stars": 2420,
+    "description": "A collection of research papers on decision, classification and regression trees with implementations.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-28"
+  },
+  {
+    "repo": "mikalv/awesome-qt-qml",
+    "name": "awesome-qt-qml",
+    "stars": 2412,
+    "description": "A curated list of awesome Qt and QML libraries, resources, projects, and shiny things.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-06"
+  },
+  {
+    "repo": "ravencentric/awesome-arr",
+    "name": "awesome-arr",
+    "stars": 2392,
+    "description": "A collection of *arrs and related stuff.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-11"
+  },
+  {
+    "repo": "yutong-zhou-cv/awesome-text-to-image",
+    "name": "awesome-text-to-image",
+    "stars": 2379,
+    "description": "(\u0dc6`\ua4b3\u00b4\u0dc6) A Survey on Text-to-Image Generation/Synthesis.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-12"
+  },
+  {
+    "repo": "iipc/awesome-web-archiving",
+    "name": "awesome-web-archiving",
+    "stars": 2337,
+    "description": "An Awesome List for getting started with web archiving",
+    "source": "both",
+    "pushed_at": "2026-01-08"
+  },
+  {
+    "repo": "protontypes/open-sustainable-technology",
+    "name": "open-sustainable-technology",
+    "stars": 2307,
+    "description": "A directory and analysis of the open source ecosystem in the areas of climate change, sustainable energy, biodiversity and natural resources.  https://docs.getgrist.com/gSscJkc5Rb1R/OpenSustaintech",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "narkoz/guides",
+    "name": "guides",
+    "stars": 2302,
+    "description": "Design and development guides",
+    "source": "both",
+    "pushed_at": "2025-07-02"
+  },
+  {
+    "repo": "eug/awesome-opengl",
+    "name": "awesome-opengl",
+    "stars": 2300,
+    "description": "A curated list of awesome OpenGL libraries, debuggers and resources.",
+    "source": "both",
+    "pushed_at": "2026-01-09"
+  },
+  {
+    "repo": "erikw/vim-keybindings-everywhere-the-ultimate-list",
+    "name": "vim-keybindings-everywhere-the-ultimate-list",
+    "stars": 2293,
+    "description": "The ultimate list of which programs support Vim-like keybindings natively, or how they can be added with extensions. A collaborative project.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-03"
+  },
+  {
+    "repo": "ktaranov/sqlserver-kit",
+    "name": "sqlserver-kit",
+    "stars": 2292,
+    "description": "Useful links, scripts, tools and best practice for Microsoft SQL Server Database",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-27"
+  },
+  {
+    "repo": "eddwebster/football_analytics",
+    "name": "football_analytics",
+    "stars": 2291,
+    "description": "\ud83d\udcca\u26bd  A collection of football analytics projects, data, and analysis by Edd Webster (@eddwebster), including a curated list of publicly available resources published by the football analytics community",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-09"
+  },
+  {
+    "repo": "rootsongjc/awesome-cloud-native",
+    "name": "awesome-cloud-native",
+    "stars": 2284,
+    "description": "A curated list for awesome cloud native tools, software and tutorials.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-06"
+  },
+  {
+    "repo": "xiaoxinhe/awesome-graph-llm",
+    "name": "awesome-graph-llm",
+    "stars": 2272,
+    "description": "A collection of AWESOME things about Graph-Related LLMs.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-05"
+  },
+  {
+    "repo": "akuity/awesome-argo",
+    "name": "awesome-argo",
+    "stars": 2267,
+    "description": "A curated list of awesome projects and resources related to Argo (a CNCF graduated project)",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-06"
+  },
+  {
+    "repo": "kdeldycke/awesome-engineering-team-management",
+    "name": "awesome-engineering-team-management",
+    "stars": 2261,
+    "description": "\ud83d\udc54 How to transition from software development to engineering management",
+    "source": "both",
+    "pushed_at": "2025-11-06"
+  },
+  {
+    "repo": "dreikanter/ruby-bookmarks",
+    "name": "ruby-bookmarks",
+    "stars": 2259,
+    "description": "Ruby and Ruby on Rails bookmarks collection",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-21"
+  },
+  {
+    "repo": "amis92/csharp-source-generators",
+    "name": "csharp-source-generators",
+    "stars": 2257,
+    "description": "A list of C# Source Generators (not necessarily awesome) and associated resources: articles, talks, demos.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-22"
+  },
+  {
+    "repo": "cdleon/awesome-terminals",
+    "name": "awesome-terminals",
+    "stars": 2250,
+    "description": "Terminal Emulators",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-28"
+  },
+  {
+    "repo": "hng/tech-coops",
+    "name": "tech-coops",
+    "stars": 2221,
+    "description": "A list of tech coops and resources concerning tech coops and worker owned cooperatives in general.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-22"
+  },
+  {
+    "repo": "vert-x3/vertx-awesome",
+    "name": "vertx-awesome",
+    "stars": 2220,
+    "description": "A curated list of awesome Vert.x resources, libraries, and other nice things.",
+    "source": "both",
+    "pushed_at": "2026-01-09"
+  },
+  {
+    "repo": "botcrypto-io/awesome-crypto-trading-bots",
+    "name": "awesome-crypto-trading-bots",
+    "stars": 2216,
+    "description": "Awesome crypto trading bots",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-25"
+  },
+  {
+    "repo": "efficient-ml/awesome-model-quantization",
+    "name": "awesome-model-quantization",
+    "stars": 2192,
+    "description": "A list of papers, docs, codes about model quantization. This repo is aimed to provide the info for model quantization research, we are continuously improving the project. Welcome to PR the works (pape",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-04"
+  },
+  {
+    "repo": "redhuntlabs/awesome-asset-discovery",
+    "name": "awesome-asset-discovery",
+    "stars": 2189,
+    "description": "List of Awesome Asset Discovery Resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-01-22"
+  },
+  {
+    "repo": "chenhsing/awesome-video-diffusion-models",
+    "name": "awesome-video-diffusion-models",
+    "stars": 2181,
+    "description": "[CSUR] A Survey on Video Diffusion Models",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-27"
+  },
+  {
+    "repo": "ashishps1/learn-ai-engineering",
+    "name": "learn-ai-engineering",
+    "stars": 2161,
+    "description": "Learn AI and LLMs from scratch using free resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-12"
+  },
+  {
+    "repo": "rajasegar/awesome-htmx",
+    "name": "awesome-htmx",
+    "stars": 2160,
+    "description": "Awesome things about htmx",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-06"
+  },
+  {
+    "repo": "44bits/awesome-opensource-documents",
+    "name": "awesome-opensource-documents",
+    "stars": 2155,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-10-29"
+  },
+  {
+    "repo": "springload/awesome-wagtail",
+    "name": "awesome-wagtail",
+    "stars": 2137,
+    "description": "A curated list of awesome packages, articles, and other cool resources from the Wagtail community.",
+    "source": "both",
+    "pushed_at": "2026-01-02"
+  },
+  {
+    "repo": "imaurer/awesome-llm-json",
+    "name": "awesome-llm-json",
+    "stars": 2136,
+    "description": "Resource list for generating JSON using LLMs via function calling, tools, CFG. Libraries, Models, Notebooks, etc.",
+    "source": "context-awesome",
+    "pushed_at": "2025-02-18"
+  },
+  {
+    "repo": "aolofsson/awesome-opensource-hardware",
+    "name": "awesome-opensource-hardware",
+    "stars": 2119,
+    "description": "List of awesome open source hardware tools, generators, and reusable designs",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-10"
+  },
+  {
+    "repo": "hyp1231/awesome-llm-powered-agent",
+    "name": "awesome-llm-powered-agent",
+    "stars": 2109,
+    "description": "Awesome things about LLM-powered agents. Papers / Repos / Blogs / ...",
+    "source": "context-awesome",
+    "pushed_at": "2025-04-30"
+  },
+  {
+    "repo": "zengyh1900/awesome-image-inpainting",
+    "name": "awesome-image-inpainting",
+    "stars": 2095,
+    "description": "A curated list of image inpainting and video inpainting papers and resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-27"
+  },
+  {
+    "repo": "noteflakes/awesome-music",
+    "name": "awesome-music",
+    "stars": 2088,
+    "description": "Awesome Music Projects",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-28"
+  },
+  {
+    "repo": "akrawchyk/awesome-vim",
+    "name": "awesome-vim",
+    "stars": 2085,
+    "description": "The Vim plugin shortlist",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-06"
+  },
+  {
+    "repo": "thejambo/awesome-testing",
+    "name": "awesome-testing",
+    "stars": 2076,
+    "description": "A curated list of testing resources",
+    "source": "both",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "toolleeo/awesome-cli-apps-in-a-csv",
+    "name": "awesome-cli-apps-in-a-csv",
+    "stars": 2074,
+    "description": "The largest Awesome Curated list of command line programs (CLI/TUI) with source data organized into CSV files",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-06"
+  },
+  {
+    "repo": "offciercia/ultimate-defi-research-base",
+    "name": "ultimate-defi-research-base",
+    "stars": 2059,
+    "description": "Here we collect and discuss the best DeFI & Blockchain researches and tools. Feel free to DM me on Twitter or open pool request. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-22"
+  },
+  {
+    "repo": "orbitalindex/awesome-space",
+    "name": "awesome-space",
+    "stars": 2053,
+    "description": "\ud83d\udef0\ufe0f\ud83d\ude80A list of awesome space-related packages and resources maintained by The Orbital Index",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-24"
+  },
+  {
+    "repo": "guyulongcs/awesome-deep-learning-papers-for-search-recommendation-advertising",
+    "name": "awesome-deep-learning-papers-for-search-recommendation-advertising",
+    "stars": 2042,
+    "description": "Awesome Deep Learning papers for industrial Search, Recommendation and Advertisement. They focus on Embedding, Matching, Pre-Ranking, Ranking (CTR/CVR prediction), Post Ranking, Relevance, LLM, Reinfo",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-27"
+  },
+  {
+    "repo": "matchai/awesome-pinned-gists",
+    "name": "awesome-pinned-gists",
+    "stars": 2030,
+    "description": "\ud83d\udccc\u2728 A collection of awesome dynamic pinned gists for GitHub",
+    "source": "both",
+    "pushed_at": "2025-08-05"
+  },
+  {
+    "repo": "carlos487/awesome-wpf",
+    "name": "awesome-wpf",
+    "stars": 2027,
+    "description": "A collection of awesome WPF resources, libraries and UI controls.",
+    "source": "context-awesome",
+    "pushed_at": "2025-01-28"
+  },
+  {
+    "repo": "chentsulin/awesome-react-renderer",
+    "name": "awesome-react-renderer",
+    "stars": 2024,
+    "description": "Awesome list of React Renderer",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-10"
+  },
+  {
+    "repo": "michelpereira/awesome-open-source-games",
+    "name": "awesome-open-source-games",
+    "stars": 2020,
+    "description": "Collection of Games that have the source code available on GitHub",
+    "source": "both",
+    "pushed_at": "2025-12-05"
+  },
+  {
+    "repo": "michelpereira/awesome-games-of-coding",
+    "name": "awesome-games-of-coding",
+    "stars": 2012,
+    "description": "A curated list of games that can teach you how to learn a programming language.",
+    "source": "both",
+    "pushed_at": "2025-06-03"
+  },
+  {
+    "repo": "kdeldycke/awesome-iam",
+    "name": "awesome-iam",
+    "stars": 2011,
+    "description": "\ud83d\udc64 Identity and Access Management knowledge for cloud platforms",
+    "source": "both",
+    "pushed_at": "2025-11-30"
+  },
+  {
+    "repo": "johnjago/awesome-free-software",
+    "name": "awesome-free-software",
+    "stars": 2010,
+    "description": "Curated list of open-source, free as in freedom software.",
+    "source": "both",
+    "pushed_at": "2025-04-29"
+  },
+  {
+    "repo": "zjukg/kg-llm-papers",
+    "name": "kg-llm-papers",
+    "stars": 2007,
+    "description": "[Paper List] Papers integrating knowledge graphs (KGs) and large language models (LLMs)",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-25"
+  },
+  {
+    "repo": "wlik/llm4rec-awesome-papers",
+    "name": "llm4rec-awesome-papers",
+    "stars": 2006,
+    "description": "A list of awesome papers and resources of recommender system on large language model (LLM).",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-17"
+  },
+  {
+    "repo": "hahwul/devsecops",
+    "name": "devsecops",
+    "stars": 2005,
+    "description": "\u267e\ufe0f Collection and Roadmap for everyone who wants DevSecOps. Hope your DevOps are more safe \ud83d\ude0e",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-16"
+  },
+  {
+    "repo": "mbzuai-oryx/awesome-llm-post-training",
+    "name": "awesome-llm-post-training",
+    "stars": 2000,
+    "description": "Awesome Reasoning LLM Tutorial/Survey/Guide",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-14"
+  },
+  {
+    "repo": "davidgasquez/awesome-duckdb",
+    "name": "awesome-duckdb",
+    "stars": 1998,
+    "description": "\ud83e\udd86 A curated list of awesome DuckDB resources",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "vlang/awesome-v",
+    "name": "awesome-v",
+    "stars": 1991,
+    "description": "A curated list of awesome V frameworks, libraries, software and resources.",
+    "source": "both",
+    "pushed_at": "2025-11-23"
+  },
+  {
+    "repo": "magnologan/awesome-k8s-security",
+    "name": "awesome-k8s-security",
+    "stars": 1975,
+    "description": "A curated list for Awesome Kubernetes Security resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-28"
+  },
+  {
+    "repo": "fr0st-brutal/awesome-pascal",
+    "name": "awesome-pascal",
+    "stars": 1960,
+    "description": "A curated list of awesome Delphi/FreePascal/(any)Pascal frameworks, libraries, resources, and shiny things. Inspired by awesome-... stuff. Open source and freeware only!",
+    "source": "both",
+    "pushed_at": "2025-12-29"
+  },
+  {
+    "repo": "thinklab-sjtu/awesome-ml4co",
+    "name": "awesome-ml4co",
+    "stars": 1942,
+    "description": "Awesome machine learning for combinatorial optimization papers.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-07"
+  },
+  {
+    "repo": "mcanouil/awesome-quarto",
+    "name": "awesome-quarto",
+    "stars": 1939,
+    "description": "A curated list of Quarto talks, tools, examples & articles! Contributions welcome!",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-08"
+  },
+  {
+    "repo": "jubalh/awesome-os",
+    "name": "awesome-os",
+    "stars": 1936,
+    "description": "A list of operating systems and stuff",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-14"
+  },
+  {
+    "repo": "sudhakar3697/awesome-electron-alternatives",
+    "name": "awesome-electron-alternatives",
+    "stars": 1931,
+    "description": "A curated list of awesome Electron alternatives.",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-25"
+  },
+  {
+    "repo": "yudataguy/awesome-japanese",
+    "name": "awesome-japanese",
+    "stars": 1915,
+    "description": "Awesome Japanese Learning Resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-18"
+  },
+  {
+    "repo": "n2cholas/awesome-jax",
+    "name": "awesome-jax",
+    "stars": 1903,
+    "description": "JAX - A curated list of resources https://github.com/google/jax",
+    "source": "both",
+    "pushed_at": "2026-01-01"
+  },
+  {
+    "repo": "rdragos/awesome-mpc",
+    "name": "awesome-mpc",
+    "stars": 1900,
+    "description": " A curated list of multi party computation resources and links.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-27"
+  },
+  {
+    "repo": "activevisionlab/awesome-llm-3d",
+    "name": "awesome-llm-3d",
+    "stars": 1894,
+    "description": "Awesome-LLM-3D: a curated list of Multi-modal Large Language Model in 3D world  Resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-27"
+  },
+  {
+    "repo": "amirhossein-kz/awesome-diffusion-models-in-medical-imaging",
+    "name": "awesome-diffusion-models-in-medical-imaging",
+    "stars": 1894,
+    "description": "Diffusion Models in Medical Imaging (Published in Medical Image Analysis Journal)",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-17"
+  },
+  {
+    "repo": "wenhwu/awesome-remote-sensing-change-detection",
+    "name": "awesome-remote-sensing-change-detection",
+    "stars": 1887,
+    "description": "List of datasets, codes, and contests related to remote sensing change detection",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-17"
+  },
+  {
+    "repo": "wenzel/awesome-virtualization",
+    "name": "awesome-virtualization",
+    "stars": 1876,
+    "description": "Collection of resources about Virtualization",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-16"
+  },
+  {
+    "repo": "wangkai930418/awesome-diffusion-categorized",
+    "name": "awesome-diffusion-categorized",
+    "stars": 1874,
+    "description": "collection of diffusion model papers categorized by their subareas",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "bolajiayodeji/awesome-technical-writing",
+    "name": "awesome-technical-writing",
+    "stars": 1864,
+    "description": ":books: A curated list of awesome resources: articles, books, videos, tools, podcasts about technical writing.",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-22"
+  },
+  {
+    "repo": "typeddjango/awesome-python-typing",
+    "name": "awesome-python-typing",
+    "stars": 1860,
+    "description": "Collection of awesome Python types, stubs, plugins, and tools to work with them.",
+    "source": "both",
+    "pushed_at": "2025-11-21"
+  },
+  {
+    "repo": "life-itself/web3",
+    "name": "web3",
+    "stars": 1860,
+    "description": "Making sense of web3 & crypto. Introduction to key concepts and ideas. Rigorous, constructive analysis of key claims pro and con. A look at the deeper hopes and aspirations.",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-28"
+  },
+  {
+    "repo": "tianshanghong/awesome-anki",
+    "name": "awesome-anki",
+    "stars": 1848,
+    "description": "A curated list of awesome Anki add-ons, decks and resources",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-02"
+  },
+  {
+    "repo": "thomasdarimont/awesome-keycloak",
+    "name": "awesome-keycloak",
+    "stars": 1847,
+    "description": "A curated list of resources for learning about http://www.keycloak.org",
+    "source": "both",
+    "pushed_at": "2025-10-09"
+  },
+  {
+    "repo": "thecomputerm/awesome-svelte",
+    "name": "awesome-svelte",
+    "stars": 1845,
+    "description": "\u26a1 A curated list of awesome Svelte resources",
+    "source": "both",
+    "pushed_at": "2025-12-22"
+  },
+  {
+    "repo": "horseee/awesome-efficient-llm",
+    "name": "awesome-efficient-llm",
+    "stars": 1841,
+    "description": "A curated list for Efficient Large Language Models",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-17"
+  },
+  {
+    "repo": "alexellis/awesome-baremetal",
+    "name": "awesome-baremetal",
+    "stars": 1817,
+    "description": "Bare-metal is awesome. Let's share our favourite tools. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-24"
+  },
+  {
+    "repo": "sindresorhus/awesome-whisper",
+    "name": "awesome-whisper",
+    "stars": 1816,
+    "description": "\ud83d\udd0a Awesome list for Whisper \u2014 an open-source AI-powered speech recognition system developed by OpenAI",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-05"
+  },
+  {
+    "repo": "shahraizali/awesome-django",
+    "name": "awesome-django",
+    "stars": 1808,
+    "description": "The Best Django Resource, Awesome Django for mature packages.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-03"
+  },
+  {
+    "repo": "divide-by-0/ideas-for-projects-people-would-use",
+    "name": "ideas-for-projects-people-would-use",
+    "stars": 1805,
+    "description": "Every time I have an idea, I write it down. These are a collection of my top software ideas -- problems I think enough people have that don't have solutions. I expect you can reach a decent userbase i",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-28"
+  },
+  {
+    "repo": "youngfish42/awesome-fl",
+    "name": "awesome-fl",
+    "stars": 1797,
+    "description": "Comprehensive and timely academic information on federated learning (papers, frameworks, datasets, tutorials, workshops)",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-05"
+  },
+  {
+    "repo": "bobeff/programming-math-science",
+    "name": "programming-math-science",
+    "stars": 1788,
+    "description": "This is a list of links to different freely available learning resources about computer programming, math, and science.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-11"
+  },
+  {
+    "repo": "wq2012/awesome-diarization",
+    "name": "awesome-diarization",
+    "stars": 1787,
+    "description": "A curated list of awesome Speaker Diarization papers, libraries, datasets, and other resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-22"
+  },
+  {
+    "repo": "weihaox/awesome-digital-human",
+    "name": "awesome-digital-human",
+    "stars": 1785,
+    "description": "Digital Human Resource: 2D/3D/4D Human Modeling, Avatar Generation & Animation, Clothed People Digitalization, Virtual Try-On, and Others.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-16"
+  },
+  {
+    "repo": "roguemaster/awesome-flipperzero-withmodules",
+    "name": "awesome-flipperzero-withmodules",
+    "stars": 1784,
+    "description": "A collection of awesome resources & modules for the Flipper Zero device. Best used with Rogue Master Flipper Zero Custom Firmware.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-10"
+  },
+  {
+    "repo": "brabadu/awesome-fonts",
+    "name": "awesome-fonts",
+    "stars": 1769,
+    "description": "Curated list of fonts and everything",
+    "source": "both",
+    "pushed_at": "2026-01-03"
+  },
+  {
+    "repo": "guang000/awesome-dataset-distillation",
+    "name": "awesome-dataset-distillation",
+    "stars": 1757,
+    "description": "A curated list of awesome papers on dataset distillation and related applications.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "florimondmanca/awesome-asgi",
+    "name": "awesome-asgi",
+    "stars": 1747,
+    "description": "A curated list of awesome ASGI servers, frameworks, apps, libraries, and other resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-12"
+  },
+  {
+    "repo": "sereneblue/awesome-oss",
+    "name": "awesome-oss",
+    "stars": 1742,
+    "description": "A list of open source projects with links to contribute or donate.",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-21"
+  },
+  {
+    "repo": "alexdebrie/awesome-dynamodb",
+    "name": "awesome-dynamodb",
+    "stars": 1741,
+    "description": "List of resources for learning about modeling, operating, and using Amazon DynamoDB",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-24"
+  },
+  {
+    "repo": "felipefialho/awesome-made-by-brazilians",
+    "name": "awesome-made-by-brazilians",
+    "stars": 1740,
+    "description": "\ud83c\udde7\ud83c\uddf7 A collection of amazing open source projects built by brazilian developers",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-24"
+  },
+  {
+    "repo": "qosf/awesome-quantum-software",
+    "name": "awesome-quantum-software",
+    "stars": 1736,
+    "description": "Curated list of open-source quantum software projects.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-02"
+  },
+  {
+    "repo": "benedekrozemberczki/awesome-fraud-detection-papers",
+    "name": "awesome-fraud-detection-papers",
+    "stars": 1728,
+    "description": "A curated list of data mining papers about fraud detection.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "iknowjason/awesome-cloudsec-labs",
+    "name": "awesome-cloudsec-labs",
+    "stars": 1723,
+    "description": "Awesome free cloud native security learning labs.  Includes CTF, self-hosted workshops, guided vulnerability labs, and research labs. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-01"
+  },
+  {
+    "repo": "krzemienski/awesome-video",
+    "name": "awesome-video",
+    "stars": 1716,
+    "description": "A curated list of awesome streaming video tools, frameworks, libraries, and learning resources.",
+    "source": "both",
+    "pushed_at": "2025-04-12"
+  },
+  {
+    "repo": "yackermann/awesome-webauthn",
+    "name": "awesome-webauthn",
+    "stars": 1713,
+    "description": "\ud83d\udd10 A curated list of awesome WebAuthn and Passkey resources",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "awesome-android-root/awesome-android-root",
+    "name": "awesome-android-root",
+    "stars": 1710,
+    "description": "Ultimate collection of best Android root apps, Magisk/KernelSU/LSPosed modules, and step-by-step rooting guides.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-03"
+  },
+  {
+    "repo": "facundofarias/awesome-websockets",
+    "name": "awesome-websockets",
+    "stars": 1710,
+    "description": "A curated list of Websocket libraries and resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-30"
+  },
+  {
+    "repo": "syxanash/awesome-web-desktops",
+    "name": "awesome-web-desktops",
+    "stars": 1706,
+    "description": "Websites, web apps, portfolios which look like desktop operating systems",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-08"
+  },
+  {
+    "repo": "mikbry/awesome-webgpu",
+    "name": "awesome-webgpu",
+    "stars": 1706,
+    "description": "\ud83d\ude0e Curated list of awesome things around WebGPU ecosystem. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-06"
+  },
+  {
+    "repo": "erikgahner/awesome-ggplot2",
+    "name": "awesome-ggplot2",
+    "stars": 1697,
+    "description": "A curated list of awesome ggplot2 tutorials, packages etc.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-02"
+  },
+  {
+    "repo": "mundimark/awesome-markdown-editors",
+    "name": "awesome-markdown-editors",
+    "stars": 1694,
+    "description": "A collection of awesome markdown editors & (pre)viewers for Linux, Apple OS X, Microsoft Windows, the World Wide Web & more",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-16"
+  },
+  {
+    "repo": "offciercia/on-chain-investigations-tools-list",
+    "name": "on-chain-investigations-tools-list",
+    "stars": 1692,
+    "description": "Here we discuss how one can investigate crypto hacks and security incidents, and collect all the possible tools and manuals! PRs are welcome! If any tool is missing - please open PR!",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-22"
+  },
+  {
+    "repo": "gleam-lang/awesome-gleam",
+    "name": "awesome-gleam",
+    "stars": 1681,
+    "description": "\ud83d\udcaf A collection of Gleam libraries, projects, and resources",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "bst04/cybersources",
+    "name": "cybersources",
+    "stars": 1678,
+    "description": "A curated list of cybersecurity tools and resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-05"
+  },
+  {
+    "repo": "ansible-community/awesome-ansible",
+    "name": "awesome-ansible",
+    "stars": 1673,
+    "description": "Awesome Ansible List",
+    "source": "both",
+    "pushed_at": "2025-07-10"
+  },
+  {
+    "repo": "totogo/awesome-knowledge-graph",
+    "name": "awesome-knowledge-graph",
+    "stars": 1671,
+    "description": "A curated list of Knowledge Graph related learning materials, databases, tools and other resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-24"
+  },
+  {
+    "repo": "mundimark/awesome-markdown",
+    "name": "awesome-markdown",
+    "stars": 1670,
+    "description": "A collection of awesome markdown goodies (libraries, services, editors, tools, cheatsheets, etc.)",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-09"
+  },
+  {
+    "repo": "hedlen/awesome-segment-anything",
+    "name": "awesome-segment-anything",
+    "stars": 1669,
+    "description": "Tracking and collecting papers/projects/others related to Segment Anything.",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-13"
+  },
+  {
+    "repo": "xnhyacinth/awesome-llm-long-context-modeling",
+    "name": "awesome-llm-long-context-modeling",
+    "stars": 1667,
+    "description": "\ud83d\udcf0 Must-read papers and blogs on LLM based Long Context Modeling \ud83d\udd25",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "offciercia/crypto-opsec-selfguard-roadmap",
+    "name": "crypto-opsec-selfguard-roadmap",
+    "stars": 1666,
+    "description": "Here we collect and discuss the best DeFi, Blockchain and crypto-related OpSec researches and data terminals - contributions are welcome.",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-28"
+  },
+  {
+    "repo": "dend/awesome-product-management",
+    "name": "awesome-product-management",
+    "stars": 1656,
+    "description": "\ud83d\ude80 A curated list of awesome resources for product/program managers to learn and grow.",
+    "source": "both",
+    "pushed_at": "2025-11-22"
+  },
+  {
+    "repo": "foundationagents/awesome-foundation-agents",
+    "name": "awesome-foundation-agents",
+    "stars": 1649,
+    "description": "About Awesome things towards foundation agents. Papers / Repos / Blogs / ...",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-28"
+  },
+  {
+    "repo": "leanflutter/awesome-flutter-desktop",
+    "name": "awesome-flutter-desktop",
+    "stars": 1647,
+    "description": "A curated list of awesome things related to Flutter desktop.",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-30"
+  },
+  {
+    "repo": "zhouyi1023/awesome-radar-perception",
+    "name": "awesome-radar-perception",
+    "stars": 1644,
+    "description": " A curated list of radar datasets, detection, tracking and fusion",
+    "source": "context-awesome",
+    "pushed_at": "2025-04-05"
+  },
+  {
+    "repo": "mcauser/awesome-micropython",
+    "name": "awesome-micropython",
+    "stars": 1641,
+    "description": "A curated list of awesome MicroPython libraries, frameworks, software and resources.",
+    "source": "both",
+    "pushed_at": "2025-10-26"
+  },
+  {
+    "repo": "huangowen/awesome-llm-compression",
+    "name": "awesome-llm-compression",
+    "stars": 1641,
+    "description": "Awesome LLM compression research papers and tools.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-10"
+  },
+  {
+    "repo": "mjhea0/awesome-flask",
+    "name": "awesome-flask",
+    "stars": 1636,
+    "description": "A curated list of awesome things related to Flask",
+    "source": "both",
+    "pushed_at": "2025-10-27"
+  },
+  {
+    "repo": "zhihongz/awesome-low-light-image-enhancement",
+    "name": "awesome-low-light-image-enhancement",
+    "stars": 1633,
+    "description": "This is a resouce list for low light image enhancement",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-09"
+  },
+  {
+    "repo": "web-padawan/awesome-lit",
+    "name": "awesome-lit",
+    "stars": 1627,
+    "description": "A curated list of awesome Lit resources.",
+    "source": "both",
+    "pushed_at": "2025-12-30"
+  },
+  {
+    "repo": "sirredbeard/awesome-unix",
+    "name": "awesome-unix",
+    "stars": 1624,
+    "description": "All the UNIX and UNIX-Like: Linux, BSD, macOS, Illumos, 9front, and more.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-03"
+  },
+  {
+    "repo": "weaveworks/awesome-gitops",
+    "name": "awesome-gitops",
+    "stars": 1621,
+    "description": "A curated list for awesome GitOps resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-10"
+  },
+  {
+    "repo": "softwareunderground/awesome-open-geoscience",
+    "name": "awesome-open-geoscience",
+    "stars": 1620,
+    "description": "Curated from repositories that make our lives as geoscientists, hackers and data wranglers easier or just more awesome",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-28"
+  },
+  {
+    "repo": "lukemurraynz/awesome-azure-architecture",
+    "name": "awesome-azure-architecture",
+    "stars": 1618,
+    "description": "AWESOME-Azure-Architecture - https://aka.ms/AwesomeAzureArchitecture",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-25"
+  },
+  {
+    "repo": "zigcc/awesome-zig",
+    "name": "awesome-zig",
+    "stars": 1606,
+    "description": "A collection of some awesome public Zig programming language projects.",
+    "source": "both",
+    "pushed_at": "2026-01-09"
+  },
+  {
+    "repo": "stax76/awesome-mpv",
+    "name": "awesome-mpv",
+    "stars": 1604,
+    "description": "A curated list of awesome mpv resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-22"
+  },
+  {
+    "repo": "nanxstats/awesome-shiny-extensions",
+    "name": "awesome-shiny-extensions",
+    "stars": 1597,
+    "description": "\ud83d\udc1d Awesome R and Python packages offering extended UI or server components for the web framework Shiny",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-21"
+  },
+  {
+    "repo": "ebu/awesome-broadcasting",
+    "name": "awesome-broadcasting",
+    "stars": 1593,
+    "description": "A curated list of amazingly awesome open source resources related to broadcast technologies",
+    "source": "both",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "zwang4/awesome-machine-learning-in-compilers",
+    "name": "awesome-machine-learning-in-compilers",
+    "stars": 1591,
+    "description": "Must read research papers and links to tools and datasets that are related to using machine learning for compilers and systems optimisation",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-12"
+  },
+  {
+    "repo": "jaywcjlove/awesome-uikit",
+    "name": "awesome-uikit",
+    "stars": 1582,
+    "description": "Collect JS Frameworks, Web components library and Admin Template.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-07"
+  },
+  {
+    "repo": "tramcar/awesome-job-boards",
+    "name": "awesome-job-boards",
+    "stars": 1576,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-09-26"
+  },
+  {
+    "repo": "neomatrix369/awesome-ai-ml-dl",
+    "name": "awesome-ai-ml-dl",
+    "stars": 1573,
+    "description": "Awesome Artificial Intelligence, Machine Learning and Deep Learning as we learn it. Study notes and a curated list of awesome resources of such topics.",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-18"
+  },
+  {
+    "repo": "jetli/awesome-yew",
+    "name": "awesome-yew",
+    "stars": 1571,
+    "description": "\ud83d\ude0e A curated list of awesome things related to Yew / WebAssembly.",
+    "source": "both",
+    "pushed_at": "2025-03-22"
+  },
+  {
+    "repo": "stefanocecere/awesome-opensource-unity",
+    "name": "awesome-opensource-unity",
+    "stars": 1570,
+    "description": "a list of curated opensource Unity packages for future proof Game Developers",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-27"
+  },
+  {
+    "repo": "hugo53/awesome-remotework",
+    "name": "awesome-remotework",
+    "stars": 1570,
+    "description": "Resources for remote workers: approaches, hiring page, remote life and more.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-27"
+  },
+  {
+    "repo": "fancygrid/awesome-grid",
+    "name": "awesome-grid",
+    "stars": 1568,
+    "description": "A curated list of grid(table) libraries and resources that developers may find useful.",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-11"
+  },
+  {
+    "repo": "3d-vision-world/awesome-nerf-and-3dgs-slam",
+    "name": "awesome-nerf-and-3dgs-slam",
+    "stars": 1561,
+    "description": "A comprehensive list of Implicit Representations, NeRF and 3D Gaussian Splatting papers relating to SLAM/Robotics domain, including papers, videos, codes, and related websites",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "coderonion/awesome-yolo-object-detection",
+    "name": "awesome-yolo-object-detection",
+    "stars": 1561,
+    "description": "\ud83d\ude80\ud83d\ude80\ud83d\ude80 A collection of some awesome public YOLO object detection series projects and the related object detection datasets.",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-31"
+  },
+  {
+    "repo": "janosh/awesome-normalizing-flows",
+    "name": "awesome-normalizing-flows",
+    "stars": 1558,
+    "description": "Awesome resources on normalizing flows.",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-07"
+  },
+  {
+    "repo": "mobilitydata/awesome-transit",
+    "name": "awesome-transit",
+    "stars": 1555,
+    "description": "Community list of transit APIs, apps, datasets, research, and software :bus::star2::train::star2::steam_locomotive:",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "brycejohnston/awesome-agriculture",
+    "name": "awesome-agriculture",
+    "stars": 1546,
+    "description": "Open source technology for agriculture, farming, and gardening",
+    "source": "both",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "semantalytics/awesome-semantic-web",
+    "name": "awesome-semantic-web",
+    "stars": 1542,
+    "description": "A curated list of various semantic web and linked data resources.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "ong/awesome-decentralized-finance",
+    "name": "awesome-decentralized-finance",
+    "stars": 1542,
+    "description": "A curated list of awesome decentralized finance projects",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "einguterwaran/awesome-opensource-boilerplates",
+    "name": "awesome-opensource-boilerplates",
+    "stars": 1539,
+    "description": "A curated list of production-ready and free SaaS boilerplates and starter templates. Build your next software-as-a-service project with battle-tested open source foundations.",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-28"
+  },
+  {
+    "repo": "picgo/awesome-picgo",
+    "name": "awesome-picgo",
+    "stars": 1534,
+    "description": "A collection of awesome projects using PicGo.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-06"
+  },
+  {
+    "repo": "zslucky/awesome-ai-books",
+    "name": "awesome-ai-books",
+    "stars": 1534,
+    "description": "Some awesome AI related books and pdfs for learning and downloading, also apply some playground models for learning",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-14"
+  },
+  {
+    "repo": "ydyjya/awesome-llm-safety",
+    "name": "awesome-llm-safety",
+    "stars": 1530,
+    "description": "A curated list of safety-related papers, articles, and resources focused on Large Language Models (LLMs). This repository aims to provide researchers, practitioners, and enthusiasts with insights into",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "wangyongjie-ntu/awesome-explainable-ai",
+    "name": "awesome-explainable-ai",
+    "stars": 1530,
+    "description": "A  collection of research materials on explainable AI/ML",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-11"
+  },
+  {
+    "repo": "jest-community/awesome-jest",
+    "name": "awesome-jest",
+    "stars": 1528,
+    "description": "\ud83d\udd76Awesome Jest packages and resources ",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-09"
+  },
+  {
+    "repo": "hiflylabs/awesome-dbt",
+    "name": "awesome-dbt",
+    "stars": 1518,
+    "description": "A curated list of awesome dbt resources ",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-22"
+  },
+  {
+    "repo": "bobeff/open-source-games",
+    "name": "open-source-games",
+    "stars": 1514,
+    "description": "A list of open source games.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-06"
+  },
+  {
+    "repo": "lizhe2004/awesome-llm-rag-application",
+    "name": "awesome-llm-rag-application",
+    "stars": 1514,
+    "description": "the resources about the application based on LLM with RAG pattern",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-19"
+  },
+  {
+    "repo": "zubair-irshad/awesome-implicit-nerf-robotics",
+    "name": "awesome-implicit-nerf-robotics",
+    "stars": 1506,
+    "description": "A comprehensive list of Implicit Representations and NeRF papers relating to Robotics/RL domain, including papers, codes, and related websites",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-12"
+  },
+  {
+    "repo": "amrzv/awesome-colab-notebooks",
+    "name": "awesome-colab-notebooks",
+    "stars": 1504,
+    "description": "Collection of google colaboratory notebooks for fast and easy experiments",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-03"
+  },
+  {
+    "repo": "egeerardyn/awesome-latex",
+    "name": "awesome-latex",
+    "stars": 1502,
+    "description": "Curated list of LaTeX awesomeness",
+    "source": "both",
+    "pushed_at": "2026-01-07"
+  },
+  {
+    "repo": "zchoi/awesome-embodied-robotics-and-agent",
+    "name": "awesome-embodied-robotics-and-agent",
+    "stars": 1494,
+    "description": "This is a curated list of \"Embodied AI or robot with Large Language Models\" research. Watch this repository for the latest updates! \ud83d\udd25",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-30"
+  },
+  {
+    "repo": "c-bj/awesome-zig",
+    "name": "awesome-zig",
+    "stars": 1488,
+    "description": "\ud83d\udcdcZig Learning Guide & Project Lists",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-01"
+  },
+  {
+    "repo": "paulseperformance/awesome-pinescript",
+    "name": "awesome-pinescript",
+    "stars": 1488,
+    "description": "A Comprehensive Collection of Everything Related to Tradingview Pine Script. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-30"
+  },
+  {
+    "repo": "luo-junyu/awesome-agent-papers",
+    "name": "awesome-agent-papers",
+    "stars": 1482,
+    "description": "[Up-to-date] Large Language Model Agent: A Survey on Methodology, Applications and Challenges",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-07"
+  },
+  {
+    "repo": "cyb3rxp/awesome-soc",
+    "name": "awesome-soc",
+    "stars": 1476,
+    "description": "A collection of sources of documentation, as well as field best practices, to build/run a SOC",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "frutik/awesome-search",
+    "name": "awesome-search",
+    "stars": 1476,
+    "description": "Awesome Search - this is all about the (e-commerce, but not only) search and its awesomeness",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-27"
+  },
+  {
+    "repo": "deepspaceharbor/awesome-ai-security",
+    "name": "awesome-ai-security",
+    "stars": 1475,
+    "description": ":file_folder: #AISecurity",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-21"
+  },
+  {
+    "repo": "ashishb/osx-and-ios-security-awesome",
+    "name": "osx-and-ios-security-awesome",
+    "stars": 1470,
+    "description": "OSX and iOS related security tools",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-28"
+  },
+  {
+    "repo": "deep-polyu/awesome-graphrag",
+    "name": "awesome-graphrag",
+    "stars": 1462,
+    "description": "Awesome-GraphRAG: A curated list of resources (surveys, papers, benchmarks, and opensource projects) on graph-based retrieval-augmented generation. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-24"
+  },
+  {
+    "repo": "daisy-zhang/awesome-deepfakes-detection",
+    "name": "awesome-deepfakes-detection",
+    "stars": 1460,
+    "description": "A list of tools, papers and code related to Deepfake Detection.",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-02"
+  },
+  {
+    "repo": "frankiefab100/blockchain-development-resources",
+    "name": "blockchain-development-resources",
+    "stars": 1449,
+    "description": "The contents of this repository will help you launch a career in Blockchain development. How to deploy Smart contracts on Ethereum, build DApps, DeFi, DAO, NFT and Token protocol.",
+    "source": "context-awesome",
+    "pushed_at": "2025-02-02"
+  },
+  {
+    "repo": "nschloe/awesome-scientific-computing",
+    "name": "awesome-scientific-computing",
+    "stars": 1447,
+    "description": ":sunglasses: Curated list of awesome software for numerical analysis and scientific computing",
+    "source": "both",
+    "pushed_at": "2026-01-01"
+  },
+  {
+    "repo": "jolg42/awesome-typography",
+    "name": "awesome-typography",
+    "stars": 1446,
+    "description": "\u270f\ufe0e Curated list about digital typography \ud83d\udd25",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-23"
+  },
+  {
+    "repo": "davatron5000/awesome-standalones",
+    "name": "awesome-standalones",
+    "stars": 1433,
+    "description": "A curated list of awesome framework-agnostic standalone web components",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-04"
+  },
+  {
+    "repo": "jassics/awesome-aws-security",
+    "name": "awesome-aws-security",
+    "stars": 1432,
+    "description": "Curated list of links, references, books videos, tutorials (Free or Paid), Exploit, CTFs, Hacking Practices etc. which are related to AWS Security",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-14"
+  },
+  {
+    "repo": "insthync/awesome-unreal",
+    "name": "awesome-unreal",
+    "stars": 1429,
+    "description": "A categorized collection of awesome opensource Unreal Engine 4 and 5 repos",
+    "source": "context-awesome",
+    "pushed_at": "2025-02-23"
+  },
+  {
+    "repo": "awesome-image-registration-organization/awesome-image-registration",
+    "name": "awesome-image-registration",
+    "stars": 1429,
+    "description": "image registration related books, papers, videos, and toolboxes ",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-05"
+  },
+  {
+    "repo": "ksluckow/awesome-symbolic-execution",
+    "name": "awesome-symbolic-execution",
+    "stars": 1429,
+    "description": "A curated list of awesome symbolic execution resources including essential research papers, lectures, videos, and tools.",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-20"
+  },
+  {
+    "repo": "vkarampinis/awesome-icons",
+    "name": "awesome-icons",
+    "stars": 1427,
+    "description": "A curated list of awesome Web Font Icons",
+    "source": "both",
+    "pushed_at": "2025-10-15"
+  },
+  {
+    "repo": "fr0gger/awesome-ida-x64-olly-plugin",
+    "name": "awesome-ida-x64-olly-plugin",
+    "stars": 1416,
+    "description": "A curated list of IDA x64DBG, Ghidra and OllyDBG plugins. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-08"
+  },
+  {
+    "repo": "thinklab-sjtu/awesome-llm4ad",
+    "name": "awesome-llm4ad",
+    "stars": 1416,
+    "description": "A curated list of awesome LLM/VLM/VLA for Autonomous Driving(LLM4AD) resources (continually updated)",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "sjfricke/awesome-webgl",
+    "name": "awesome-webgl",
+    "stars": 1415,
+    "description": "A curated list of awesome WebGL libraries, resources and much more",
+    "source": "both",
+    "pushed_at": "2025-02-15"
+  },
+  {
+    "repo": "asdf-vm/asdf-plugins",
+    "name": "asdf-plugins",
+    "stars": 1413,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-12-01"
+  },
+  {
+    "repo": "djangoex/awesome-python-resources",
+    "name": "awesome-python-resources",
+    "stars": 1411,
+    "description": "Awesome Python Resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-10"
+  },
+  {
+    "repo": "m0nad/awesome-privilege-escalation",
+    "name": "awesome-privilege-escalation",
+    "stars": 1398,
+    "description": "A curated list of awesome privilege escalation",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-20"
+  },
+  {
+    "repo": "jshollaj/awesome-llm-interpretability",
+    "name": "awesome-llm-interpretability",
+    "stars": 1396,
+    "description": "A curated list of Large Language Model (LLM) Interpretability resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-22"
+  },
+  {
+    "repo": "richardlitt/awesome-fantasy",
+    "name": "awesome-fantasy",
+    "stars": 1395,
+    "description": ":european_castle: Fantasy literature worth reading",
+    "source": "both",
+    "pushed_at": "2025-02-05"
+  },
+  {
+    "repo": "mesquidar/forensicstools",
+    "name": "forensicstools",
+    "stars": 1394,
+    "description": "A list of free and open forensics analysis tools and other resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-04-20"
+  },
+  {
+    "repo": "dersvenhesse/awesome-scriptable",
+    "name": "awesome-scriptable",
+    "stars": 1393,
+    "description": "A curated list of awesome Scriptable scripts and widgets.",
+    "source": "both",
+    "pushed_at": "2025-11-15"
+  },
+  {
+    "repo": "anubhavsrivastava/awesome-ui-component-library",
+    "name": "awesome-ui-component-library",
+    "stars": 1392,
+    "description": "Curated list of framework component libraries for UI styles/toolkit",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-23"
+  },
+  {
+    "repo": "planetjekyll/awesome-jekyll-plugins",
+    "name": "awesome-jekyll-plugins",
+    "stars": 1389,
+    "description": "A collection of awesome Jekyll plugins (gems, scripts, pasties, etc.)",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-19"
+  },
+  {
+    "repo": "wasiahmad/awesome-llm-synthetic-data",
+    "name": "awesome-llm-synthetic-data",
+    "stars": 1389,
+    "description": "A reading list on LLM based Synthetic Data Generation \ud83d\udd25",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-05"
+  },
+  {
+    "repo": "trycua/acu",
+    "name": "acu",
+    "stars": 1389,
+    "description": "A curated list of resources about AI agents for Computer Use, including research papers, projects, frameworks, and tools.",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-26"
+  },
+  {
+    "repo": "packing-box/awesome-executable-packing",
+    "name": "awesome-executable-packing",
+    "stars": 1387,
+    "description": "A curated list of awesome resources related to executable packing",
+    "source": "both",
+    "pushed_at": "2026-01-03"
+  },
+  {
+    "repo": "soruly/awesome-acg",
+    "name": "awesome-acg",
+    "stars": 1385,
+    "description": "A curated list of awesome technologies related to Anime, Comic and Games",
+    "source": "both",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "philsturgeon/awesome-earth",
+    "name": "awesome-earth",
+    "stars": 1384,
+    "description": "\"What can I do about the climate crisis?\" Here are 326 things you can do.",
+    "source": "both",
+    "pushed_at": "2025-12-13"
+  },
+  {
+    "repo": "chiangel/awesome-llm-for-recsys",
+    "name": "awesome-llm-for-recsys",
+    "stars": 1383,
+    "description": "Survey: A collection of AWESOME papers and resources on the large language model (LLM) related recommender system topics.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-17"
+  },
+  {
+    "repo": "muxajlbl4/awesome-playstation-vita",
+    "name": "awesome-playstation-vita",
+    "stars": 1380,
+    "description": "List of awesome stuff for PlayStation Vita",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-04"
+  },
+  {
+    "repo": "snwfdhmp/awesome-gpt-prompt-engineering",
+    "name": "awesome-gpt-prompt-engineering",
+    "stars": 1374,
+    "description": "A curated list of awesome resources, tools, and other shiny things for LLM prompt engineering.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "jonyzhang2023/awesome-embodied-vla-va-vln",
+    "name": "awesome-embodied-vla-va-vln",
+    "stars": 1368,
+    "description": "A curated list of state-of-the-art research in embodied AI, focusing on vision-language-action (VLA) models, vision-language navigation (VLN), and related multimodal learning approaches. ",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "kazhnuz/awesome-gnome",
+    "name": "awesome-gnome",
+    "stars": 1367,
+    "description": "A curated list of awesome apps, extensions, modules, themes and tools for the Gnome Desktop Environment.",
+    "source": "both",
+    "pushed_at": "2025-12-27"
+  },
+  {
+    "repo": "sourcegraph/awesome-code-ai",
+    "name": "awesome-code-ai",
+    "stars": 1362,
+    "description": "A list of AI coding tools (assistants, completions, refactoring, etc.)",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-17"
+  },
+  {
+    "repo": "ethicalml/awesome-artificial-intelligence-regulation",
+    "name": "awesome-artificial-intelligence-regulation",
+    "stars": 1362,
+    "description": "This repository aims to map the ecosystem of artificial intelligence guidelines, principles, codes of ethics, standards, regulation and beyond.",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-29"
+  },
+  {
+    "repo": "agamm/awesome-developer-first",
+    "name": "awesome-developer-first",
+    "stars": 1357,
+    "description": "A curated list of awesome developer-first tools products.",
+    "source": "both",
+    "pushed_at": "2025-12-27"
+  },
+  {
+    "repo": "corca-ai/awesome-llm-security",
+    "name": "awesome-llm-security",
+    "stars": 1353,
+    "description": "A curation of awesome tools, documents and projects about LLM Security.",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-20"
+  },
+  {
+    "repo": "toni77777/awesome-swiftui-libraries",
+    "name": "awesome-swiftui-libraries",
+    "stars": 1351,
+    "description": ":rocket: Awesome SwiftUI Libraries ",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-24"
+  },
+  {
+    "repo": "automata/awesome-jamstack",
+    "name": "awesome-jamstack",
+    "stars": 1350,
+    "description": "Carefully curated list of awesome Jamstack resources",
+    "source": "both",
+    "pushed_at": "2025-06-24"
+  },
+  {
+    "repo": "squadcasthub/awesome-sre-tools",
+    "name": "awesome-sre-tools",
+    "stars": 1350,
+    "description": "A curated list of Site Reliability and Production Engineering Tools",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-01"
+  },
+  {
+    "repo": "gruhn/awesome-naming",
+    "name": "awesome-naming",
+    "stars": 1344,
+    "description": "A curated list for when naming things is done right.",
+    "source": "both",
+    "pushed_at": "2025-11-01"
+  },
+  {
+    "repo": "fsprojects/awesome-fsharp",
+    "name": "awesome-fsharp",
+    "stars": 1344,
+    "description": "A curated list of awesome F# frameworks, libraries, software and resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-19"
+  },
+  {
+    "repo": "liangke23/awesome-knowledge-graph-reasoning",
+    "name": "awesome-knowledge-graph-reasoning",
+    "stars": 1343,
+    "description": "AKGR: Awesome Knowledge Graph Reasoning is a collection of knowledge graph reasoning works, including papers, codes and datasets",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-11"
+  },
+  {
+    "repo": "ringabout/awesome-nim",
+    "name": "awesome-nim",
+    "stars": 1341,
+    "description": "A curated list of awesome Nim frameworks, libraries, software and resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-17"
+  },
+  {
+    "repo": "lmmlzn/awesome-llms-datasets",
+    "name": "awesome-llms-datasets",
+    "stars": 1337,
+    "description": "Summarize existing representative LLMs text datasets.",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-11"
+  },
+  {
+    "repo": "luanshiyinyang/awesome-multiple-object-tracking",
+    "name": "awesome-multiple-object-tracking",
+    "stars": 1335,
+    "description": "Resources for Multiple Object Tracking (MOT)",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-07"
+  },
+  {
+    "repo": "zyszys/awesome-captcha",
+    "name": "awesome-captcha",
+    "stars": 1332,
+    "description": ":key: Curated list of awesome captcha libraries and crack tools.",
+    "source": "both",
+    "pushed_at": "2025-10-07"
+  },
+  {
+    "repo": "xdavidhu/awesome-google-vrp-writeups",
+    "name": "awesome-google-vrp-writeups",
+    "stars": 1332,
+    "description": "\ud83d\udc1b A list of writeups from the Google VRP Bug Bounty program",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-11"
+  },
+  {
+    "repo": "neurotechx/awesome-bci",
+    "name": "awesome-bci",
+    "stars": 1329,
+    "description": "Curated Collection of BCI resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-07"
+  },
+  {
+    "repo": "mikeroyal/unreal-engine-guide",
+    "name": "unreal-engine-guide",
+    "stars": 1327,
+    "description": "Unreal Engine 5 Guide. Learn to develop games for Windows, Linux, macOS, iOS, Android, Xbox Series X|S, PlayStation  5, Nintendo Switch.",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-27"
+  },
+  {
+    "repo": "aloisdeniel/awesome-monogame",
+    "name": "awesome-monogame",
+    "stars": 1327,
+    "description": "A collection of interesting libraries/tools for Monogame based game projects",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-18"
+  },
+  {
+    "repo": "utilforever/awesome-cafe",
+    "name": "awesome-cafe",
+    "stars": 1311,
+    "description": "\u2615 \ubaa8\uac01\ucf54\ud558\uae30 \uc88b\uc740 \uad6d\ub0b4 \uce74\ud398 \ub9ac\uc2a4\ud2b8",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-11"
+  },
+  {
+    "repo": "chaofengc/awesome-image-quality-assessment",
+    "name": "awesome-image-quality-assessment",
+    "stars": 1293,
+    "description": "A comprehensive collection of IQA papers",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-30"
+  },
+  {
+    "repo": "hacke-rc/awesome-reversing",
+    "name": "awesome-reversing",
+    "stars": 1291,
+    "description": "A collection of resources to learn Reverse Engineering from start!",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-18"
+  },
+  {
+    "repo": "opendilab/awesome-diffusion-model-in-rl",
+    "name": "awesome-diffusion-model-in-rl",
+    "stars": 1290,
+    "description": "A curated list of Diffusion Model in RL resources (continually updated)",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-15"
+  },
+  {
+    "repo": "acgeospatial/awesome-earthobservation-code",
+    "name": "awesome-earthobservation-code",
+    "stars": 1288,
+    "description": "A curated list of awesome tools, tutorials, code, projects, links, stuff about Earth Observation, Geospatial Satellite Imagery",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-23"
+  },
+  {
+    "repo": "haokaiyang/mac-quicklook",
+    "name": "mac-quicklook",
+    "stars": 1287,
+    "description": "QuickLook plugins and packages",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-29"
+  },
+  {
+    "repo": "openmedlab/awesome-medical-dataset",
+    "name": "awesome-medical-dataset",
+    "stars": 1287,
+    "description": "Collection of awesome medical dataset resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-01-23"
+  },
+  {
+    "repo": "offciercia/non-typical-osint-guide",
+    "name": "non-typical-osint-guide",
+    "stars": 1279,
+    "description": "The most unusual OSINT guide you've ever seen. The repository is intended for bored professionals only. PRs are welcome! ",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-04"
+  },
+  {
+    "repo": "kr1sp1n/awesome-gemini",
+    "name": "awesome-gemini",
+    "stars": 1278,
+    "description": "A collection of awesome things regarding the gemini protocol ecosystem.",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-25"
+  },
+  {
+    "repo": "igorbarinov/awesome-bitcoin",
+    "name": "awesome-bitcoin",
+    "stars": 1276,
+    "description": "A curated list of bitcoin services and tools for software developers",
+    "source": "both",
+    "pushed_at": "2025-12-22"
+  },
+  {
+    "repo": "kedreamix/awesome-talking-head-synthesis",
+    "name": "awesome-talking-head-synthesis",
+    "stars": 1276,
+    "description": "\ud83d\udcac An extensive collection of exceptional resources dedicated to the captivating world of talking face synthesis!   \u2b50 If you find this repo useful, please give it a star! \ud83e\udd29",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-06"
+  },
+  {
+    "repo": "tkmru/awesome-edr-bypass",
+    "name": "awesome-edr-bypass",
+    "stars": 1267,
+    "description": "Awesome EDR Bypass Resources For Ethical Hacking",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-16"
+  },
+  {
+    "repo": "jxzhangjhu/awesome-llm-rag",
+    "name": "awesome-llm-rag",
+    "stars": 1264,
+    "description": "Awesome-LLM-RAG: a curated list of advanced retrieval augmented generation (RAG) in Large Language Models",
+    "source": "context-awesome",
+    "pushed_at": "2025-02-24"
+  },
+  {
+    "repo": "lmmentel/awesome-python-chemistry",
+    "name": "awesome-python-chemistry",
+    "stars": 1263,
+    "description": "A curated list of Python packages related to chemistry ",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-21"
+  },
+  {
+    "repo": "notthetup/awesome-webaudio",
+    "name": "awesome-webaudio",
+    "stars": 1262,
+    "description": "A curated list of awesome WebAudio packages and resources.",
+    "source": "both",
+    "pushed_at": "2025-12-21"
+  },
+  {
+    "repo": "dmytrolitvinov/awesome-flake8-extensions",
+    "name": "awesome-flake8-extensions",
+    "stars": 1260,
+    "description": ":octocat: A curated awesome list of flake8 extensions. Feel free to contribute! :mortar_board:",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-21"
+  },
+  {
+    "repo": "beardicus/awesome-plotters",
+    "name": "awesome-plotters",
+    "stars": 1242,
+    "description": "A curated list of code and resources for computer-controlled drawing machines and other visual art robots.",
+    "source": "both",
+    "pushed_at": "2025-12-03"
+  },
+  {
+    "repo": "lmd0311/awesome-world-model",
+    "name": "awesome-world-model",
+    "stars": 1242,
+    "description": "Collect some World Models for Autonomous Driving (and Robotic) papers. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-22"
+  },
+  {
+    "repo": "carlosperate/awesome-microbit",
+    "name": "awesome-microbit",
+    "stars": 1096,
+    "description": "A curated list of BBC micro:bit resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-05"
+  },
+  {
+    "repo": "theshadow29/awesome-grounding",
+    "name": "awesome-grounding",
+    "stars": 1094,
+    "description": "awesome grounding: A curated list of research papers in visual grounding",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-21"
+  },
+  {
+    "repo": "julionc/awesome-shopify",
+    "name": "awesome-shopify",
+    "stars": 1092,
+    "description": "\ud83d\udccc\u2728A curated list of awesome Shopify resources, libraries and open source projects.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "daviddias/awesome-hacking-locations",
+    "name": "awesome-hacking-locations",
+    "stars": 1086,
+    "description": ":computer: :coffee: List of Awesome Hacking Locations, organised by Country and City, listing if it features power and wifi",
+    "source": "both",
+    "pushed_at": "2025-08-24"
+  },
+  {
+    "repo": "binaryshrey/awesome-android-open-source-projects",
+    "name": "awesome-android-open-source-projects",
+    "stars": 1083,
+    "description": ":eyeglasses: A curated list of awesome android projects by open-source contributors. ",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-11"
+  },
+  {
+    "repo": "mthcht/awesome-lists",
+    "name": "awesome-lists",
+    "stars": 1078,
+    "description": "Awesome Security lists for SOC/CERT/CTI",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-17"
+  },
+  {
+    "repo": "barnamenevisi/free-resources",
+    "name": "free-resources",
+    "stars": 1078,
+    "description": "\u0622\u0631\u0634\u06cc\u0648 \u0645\u0646\u0627\u0628\u0639 \u0631\u0627\u06cc\u06af\u0627\u0646 \u0622\u0645\u0648\u0632\u0634 \u0628\u0631\u0646\u0627\u0645\u0647 \u0646\u0648\u06cc\u0633\u06cc \u0628\u0647 \u0632\u0628\u0627\u0646 \u0641\u0627\u0631\u0633\u06cc ( \u0647\u0631 \u06a9\u0633\u06cc \u0628\u0627\u06cc\u062f \u0628\u062a\u0648\u0646\u0647 \u0628\u0631\u0646\u0627\u0645\u0647 \u0646\u0648\u06cc\u0633\u06cc \u0631\u0648 \u06cc\u0627\u062f \u0628\u06af\u06cc\u0631\u0647\u060c \u0645\u0647\u0645 \u0646\u06cc\u0633\u062a \u067e\u0648\u0644 \u062f\u0627\u0631\u0647 \u06cc\u0627 \u0646\u062f\u0627\u0631\u0647\u060c \u0628\u0647 \u0627\u0645\u06cc\u062f \u0627\u06cc\u0646\u06a9\u0647 \u06a9\u0633\u06cc \u0628\u0647 \u062e\u0627\u0637\u0631 \u0646\u062f\u0627\u0634\u062a\u0646 \u067e\u0648\u0644 \u0627\u0632 \u0622\u0645\u0648\u0632\u0634 \u0639\u0642\u0628 \u0646\u0645\u0648\u0646\u0647 )",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-12"
+  },
+  {
+    "repo": "compscilauren/awesome-git-hooks",
+    "name": "awesome-git-hooks",
+    "stars": 1077,
+    "description": ":anchor: A curated list of awesome git hooks",
+    "source": "both",
+    "pushed_at": "2026-01-01"
+  },
+  {
+    "repo": "transitive-bullshit/awesome-ffmpeg",
+    "name": "awesome-ffmpeg",
+    "stars": 1074,
+    "description": "\ud83d\udc7b A curated list of awesome FFmpeg resources.",
+    "source": "both",
+    "pushed_at": "2025-08-09"
+  },
+  {
+    "repo": "uncbiag/awesome-foundation-models",
+    "name": "awesome-foundation-models",
+    "stars": 1072,
+    "description": "A curated list of foundation models for vision and language tasks",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-23"
+  },
+  {
+    "repo": "awesome-gptx/awesome-gpt",
+    "name": "awesome-gpt",
+    "stars": 1071,
+    "description": "\ud83c\udfc6 An awe-inspiring collection of resources, encompassing a wide range of tools, documents, resources, applications, and use cases related to ChatGPT.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-17"
+  },
+  {
+    "repo": "obazoud/awesome-dashboard",
+    "name": "awesome-dashboard",
+    "stars": 1068,
+    "description": "A curated list of amazingly awesome dashboards/visualization resources.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "radarcode/awesome-sar",
+    "name": "awesome-sar",
+    "stars": 1068,
+    "description": "A curated list of awesome Synthetic Aperture Radar (SAR) software, libraries, and resources.",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-22"
+  },
+  {
+    "repo": "jnmcfly/awesome-startpage",
+    "name": "awesome-startpage",
+    "stars": 1065,
+    "description": "This is a carefully compiled list of remarkable projects with the focus on startpages.",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-17"
+  },
+  {
+    "repo": "mfaisalkhatri/awesome-learning",
+    "name": "awesome-learning",
+    "stars": 1065,
+    "description": "A curated lists of awesome learning resources for a Software Test Automation Engineer ",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-07"
+  },
+  {
+    "repo": "drom/awesome-hdl",
+    "name": "awesome-hdl",
+    "stars": 1056,
+    "description": "Hardware Description Languages",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-14"
+  },
+  {
+    "repo": "valpackett/awesome-gtk",
+    "name": "awesome-gtk",
+    "stars": 1052,
+    "description": "List of awesome GTK (3/4) applications",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-14"
+  },
+  {
+    "repo": "fishttp/awesome-bluesky",
+    "name": "awesome-bluesky",
+    "stars": 1049,
+    "description": "A list of all known tools available for the Bluesky platform",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-16"
+  },
+  {
+    "repo": "afontcu/awesome-learning",
+    "name": "awesome-learning",
+    "stars": 1045,
+    "description": "A curated list of awesome learning material",
+    "source": "context-awesome",
+    "pushed_at": "2025-03-18"
+  },
+  {
+    "repo": "thenewdynamic/awesome-hugo",
+    "name": "awesome-hugo",
+    "stars": 1041,
+    "description": "A curated list of awesome things related to Hugo, The world's fastest framework for building websites.",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-18"
+  },
+  {
+    "repo": "otfcg/awesome-game-analysis",
+    "name": "awesome-game-analysis",
+    "stars": 1039,
+    "description": "a comprehensive collection of video game tech analysis resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-10-13"
+  },
+  {
+    "repo": "infosecb/awesome-detection-engineering",
+    "name": "awesome-detection-engineering",
+    "stars": 1036,
+    "description": "Detection Engineering is a tactical function of a cybersecurity defense program that involves the design, implementation, and operation of detective controls with the goal of proactively identifying m",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-19"
+  },
+  {
+    "repo": "hillzhang1999/llm-hallucination-survey",
+    "name": "llm-hallucination-survey",
+    "stars": 1034,
+    "description": "Reading list of hallucination in LLMs. Check out our new survey paper: \"Siren\u2019s Song in the AI Ocean: A Survey on Hallucination in Large Language Models\"",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-27"
+  },
+  {
+    "repo": "gmelodie/awesome-wordlists",
+    "name": "awesome-wordlists",
+    "stars": 1029,
+    "description": "A curated list of wordlists for bruteforcing and fuzzing",
+    "source": "context-awesome",
+    "pushed_at": "2025-07-30"
+  },
+  {
+    "repo": "analysis-tools-dev/dynamic-analysis",
+    "name": "dynamic-analysis",
+    "stars": 1026,
+    "description": "\u2699\ufe0f A curated list of dynamic analysis tools and linters for all programming languages, binaries, and more.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "codandoapple/aprenda-swift",
+    "name": "aprenda-swift",
+    "stars": 1024,
+    "description": "Uma lista de conte\u00fados para voc\u00ea aprender Swift",
+    "source": "context-awesome",
+    "pushed_at": "2025-05-22"
+  },
+  {
+    "repo": "wddadk/offensive-osint-tools",
+    "name": "offensive-osint-tools",
+    "stars": 1023,
+    "description": "OffSec OSINT Pentest/RedTeam Tools",
+    "source": "context-awesome",
+    "pushed_at": "2025-06-04"
+  },
+  {
+    "repo": "benedekrozemberczki/awesome-gradient-boosting-papers",
+    "name": "awesome-gradient-boosting-papers",
+    "stars": 1023,
+    "description": "A curated list of gradient boosting research papers with implementations. ",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "adonisjs-community/awesome-adonisjs",
+    "name": "awesome-adonisjs",
+    "stars": 1022,
+    "description": "A curated list of awesome bookmarks, packages, tutorials, videos and other cool resources from the AdonisJS ecosystem.",
+    "source": "context-awesome",
+    "pushed_at": "2025-09-22"
+  },
+  {
+    "repo": "sudara/awesome-juce",
+    "name": "awesome-juce",
+    "stars": 1022,
+    "description": "A curated list of JUCE modules, templates, plugins, oh my!",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "benallfree/awesome-pocketbase",
+    "name": "awesome-pocketbase",
+    "stars": 1018,
+    "description": "A collection of PocketBase community resources.",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-06"
+  },
+  {
+    "repo": "jie65535/awesome-balatro",
+    "name": "awesome-balatro",
+    "stars": 1016,
+    "description": "A list of Balatro Mods and Tools",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-09"
+  },
+  {
+    "repo": "tmylla/awesome-llm4cybersecurity",
+    "name": "awesome-llm4cybersecurity",
+    "stars": 1014,
+    "description": "An overview of LLMs for cybersecurity.",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-04"
+  },
+  {
+    "repo": "kyrolabs/awesome-agents",
+    "name": "awesome-agents",
+    "stars": 1007,
+    "description": "\ud83e\udd16 Awesome list of AI Agents",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-13"
+  },
+  {
+    "repo": "cuge1995/awesome-time-series",
+    "name": "awesome-time-series",
+    "stars": 1007,
+    "description": "list of papers, code, and other resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-08-13"
+  },
+  {
+    "repo": "e2b-dev/awesome-ai-sdks",
+    "name": "awesome-ai-sdks",
+    "stars": 1005,
+    "description": "A database of SDKs, frameworks, libraries, and tools for creating, monitoring, debugging and deploying autonomous AI agents",
+    "source": "context-awesome",
+    "pushed_at": "2025-02-26"
+  },
+  {
+    "repo": "felladrin/awesome-ai-web-search",
+    "name": "awesome-ai-web-search",
+    "stars": 1004,
+    "description": "List of software that allows searching the web with the assistance of AI: https://hf.co/spaces/felladrin/awesome-ai-web-search",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-24"
+  },
+  {
+    "repo": "mojicians/awesome-mojo",
+    "name": "awesome-mojo",
+    "stars": 1004,
+    "description": "A curated list of awesome Mojo \ud83d\udd25 frameworks, libraries, software and resources",
+    "source": "context-awesome",
+    "pushed_at": "2026-01-09"
+  },
+  {
+    "repo": "von-development/awesome-langgraph",
+    "name": "awesome-langgraph",
+    "stars": 1002,
+    "description": "A curated list of awesome projects, resources, and tools for building stateful, multi-actor applications with LangGraph \ud83e\udd9c\ud83d\udd78\ufe0f",
+    "source": "context-awesome",
+    "pushed_at": "2025-11-27"
+  },
+  {
+    "repo": "robotlearning123/awesome-isaac-gym",
+    "name": "awesome-isaac-gym",
+    "stars": 1002,
+    "description": "A curated list of awesome NVIDIA Issac Gym frameworks, papers, software, and resources",
+    "source": "context-awesome",
+    "pushed_at": "2025-12-30"
+  },
+  {
+    "repo": "radek-sprta/awesome-game-remakes",
+    "name": "awesome-game-remakes",
+    "stars": 996,
+    "description": "Actively maintained open-source game remakes.",
+    "source": "both",
+    "pushed_at": "2025-11-11"
+  },
+  {
+    "repo": "croqaz/awesome-decentralized",
+    "name": "awesome-decentralized",
+    "stars": 992,
+    "description": "",
+    "source": "trackawesomelist-only",
+    "pushed_at": "2025-07-11"
+  },
+  {
+    "repo": "0pandadev/awesome-windows",
+    "name": "awesome-windows",
+    "stars": 970,
+    "description": "An awesome & curated list of tools and apps for Windows 10/11.",
+    "source": "both",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "petk/awesome-jquery",
+    "name": "awesome-jquery",
+    "stars": 961,
+    "description": "A curated list of awesome jQuery plugins, resources and other shiny things.",
+    "source": "both",
+    "pushed_at": "2026-01-01"
+  },
+  {
+    "repo": "preactjs/awesome-preact",
+    "name": "awesome-preact",
+    "stars": 949,
+    "description": "A curated list of amazingly awesome things regarding Preact ecosystem :star2:",
+    "source": "both",
+    "pushed_at": "2025-11-13"
+  },
+  {
+    "repo": "mostafatouny/awesome-theoretical-computer-science",
+    "name": "awesome-theoretical-computer-science",
+    "stars": 941,
+    "description": "Math & CS Awesome List, distinguished by proof and logic and technique",
+    "source": "both",
+    "pushed_at": "2025-09-05"
+  },
+  {
+    "repo": "ddotta/awesome-polars",
+    "name": "awesome-polars",
+    "stars": 934,
+    "description": "A curated list of Polars talks, tools, examples & articles. Contributions welcome ! ",
+    "source": "both",
+    "pushed_at": "2026-01-16"
+  },
+  {
+    "repo": "friendsofcake/awesome-cakephp",
+    "name": "awesome-cakephp",
+    "stars": 924,
+    "description": "A curated list of amazingly awesome CakePHP plugins, resources and shiny things. ",
+    "source": "both",
+    "pushed_at": "2026-01-05"
+  },
+  {
+    "repo": "leomaurodesenv/game-datasets",
+    "name": "game-datasets",
+    "stars": 904,
+    "description": ":video_game: A curated list of awesome game datasets, and tools to artificial intelligence in games",
+    "source": "both",
+    "pushed_at": "2025-11-17"
+  },
+  {
+    "repo": "jakoch/awesome-composer",
+    "name": "awesome-composer",
+    "stars": 884,
+    "description": " :sunglasses: A curated awesome list for Composer, Packagist, Satis, Plugins, Scripts, Composer related resources, tutorials.",
+    "source": "both",
+    "pushed_at": "2025-12-15"
+  },
+  {
+    "repo": "matiassingers/awesome-slack",
+    "name": "awesome-slack",
+    "stars": 859,
+    "description": "A curated list of awesome Slack related things",
+    "source": "both",
+    "pushed_at": "2025-07-28"
+  },
+  {
+    "repo": "secretgeek/awesomecsv",
+    "name": "awesomecsv",
+    "stars": 843,
+    "description": "\ud83d\udd76\ufe0fA curated list of awesome tools for dealing with CSV.",
+    "source": "both",
+    "pushed_at": "2025-02-25"
+  },
+  {
+    "repo": "writing-resources/awesome-scientific-writing",
+    "name": "awesome-scientific-writing",
+    "stars": 833,
+    "description": ":keyboard: A curated list of awesome tools, demos and resources to go beyond LaTeX ",
+    "source": "both",
+    "pushed_at": "2025-11-06"
+  },
+  {
+    "repo": "osmlab/awesome-openstreetmap",
+    "name": "awesome-openstreetmap",
+    "stars": 788,
+    "description": "\ud83d\ude0e Curated list of awesome OpenSteetMap-projects",
+    "source": "both",
+    "pushed_at": "2025-07-23"
+  },
+  {
+    "repo": "aliesbelik/awesome-jmeter",
+    "name": "awesome-jmeter",
+    "stars": 754,
+    "description": "A collection of resources covering different aspects of JMeter usage.",
+    "source": "both",
+    "pushed_at": "2026-01-01"
+  },
+  {
+    "repo": "ohenley/awesome-ada",
+    "name": "awesome-ada",
+    "stars": 738,
+    "description": "A curated list of awesome resources related to the Ada and SPARK programming language",
+    "source": "both",
+    "pushed_at": "2026-01-12"
+  },
+  {
+    "repo": "wardley-maps-community/awesome-wardley-maps",
+    "name": "awesome-wardley-maps",
+    "stars": 731,
+    "description": "Wardley maps community hub. Useful Wardley mapping resources",
+    "source": "both",
+    "pushed_at": "2025-11-16"
+  },
+  {
+    "repo": "gofiber/awesome-fiber",
+    "name": "awesome-fiber",
+    "stars": 716,
+    "description": "\u2728 A curated list of awesome Fiber middlewares, boilerplates, recipes, articles and tools.",
+    "source": "both",
+    "pushed_at": "2025-11-21"
+  },
+  {
+    "repo": "dlang-community/awesome-d",
+    "name": "awesome-d",
+    "stars": 715,
+    "description": "  A curated list of awesome D documents, frameworks, libraries and software. Inspired by awesome-python.",
+    "source": "both",
+    "pushed_at": "2025-12-27"
+  },
+  {
+    "repo": "grafana/awesome-k6",
+    "name": "awesome-k6",
+    "stars": 697,
+    "description": "A curated list of awesome tools, content and projects using k6",
+    "source": "both",
+    "pushed_at": "2026-01-15"
+  },
+  {
+    "repo": "adafruit/awesome-circuitpython",
+    "name": "awesome-circuitpython",
+    "stars": 687,
+    "description": "A curated list of awesome CircuitPython guides, videos, libraries, frameworks, software and resources.",
+    "source": "both",
+    "pushed_at": "2025-07-21"
+  },
+  {
+    "repo": "deanhume/typography",
+    "name": "typography",
+    "stars": 672,
+    "description": "A collection of web typography resources",
+    "source": "both",
+    "pushed_at": "2025-11-25"
+  },
+  {
+    "repo": "zachflower/awesome-open-source-supporters",
+    "name": "awesome-open-source-supporters",
+    "stars": 646,
+    "description": "\u2b50\ufe0f A curated list of companies that offer their services for free to Open Source projects",
+    "source": "both",
+    "pushed_at": "2025-08-25"
+  },
+  {
+    "repo": "sindresorhus/awesome-tap",
+    "name": "awesome-tap",
+    "stars": 636,
+    "description": "Useful resources for the Test Anything Protocol",
+    "source": "both",
+    "pushed_at": "2025-11-11"
+  },
+  {
+    "repo": "mislavcimpersak/awesome-dev-fun",
+    "name": "awesome-dev-fun",
+    "stars": 627,
+    "description": "A curated list of awesome fun libs/packages/languages that have no real purpose but to make a developer chuckle.",
+    "source": "both",
+    "pushed_at": "2025-07-08"
+  },
+  {
+    "repo": "ayr-ton/awesome-geek-podcasts",
+    "name": "awesome-geek-podcasts",
+    "stars": 594,
+    "description": "A curated list of podcasts we like to listen to. ",
+    "source": "both",
+    "pushed_at": "2025-06-02"
+  },
+  {
+    "repo": "francoism90/awesome-kde",
+    "name": "awesome-kde",
+    "stars": 584,
+    "description": "A curated list of awesome apps, extensions, modules, themes and tools for the KDE Desktop Environment.",
+    "source": "both",
+    "pushed_at": "2025-12-09"
+  },
+  {
+    "repo": "bystritskiy/awesome-ios-books",
+    "name": "awesome-ios-books",
+    "stars": 577,
+    "description": "\ud83d\udcda Directory of iOS books",
+    "source": "both",
+    "pushed_at": "2025-11-15"
+  }
+]
