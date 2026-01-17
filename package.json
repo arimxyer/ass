@@ -1,11 +1,11 @@
 {
-  "name": "ass",
+  "name": "awess",
   "version": "0.1.0",
   "description": "MCP server for searching curated awesome lists and their contents",
   "type": "module",
   "main": "src/index.ts",
   "bin": {
-    "ass": "src/index.ts"
+    "awess": "src/index.ts"
   },
   "files": [
     "src/**/*.ts",
