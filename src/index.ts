@@ -1,3 +1,4 @@
+#!/usr/bin/env bun
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import MiniSearch from "minisearch";
@@ -13,9 +14,28 @@ interface AwesomeList {
   source: string;
 }
 
+// CDN base URL for data files
+const CDN_BASE = "https://cdn.jsdelivr.net/gh/arimxyer/ass@main/data";
+
+// Load data from jsDelivr CDN, fallback to local for development
+async function loadData<T>(filename: string): Promise<T> {
+  // Try CDN first
+  try {
+    const res = await fetch(`${CDN_BASE}/${filename}`);
+    if (res.ok) {
+      return res.json();
+    }
+  } catch {
+    // CDN failed, try local
+  }
+
+  // Fallback to local file
+  const localPath = new URL(`../data/${filename}`, import.meta.url);
+  return Bun.file(localPath).json();
+}
+
 // Load curated data
-const dataPath = new URL("../data/lists.json", import.meta.url);
-const lists: AwesomeList[] = await Bun.file(dataPath).json();
+const lists: AwesomeList[] = await loadData("lists.json");
 
 // Initialize search index
 const search = new MiniSearch<AwesomeList>({
@@ -202,11 +222,10 @@ server.tool(
 );
 
 // Load items index
-const itemsPath = new URL("../data/items.json", import.meta.url);
 let itemsIndex: ItemsIndex | null = null;
 
 try {
-  itemsIndex = await Bun.file(itemsPath).json();
+  itemsIndex = await loadData<ItemsIndex>("items.json");
   console.error(`Loaded ${itemsIndex?.itemCount} items from ${itemsIndex?.listCount} lists`);
 } catch {
   console.error("No items.json found - get_items will be unavailable");

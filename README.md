@@ -1,33 +1,32 @@
-# ASS - Awesome Search Services
+# Awesome Search Services
 
-MCP server for searching curated awesome lists.
+MCP server for searching 631+ curated awesome lists and 164,000+ tools/libraries within them.
 
 ## Features
 
-- 631+ curated awesome lists (500+ stars, updated within last year)
-- Fuzzy search with MiniSearch
-- Get detailed metadata for individual lists
-- Browse items/resources within lists
-- Bun runtime
+- **Search lists** - Find awesome lists by keyword (e.g., "machine learning", "rust")
+- **Browse items** - Get tools/libraries from within any list
+- **GitHub metadata** - Star counts, languages, last updated
+- **Zero setup** - Data loaded from CDN, no cloning required
 
-## Installation
+## Quick Start
+
+### Claude Code
 
 ```bash
-bun install
+claude mcp add awesome-search -- bunx awesome-search-services
 ```
-
-## Usage
 
 ### Claude Desktop
 
-Add to your `claude_desktop_config.json`:
+Add to your config file:
 
 ```json
 {
   "mcpServers": {
     "awesome-search": {
-      "command": "bun",
-      "args": ["run", "/path/to/ass/src/index.ts"]
+      "command": "bunx",
+      "args": ["awesome-search-services"]
     }
   }
 }
@@ -38,31 +37,25 @@ Add to your `claude_desktop_config.json`:
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 - Linux: `~/.config/Claude/claude_desktop_config.json`
 
-### Claude Code
-
-Add to your project's `.mcp.json` or global settings:
-
-```json
-{
-  "mcpServers": {
-    "awesome-search": {
-      "command": "bun",
-      "args": ["run", "/path/to/ass/src/index.ts"]
-    }
-  }
-}
-```
-
-### Manual testing
+### Run directly
 
 ```bash
+bunx awesome-search-services
+```
+
+### Test with MCP Inspector
+
+```bash
+npx @modelcontextprotocol/inspector bunx awesome-search-services
+```
+
+## Development
+
+```bash
+git clone https://github.com/arimxyer/ass.git
+cd ass
+bun install
 bun run start
-```
-
-Or use the MCP Inspector:
-
-```bash
-npx @modelcontextprotocol/inspector bun run src/index.ts
 ```
 
 ## Tools
