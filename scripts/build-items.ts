@@ -24,14 +24,16 @@ for (let i = 0; i < lists.length; i++) {
   const progress = `[${i + 1}/${lists.length}]`;
 
   try {
-    // Try main branch first, then master
+    // Try main branch first, then master, with both README.md and readme.md
     let readme: string | null = null;
-    for (const branch of ["main", "master"]) {
-      const url = `https://raw.githubusercontent.com/${list.repo}/${branch}/README.md`;
-      const res = await fetch(url);
-      if (res.ok) {
-        readme = await res.text();
-        break;
+    outer: for (const branch of ["main", "master"]) {
+      for (const filename of ["README.md", "readme.md"]) {
+        const url = `https://raw.githubusercontent.com/${list.repo}/${branch}/${filename}`;
+        const res = await fetch(url);
+        if (res.ok) {
+          readme = await res.text();
+          break outer;
+        }
       }
     }
 
