@@ -1,12 +1,16 @@
 {
-  "name": "awesome-search-services",
+  "name": "ass",
   "version": "0.1.0",
   "description": "MCP server for searching curated awesome lists and their contents",
   "type": "module",
   "main": "src/index.ts",
   "bin": {
-    "awesome-search": "src/index.ts"
+    "ass": "src/index.ts"
   },
+  "files": [
+    "src/**/*.ts",
+    "!src/**/*.test.ts"
+  ],
   "scripts": {
     "start": "bun run src/index.ts",
     "dev": "bun run --watch src/index.ts"
@@ -20,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/arimxyer/ass.git"
+    "url": "git+https://github.com/arimxyer/ass.git"
   },
   "license": "MIT",
   "devDependencies": {

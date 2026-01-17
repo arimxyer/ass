@@ -14,7 +14,7 @@ MCP server for searching 631+ curated awesome lists and 164,000+ tools/libraries
 ### Claude Code
 
 ```bash
-claude mcp add awesome-search -- bunx awesome-search-services
+claude mcp add ass -- bunx ass
 ```
 
 ### Claude Desktop
@@ -24,9 +24,9 @@ Add to your config file:
 ```json
 {
   "mcpServers": {
-    "awesome-search": {
+    "ass": {
       "command": "bunx",
-      "args": ["awesome-search-services"]
+      "args": ["ass"]
     }
   }
 }
@@ -40,13 +40,13 @@ Add to your config file:
 ### Run directly
 
 ```bash
-bunx awesome-search-services
+bunx ass
 ```
 
 ### Test with MCP Inspector
 
 ```bash
-npx @modelcontextprotocol/inspector bunx awesome-search-services
+npx @modelcontextprotocol/inspector bunx ass
 ```
 
 ## Development
