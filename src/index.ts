@@ -2,6 +2,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import MiniSearch from "minisearch";
 import { z } from "zod";
+import type { ItemsIndex } from "./types";
 
 interface AwesomeList {
   repo: string;
@@ -199,6 +200,85 @@ server.tool(
     };
   }
 );
+
+// Load items index
+const itemsPath = new URL("../data/items.json", import.meta.url);
+let itemsIndex: ItemsIndex | null = null;
+
+try {
+  itemsIndex = await Bun.file(itemsPath).json();
+  console.error(`Loaded ${itemsIndex?.itemCount} items from ${itemsIndex?.listCount} lists`);
+} catch {
+  console.error("No items.json found - get_items will be unavailable");
+}
+
+// Tool: Get items from a list
+if (itemsIndex) {
+  server.tool(
+    "get_items",
+    "Get resources/items from an awesome list. Returns tools, libraries, and resources curated in the list.",
+    {
+      repo: z.string().describe("Repository name (e.g., 'vinta/awesome-python')"),
+      category: z.string().optional().describe("Filter by category/section name"),
+      limit: z.number().optional().describe("Maximum items to return (default: 50)"),
+    },
+    async ({ repo, category, limit = 50 }) => {
+      const listEntry = itemsIndex!.lists[repo] || itemsIndex!.lists[repo.toLowerCase()];
+
+      if (!listEntry) {
+        return {
+          content: [
+            {
+              type: "text",
+              text: `List not found: ${repo}. Use the 'search' tool to find available lists.`,
+            },
+          ],
+        };
+      }
+
+      let items = listEntry.items;
+
+      // Filter by category if provided
+      if (category) {
+        const categoryLower = category.toLowerCase();
+        items = items.filter(
+          (i) =>
+            i.category.toLowerCase().includes(categoryLower) ||
+            i.subcategory?.toLowerCase().includes(categoryLower)
+        );
+      }
+
+      // Apply limit
+      items = items.slice(0, limit);
+
+      // Format output
+      const result = {
+        repo,
+        totalItems: listEntry.items.length,
+        returnedItems: items.length,
+        lastParsed: listEntry.lastParsed,
+        items: items.map((i) => ({
+          name: i.name,
+          url: i.url,
+          description: i.description,
+          category: i.category,
+          subcategory: i.subcategory,
+          stars: i.github?.stars,
+          language: i.github?.language,
+        })),
+      };
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(result, null, 2),
+          },
+        ],
+      };
+    }
+  );
+}
 
 // Start server
 const transport = new StdioServerTransport();
