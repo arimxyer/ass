@@ -1,6 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import MiniSearch from "minisearch";
+import { z } from "zod";
 
 interface AwesomeList {
   repo: string;
@@ -40,18 +41,9 @@ server.tool(
   "search",
   "Search curated awesome lists by keyword. Returns matching lists sorted by relevance and stars.",
   {
-    query: {
-      type: "string",
-      description: "Search query (e.g., 'rust', 'machine learning', 'react')",
-    },
-    limit: {
-      type: "number",
-      description: "Maximum results to return (default: 10)",
-    },
-    minStars: {
-      type: "number",
-      description: "Minimum star count filter (default: 0)",
-    },
+    query: z.string().describe("Search query (e.g., 'rust', 'machine learning', 'react')"),
+    limit: z.number().optional().describe("Maximum results to return (default: 10)"),
+    minStars: z.number().optional().describe("Minimum star count filter (default: 0)"),
   },
   async ({ query, limit = 10, minStars = 0 }) => {
     const results = search
@@ -83,10 +75,7 @@ server.tool(
   "get_list",
   "Get details for a specific awesome list by repository name",
   {
-    repo: {
-      type: "string",
-      description: "Repository name (e.g., 'sindresorhus/awesome')",
-    },
+    repo: z.string().describe("Repository name (e.g., 'sindresorhus/awesome')"),
   },
   async ({ repo }) => {
     const list = lists.find(
@@ -132,14 +121,8 @@ server.tool(
   "top_lists",
   "Get top awesome lists by star count",
   {
-    limit: {
-      type: "number",
-      description: "Number of lists to return (default: 20)",
-    },
-    category: {
-      type: "string",
-      description: "Optional keyword to filter by (e.g., 'python', 'web')",
-    },
+    limit: z.number().optional().describe("Number of lists to return (default: 20)"),
+    category: z.string().optional().describe("Optional keyword to filter by (e.g., 'python', 'web')"),
   },
   async ({ limit = 20, category }) => {
     let filtered = lists;
