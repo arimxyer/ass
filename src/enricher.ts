@@ -4,7 +4,21 @@ import type { Item } from "./types";
 
 export function extractGitHubRepo(url: string): string | null {
   const match = url.match(/github\.com\/([^\/]+\/[^\/]+)/);
-  return match ? match[1].replace(/\.git$/, "") : null;
+  if (!match) return null;
+
+  // Clean up repo name: remove .git, #readme, query params, etc.
+  let repo = match[1]
+    .replace(/\.git$/, "")
+    .replace(/#.*$/, "")
+    .replace(/\?.*$/, "");
+
+  // Skip non-repo paths like "topics/awesome", "sponsors/foo"
+  const invalidPrefixes = ["topics", "sponsors", "orgs", "settings", "marketplace"];
+  if (invalidPrefixes.some(p => repo.startsWith(p + "/"))) {
+    return null;
+  }
+
+  return repo;
 }
 
 export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
@@ -29,10 +43,19 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
   const repos = Array.from(repoMap.keys());
   console.log(`Enriching ${repos.length} unique repos...`);
 
-  // Batch query using GraphQL (100 at a time)
+  // Batch query using GraphQL (100 at a time, with rate limiting)
   const batchSize = 100;
+  const delayMs = 1000; // 1 second between batches to avoid secondary rate limit
+
   for (let i = 0; i < repos.length; i += batchSize) {
     const batch = repos.slice(i, i + batchSize);
+
+    // Add delay between batches (except first)
+    if (i > 0) {
+      await new Promise(resolve => setTimeout(resolve, delayMs));
+    }
+
+    console.log(`  Enriching batch ${i / batchSize + 1}/${Math.ceil(repos.length / batchSize)}...`);
 
     const query = `
       query {
