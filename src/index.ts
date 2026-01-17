@@ -14,19 +14,19 @@ interface AwesomeList {
   source: string;
 }
 
-// CDN base URL for data files
-const CDN_BASE = "https://cdn.jsdelivr.net/gh/arimxyer/ass@main/data";
+// Data URL - GitHub raw (no file size limits, 5 min cache)
+const DATA_URL = "https://raw.githubusercontent.com/arimxyer/ass/main/data";
 
-// Load data from jsDelivr CDN, fallback to local for development
+// Load data from GitHub, fallback to local for development
 async function loadData<T>(filename: string): Promise<T> {
-  // Try CDN first
+  // Try remote first
   try {
-    const res = await fetch(`${CDN_BASE}/${filename}`);
+    const res = await fetch(`${DATA_URL}/${filename}`);
     if (res.ok) {
       return res.json();
     }
   } catch {
-    // CDN failed, try local
+    // Remote failed, try local
   }
 
   // Fallback to local file
