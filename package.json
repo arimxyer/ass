@@ -20,6 +20,6 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
-    "fuse.js": "^7.0.0"
+    "minisearch": "^7.2.0"
   }
 }

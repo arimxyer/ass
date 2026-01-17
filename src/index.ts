@@ -1,6 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import Fuse from "fuse.js";
+import MiniSearch from "minisearch";
 
 interface AwesomeList {
   repo: string;
@@ -15,16 +15,19 @@ interface AwesomeList {
 const dataPath = new URL("../data/lists.json", import.meta.url);
 const lists: AwesomeList[] = await Bun.file(dataPath).json();
 
-// Initialize fuzzy search
-const fuse = new Fuse(lists, {
-  keys: [
-    { name: "name", weight: 2 },
-    { name: "repo", weight: 1.5 },
-    { name: "description", weight: 1 },
-  ],
-  threshold: 0.4,
-  includeScore: true,
+// Initialize search index
+const search = new MiniSearch<AwesomeList>({
+  fields: ["name", "repo", "description"],
+  storeFields: ["repo", "name", "stars", "description", "pushed_at", "source"],
+  searchOptions: {
+    boost: { name: 2, repo: 1.5, description: 1 },
+    fuzzy: 0.2,
+    prefix: true,
+  },
 });
+
+// Index all lists with repo as id
+search.addAll(lists.map((list, i) => ({ id: i, ...list })));
 
 // Create MCP server
 const server = new McpServer({
@@ -51,16 +54,16 @@ server.tool(
     },
   },
   async ({ query, limit = 10, minStars = 0 }) => {
-    const results = fuse
+    const results = search
       .search(query)
-      .filter((r) => r.item.stars >= minStars)
+      .filter((r) => r.stars >= minStars)
       .slice(0, limit)
       .map((r) => ({
-        repo: r.item.repo,
-        name: r.item.name,
-        stars: r.item.stars,
-        description: r.item.description,
-        lastUpdated: r.item.pushed_at,
+        repo: r.repo,
+        name: r.name,
+        stars: r.stars,
+        description: r.description,
+        lastUpdated: r.pushed_at,
         score: r.score,
       }));
 
@@ -142,8 +145,15 @@ server.tool(
     let filtered = lists;
 
     if (category) {
-      const categoryResults = fuse.search(category);
-      filtered = categoryResults.map((r) => r.item);
+      const categoryResults = search.search(category);
+      filtered = categoryResults.map((r) => ({
+        repo: r.repo,
+        name: r.name,
+        stars: r.stars,
+        description: r.description,
+        pushed_at: r.pushed_at,
+        source: r.source,
+      }));
     }
 
     const top = filtered
