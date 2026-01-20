@@ -27,10 +27,12 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Download existing index for incremental build
+      - name: Download existing data for incremental build
         run: |
           curl -fsSL https://cdn.jsdelivr.net/gh/arimxyer/ass@main/data/items.json.gz \
             -o data/items.json.gz || echo "No existing index, starting fresh"
+          curl -fsSL https://cdn.jsdelivr.net/gh/arimxyer/ass@main/data/deadUrls.json \
+            -o data/deadUrls.json || echo "No existing blocklist, starting fresh"
 
       - name: Build items index (incremental)
         run: |
@@ -46,4 +48,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: refresh items index"
-          file_pattern: data/items.json.gz
+          file_pattern: "data/items.json.gz data/deadUrls.json"

@@ -57,6 +57,18 @@ try {
   console.log("No existing items.json.gz found, starting fresh");
 }
 
+// Load dead URLs blocklist
+const deadUrlsPath = new URL("../data/deadUrls.json", import.meta.url);
+let deadUrls: Set<string> = new Set();
+
+try {
+  const deadUrlsList: string[] = await Bun.file(deadUrlsPath).json();
+  deadUrls = new Set(deadUrlsList);
+  console.log(`Loaded ${deadUrls.size} dead URLs in blocklist`);
+} catch {
+  console.log("No deadUrls.json found, starting with empty blocklist");
+}
+
 // Query all list repos for freshness
 console.log(`\nQuerying ${lists.length} list repos for freshness...`);
 const listMetadata = await batchQueryListRepos(lists.map(l => l.repo));
@@ -115,8 +127,8 @@ for (let i = 0; i < staleLists.length; i++) {
       continue;
     }
 
-    // Parse new items
-    const newItems = parseReadme(readme);
+    // Parse new items and filter out dead URLs
+    const newItems = parseReadme(readme).filter(item => !deadUrls.has(item.url));
     const oldItems = existingIndex?.lists[list.repo]?.items ?? [];
 
     // Diff
@@ -170,7 +182,7 @@ for (let attempt = 1; attempt <= 3 && failedLists.length > 0; attempt++) {
         continue;
       }
 
-      const newItems = parseReadme(readme);
+      const newItems = parseReadme(readme).filter(item => !deadUrls.has(item.url));
       const oldItems = existingIndex?.lists[list.repo]?.items ?? [];
       const diff = diffItems(oldItems, newItems);
       console.log(`  ${list.repo} - success (+${diff.added.length}, -${diff.removed.length})`);
@@ -294,12 +306,13 @@ if (itemsToEnrich.length > 0) {
   }
 }
 
-// Remove dead items (marked with notFound)
+// Remove dead items (marked with notFound) and add to blocklist
 let removedCount = 0;
 for (const entry of Object.values(index.lists)) {
   const before = entry.items.length;
   entry.items = entry.items.filter(item => {
     if (item.github && "notFound" in item.github) {
+      deadUrls.add(item.url); // Add to blocklist
       return false; // Remove dead items
     }
     return true;
@@ -308,7 +321,7 @@ for (const entry of Object.values(index.lists)) {
 }
 
 if (removedCount > 0) {
-  console.log(`Removed ${removedCount} dead items (repos no longer exist)`);
+  console.log(`Removed ${removedCount} dead items (added to blocklist)`);
 }
 
 // Count total items
@@ -322,3 +335,8 @@ await Bun.write(gzipPath, gzipped);
 
 const sizeMB = (gzipped.length / 1024 / 1024).toFixed(1);
 console.log(`\nWrote ${index.itemCount} items to data/items.json.gz (${sizeMB}MB gzipped)`);
+
+// Write dead URLs blocklist
+const deadUrlsList = Array.from(deadUrls).sort();
+await Bun.write(deadUrlsPath, JSON.stringify(deadUrlsList, null, 2));
+console.log(`Wrote ${deadUrlsList.length} URLs to deadUrls.json`);
