@@ -119,6 +119,66 @@ for (let i = 0; i < staleLists.length; i++) {
   }
 }
 
+// Deferred retry passes (up to 3)
+for (let attempt = 1; attempt <= 3 && failedLists.length > 0; attempt++) {
+  console.log(`\nRetry pass ${attempt}: ${failedLists.length} lists`);
+  const stillFailed: typeof failedLists = [];
+
+  for (const list of failedLists) {
+    try {
+      let readme: string | null = null;
+      outer: for (const branch of ["main", "master"]) {
+        for (const filename of ["README.md", "readme.md"]) {
+          const url = `https://raw.githubusercontent.com/${list.repo}/${branch}/${filename}`;
+          const res = await fetch(url);
+          if (res.ok) {
+            readme = await res.text();
+            break outer;
+          }
+        }
+      }
+
+      if (!readme) {
+        console.log(`  ${list.repo} - README still not found`);
+        stillFailed.push(list);
+        continue;
+      }
+
+      const newItems = parseReadme(readme);
+      const oldItems = existingIndex?.lists[list.repo]?.items ?? [];
+      const diff = diffItems(oldItems, newItems);
+      console.log(`  ${list.repo} - success (+${diff.added.length}, -${diff.removed.length})`);
+
+      const remote = listMetadata.get(list.repo);
+      index.lists[list.repo] = {
+        lastParsed: new Date().toISOString(),
+        pushedAt: remote?.pushedAt ?? "",
+        items: [...diff.unchanged, ...diff.updated, ...diff.added],
+      };
+
+      for (const item of diff.added) {
+        if (item.url.startsWith("https://github.com/")) {
+          allAddedItems.push({ ...item, sourceList: list.repo });
+        }
+      }
+
+      index.listCount++;
+    } catch (error: any) {
+      console.log(`  ${list.repo} - still failing: ${error.message}`);
+      stillFailed.push(list);
+    }
+  }
+
+  failedLists = stillFailed;
+}
+
+if (failedLists.length > 0) {
+  console.warn(`\n${failedLists.length} lists failed after 3 retries:`);
+  for (const list of failedLists) {
+    console.warn(`  - ${list.repo}`);
+  }
+}
+
 // Copy fresh (unchanged) lists from existing index
 for (const list of freshLists) {
   if (existingIndex?.lists[list.repo]) {
