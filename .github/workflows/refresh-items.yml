@@ -22,13 +22,15 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Build items index
+      - name: Download existing index for incremental build
+        run: |
+          curl -fsSL https://cdn.jsdelivr.net/gh/arimxyer/ass@main/data/items.json.gz \
+            -o data/items.json.gz || echo "No existing index, starting fresh"
+
+      - name: Build items index (incremental)
         run: bun run scripts/build-items.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Gzip items index
-        run: gzip -9 -f data/items.json
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
