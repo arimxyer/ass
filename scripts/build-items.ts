@@ -3,11 +3,40 @@ import { parseReadme } from "../src/parser";
 import { batchEnrichItems } from "../src/enricher";
 import type { ItemsIndex, ListEntry, Item } from "../src/types";
 
+// Configuration
+const STALE_DAYS = 7; // Re-enrich repos older than this
+const staleMs = STALE_DAYS * 24 * 60 * 60 * 1000;
+
 // Load list of awesome lists
 const listsPath = new URL("../data/lists.json", import.meta.url);
 const lists: { repo: string; name: string; stars: number }[] = await Bun.file(listsPath).json();
 
-console.log(`Building items index for ${lists.length} lists...`);
+// Load existing items.json if available (for incremental enrichment)
+const outputPath = new URL("../data/items.json", import.meta.url);
+let existingIndex: ItemsIndex | null = null;
+const existingEnrichments = new Map<string, { lastEnriched: string; github: Item["github"] }>();
+
+try {
+  existingIndex = await Bun.file(outputPath).json();
+  console.log(`Loaded existing index: ${existingIndex!.itemCount} items from ${existingIndex!.listCount} lists`);
+
+  // Build map of existing enrichments by URL for fast lookup
+  for (const listEntry of Object.values(existingIndex!.lists)) {
+    for (const item of listEntry.items) {
+      if (item.lastEnriched && item.github) {
+        existingEnrichments.set(item.url, {
+          lastEnriched: item.lastEnriched,
+          github: item.github,
+        });
+      }
+    }
+  }
+  console.log(`Found ${existingEnrichments.size} previously enriched items`);
+} catch {
+  console.log("No existing items.json found, starting fresh");
+}
+
+console.log(`\nBuilding items index for ${lists.length} lists...`);
 
 const index: ItemsIndex = {
   generatedAt: new Date().toISOString(),
@@ -65,9 +94,37 @@ for (let i = 0; i < lists.length; i++) {
 
 console.log(`\nParsed ${allItems.length} items from ${index.listCount} lists`);
 
-// Enrich with GitHub metadata
-console.log("\nEnriching with GitHub metadata...");
-const enriched = await batchEnrichItems(allItems);
+// Separate items into fresh (use cached) vs stale/new (need enrichment)
+const now = Date.now();
+const itemsToEnrich: typeof allItems = [];
+let cachedCount = 0;
+
+for (const item of allItems) {
+  const existing = existingEnrichments.get(item.url);
+  if (existing) {
+    const age = now - new Date(existing.lastEnriched).getTime();
+    if (age < staleMs) {
+      // Use cached enrichment
+      item.lastEnriched = existing.lastEnriched;
+      item.github = existing.github;
+      cachedCount++;
+      continue;
+    }
+  }
+  // New or stale - needs enrichment
+  itemsToEnrich.push(item);
+}
+
+console.log(`\nIncremental enrichment: ${cachedCount} cached, ${itemsToEnrich.length} to enrich`);
+
+// Enrich only the items that need it
+let enriched: typeof allItems;
+if (itemsToEnrich.length > 0) {
+  console.log("\nEnriching with GitHub metadata...");
+  await batchEnrichItems(itemsToEnrich);
+}
+// Combine: allItems already has cached items updated, itemsToEnrich items are now enriched
+enriched = allItems;
 
 // Update index with enriched items
 for (const item of enriched) {
@@ -85,7 +142,6 @@ for (const item of enriched) {
 index.itemCount = Object.values(index.lists).reduce((sum, l) => sum + l.items.length, 0);
 
 // Write output
-const outputPath = new URL("../data/items.json", import.meta.url);
 await Bun.write(outputPath, JSON.stringify(index, null, 2));
 
 console.log(`\nWrote ${index.itemCount} items to data/items.json`);
