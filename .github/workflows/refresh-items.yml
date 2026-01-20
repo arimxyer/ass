@@ -3,8 +3,11 @@ name: Refresh Items Index
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # Daily at 6am UTC
+    - cron: '0 6 * * 0'  # Weekly on Sunday at 6am UTC
   workflow_dispatch:      # Manual trigger
+
+permissions:
+  contents: write
 
 jobs:
   refresh:
@@ -24,8 +27,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Gzip items index
+        run: gzip -9 -f data/items.json
+
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: refresh items index"
-          file_pattern: data/items.json
+          file_pattern: data/items.json.gz
