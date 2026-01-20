@@ -1,5 +1,4 @@
 // src/enricher.ts
-import { Octokit } from "octokit";
 import type { Item } from "./types";
 
 export function extractGitHubRepo(url: string): string | null {
@@ -33,8 +32,6 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
     console.warn("No GITHUB_TOKEN - skipping enrichment");
     return items;
   }
-
-  const octokit = new Octokit({ auth: token });
 
   // Extract unique GitHub repos
   const repoMap = new Map<string, Item[]>();
@@ -81,23 +78,55 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
     `;
 
     try {
-      const result: any = await octokit.graphql(query);
+      // Use fetch instead of octokit.graphql to handle partial results
+      const response = await fetch("https://api.github.com/graphql", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const json: any = await response.json();
+
+      // Check for complete failure (errors but no data)
+      if (json.errors && !json.data) {
+        throw new Error(json.errors[0]?.message || "GraphQL query failed");
+      }
+
+      // Log any partial errors (repos that don't exist, etc.)
+      if (json.errors) {
+        const failedRepos = json.errors
+          .filter((e: any) => e.path?.[0]?.startsWith("repo"))
+          .map((e: any) => batch[parseInt(e.path[0].slice(4))])
+          .filter(Boolean);
+        if (failedRepos.length > 0) {
+          console.log(`  [${batchNum}/${totalBatches}] ${failedRepos.length} repos not found`);
+        }
+      }
+
+      const result = json.data;
 
       // Log rate limit status periodically
       const rl = result.rateLimit;
-      if (batchNum % 10 === 0 || rl.remaining < 100) {
-        console.log(`  [${batchNum}/${totalBatches}] Rate limit: ${rl.remaining} remaining, cost: ${rl.cost}`);
+      if (batchNum % 10 === 0 || rl?.remaining < 100) {
+        console.log(`  [${batchNum}/${totalBatches}] Rate limit: ${rl?.remaining} remaining, cost: ${rl?.cost}`);
       } else {
         process.stdout.write(`  [${batchNum}/${totalBatches}]\r`);
       }
 
       // If running low on points, slow down
-      if (rl.remaining < 500) {
+      if (rl?.remaining < 500) {
         currentDelay = Math.min(currentDelay * 1.5, 5000);
         console.log(`  ⚠️ Low rate limit (${rl.remaining}), increasing delay to ${currentDelay}ms`);
       }
 
-      // Process results
+      // Process results - now handles partial data correctly
       for (let j = 0; j < batch.length; j++) {
         const data = result[`repo${j}`];
         if (data) {
@@ -121,7 +150,7 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
       consecutiveErrors++;
 
       // Check for secondary rate limit
-      if (error.message?.includes("SecondaryRateLimit")) {
+      if (error.message?.includes("SecondaryRateLimit") || error.message?.includes("403")) {
         // Exponential backoff with jitter
         const backoffMs = Math.min(baseDelayMs * Math.pow(2, consecutiveErrors), 60000);
         console.log(`  ⚠️ Secondary rate limit hit, backing off for ${backoffMs}ms...`);

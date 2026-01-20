@@ -8,8 +8,25 @@ import type { ItemsIndex, Item } from "../src/types";
 const listsPath = new URL("../data/lists.json", import.meta.url);
 let lists: { repo: string; name: string; stars: number }[] = await Bun.file(listsPath).json();
 
-// Filter to specific repo if provided as CLI argument
-const filterRepo = process.argv[2];
+// Parse CLI arguments
+const args = process.argv.slice(2);
+let filterRepo: string | undefined;
+let startIndex = 0;
+let countLimit = Infinity;
+
+for (let i = 0; i < args.length; i++) {
+  if (args[i] === "--start" && args[i + 1]) {
+    startIndex = parseInt(args[i + 1], 10);
+    i++;
+  } else if (args[i] === "--count" && args[i + 1]) {
+    countLimit = parseInt(args[i + 1], 10);
+    i++;
+  } else if (!args[i].startsWith("--")) {
+    filterRepo = args[i];
+  }
+}
+
+// Filter to specific repo if provided
 if (filterRepo) {
   const filtered = lists.filter(l => l.repo.includes(filterRepo));
   if (filtered.length === 0) {
@@ -18,6 +35,13 @@ if (filterRepo) {
   }
   lists = filtered;
   console.log(`Filtering to ${lists.length} list(s) matching "${filterRepo}"`);
+}
+
+// Apply range filtering
+if (startIndex > 0 || countLimit < Infinity) {
+  const originalCount = lists.length;
+  lists = lists.slice(startIndex, startIndex + countLimit);
+  console.log(`Range filter: lists ${startIndex} to ${startIndex + lists.length - 1} (${lists.length} of ${originalCount})`);
 }
 
 // Load existing items.json if available (for incremental enrichment)
@@ -185,8 +209,9 @@ for (const list of freshLists) {
   }
 }
 
-// Merge mode: when filtering, preserve unmodified lists from existing index
-if (filterRepo && existingIndex) {
+// Merge mode: when filtering (by repo or range), preserve unmodified lists from existing index
+const isFiltering = filterRepo || startIndex > 0 || countLimit < Infinity;
+if (isFiltering && existingIndex) {
   let preserved = 0;
   for (const [repo, entry] of Object.entries(existingIndex.lists)) {
     if (!index.lists[repo]) {
