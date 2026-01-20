@@ -1,6 +1,6 @@
 {
   "name": "awess",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "MCP server for searching curated awesome lists and their contents",
   "type": "module",
   "main": "src/index.ts",
@@ -34,7 +34,6 @@
     "@modelcontextprotocol/sdk": "^1.0.0",
     "mdast-util-from-markdown": "^2.0.2",
     "minisearch": "^7.2.0",
-    "octokit": "^5.0.5",
     "zod": "^4.3.5"
   }
 }
