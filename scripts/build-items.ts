@@ -225,20 +225,31 @@ if (isFiltering && existingIndex) {
   }
 }
 
-// Filter to GitHub URLs only
-const githubItems = allAddedItems.filter(item =>
+// Log stats about new items
+const newGithubItems = allAddedItems.filter(item =>
   item.url.startsWith("https://github.com/")
 );
+console.log(`\n${allAddedItems.length} new items, ${newGithubItems.length} are GitHub URLs`);
 
-console.log(`\n${allAddedItems.length} new items, ${githubItems.length} are GitHub URLs`);
+// Collect ALL items missing GitHub metadata (not just new ones)
+const itemsToEnrich: (Item & { sourceList: string })[] = [];
+for (const [repo, entry] of Object.entries(index.lists)) {
+  for (const item of entry.items) {
+    if (item.url.startsWith("https://github.com/") && !item.github) {
+      itemsToEnrich.push({ ...item, sourceList: repo });
+    }
+  }
+}
 
-// Enrich only GitHub items
-if (githubItems.length > 0) {
+console.log(`${itemsToEnrich.length} GitHub URLs missing metadata`);
+
+// Enrich items missing GitHub metadata
+if (itemsToEnrich.length > 0) {
   console.log("\nEnriching with GitHub metadata...");
-  await batchEnrichItems(githubItems);
+  await batchEnrichItems(itemsToEnrich);
 
   // Update index with enriched items
-  for (const item of githubItems) {
+  for (const item of itemsToEnrich) {
     const { sourceList, ...cleanItem } = item;
     const listEntry = index.lists[sourceList];
     if (listEntry) {
