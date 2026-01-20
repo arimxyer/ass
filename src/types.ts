@@ -26,3 +26,10 @@ export interface ItemsIndex {
   itemCount: number;
   lists: Record<string, ListEntry>;
 }
+
+export interface DiffResult {
+  added: Item[];
+  removed: Item[];
+  unchanged: Item[];
+  updated: Item[];
+}
