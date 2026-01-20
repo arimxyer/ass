@@ -145,3 +145,82 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
   console.log(""); // Clear the \r line
   return items;
 }
+
+export async function batchQueryListRepos(
+  repos: string[]
+): Promise<Map<string, { pushedAt: string } | null>> {
+  const results = new Map<string, { pushedAt: string } | null>();
+
+  const token = process.env.GITHUB_TOKEN;
+  if (!token) {
+    console.warn("No GITHUB_TOKEN - skipping list repo query");
+    return results;
+  }
+
+  const BATCH_SIZE = 50;
+
+  for (let i = 0; i < repos.length; i += BATCH_SIZE) {
+    const batch = repos.slice(i, i + BATCH_SIZE);
+    const batchNum = Math.floor(i / BATCH_SIZE) + 1;
+    const totalBatches = Math.ceil(repos.length / BATCH_SIZE);
+    process.stdout.write(`  [${batchNum}/${totalBatches}]\r`);
+
+    // Build GraphQL query for this batch
+    const repoQueries = batch.map((repo, idx) => {
+      const [owner, name] = repo.split("/");
+      return `repo${idx}: repository(owner: "${owner}", name: "${name}") {
+        pushedAt
+      }`;
+    });
+
+    const query = `query { ${repoQueries.join("\n")} }`;
+
+    try {
+      const response = await fetch("https://api.github.com/graphql", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query }),
+      });
+
+      if (!response.ok) {
+        console.error(`  Error batch ${batchNum}: HTTP ${response.status}`);
+        for (const repo of batch) {
+          results.set(repo, null);
+        }
+        continue;
+      }
+
+      const json = await response.json();
+
+      if (json.errors && !json.data) {
+        console.error(`  Error batch ${batchNum}:`, json.errors[0]?.message);
+        // Mark all repos in batch as null
+        for (const repo of batch) {
+          results.set(repo, null);
+        }
+        continue;
+      }
+
+      // Extract results
+      batch.forEach((repo, idx) => {
+        const data = json.data?.[`repo${idx}`];
+        if (data?.pushedAt) {
+          results.set(repo, { pushedAt: data.pushedAt });
+        } else {
+          results.set(repo, null);
+        }
+      });
+    } catch (error: any) {
+      console.error(`  Error batch ${batchNum}:`, error.message);
+      for (const repo of batch) {
+        results.set(repo, null);
+      }
+    }
+  }
+
+  console.log(); // newline after progress
+  return results;
+}

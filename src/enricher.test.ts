@@ -1,6 +1,6 @@
 // src/enricher.test.ts
 import { expect, test, describe } from "bun:test";
-import { extractGitHubRepo, batchEnrichItems } from "./enricher";
+import { extractGitHubRepo, batchEnrichItems, batchQueryListRepos } from "./enricher";
 import type { Item } from "./types";
 
 describe("extractGitHubRepo", () => {
@@ -37,5 +37,33 @@ describe("batchEnrichItems", () => {
     expect(enriched[0].github).toBeDefined();
     expect(enriched[0].github?.stars).toBeGreaterThan(0);
     expect(enriched[0].github?.language).toBe("Zig");
+  });
+});
+
+describe("batchQueryListRepos", () => {
+  test("returns pushedAt for valid repos", async () => {
+    if (!process.env.GITHUB_TOKEN) {
+      console.log("Skipping batchQueryListRepos test - no GITHUB_TOKEN");
+      return;
+    }
+
+    const repos = ["sindresorhus/awesome", "avelino/awesome-go"];
+    const result = await batchQueryListRepos(repos);
+
+    expect(result.size).toBe(2);
+    expect(result.get("sindresorhus/awesome")?.pushedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+    expect(result.get("avelino/awesome-go")?.pushedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+  });
+
+  test("returns null for non-existent repos", async () => {
+    if (!process.env.GITHUB_TOKEN) {
+      console.log("Skipping batchQueryListRepos test - no GITHUB_TOKEN");
+      return;
+    }
+
+    const repos = ["this-org-does-not-exist-12345/fake-repo"];
+    const result = await batchQueryListRepos(repos);
+
+    expect(result.get("this-org-does-not-exist-12345/fake-repo")).toBeNull();
   });
 });
