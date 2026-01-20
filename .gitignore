@@ -5,3 +5,8 @@ build/
 .worktrees/
 .codemap/
 data/items.json
+
+# Local development config
+.claude/
+.mcp.json
+docs/
