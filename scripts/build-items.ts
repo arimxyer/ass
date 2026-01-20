@@ -127,15 +127,20 @@ for (const list of freshLists) {
   }
 }
 
-console.log(`\nDiff summary: ${allAddedItems.length} new items to enrich`);
+// Filter to GitHub URLs only
+const githubItems = allAddedItems.filter(item =>
+  item.url.startsWith("https://github.com/")
+);
 
-// Enrich only new items
-if (allAddedItems.length > 0) {
+console.log(`\n${allAddedItems.length} new items, ${githubItems.length} are GitHub URLs`);
+
+// Enrich only GitHub items
+if (githubItems.length > 0) {
   console.log("\nEnriching with GitHub metadata...");
-  await batchEnrichItems(allAddedItems);
+  await batchEnrichItems(githubItems);
 
   // Update index with enriched items
-  for (const item of allAddedItems) {
+  for (const item of githubItems) {
     const { sourceList, ...cleanItem } = item;
     const listEntry = index.lists[sourceList];
     if (listEntry) {
