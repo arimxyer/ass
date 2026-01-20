@@ -14,7 +14,7 @@ MCP server for searching 631+ curated awesome lists and 164,000+ tools/libraries
 ### Claude Code
 
 ```bash
-claude mcp add awess -- npx awess
+claude mcp add awess -- bunx awess
 ```
 
 ### Claude Desktop
@@ -25,7 +25,7 @@ Add to your config file:
 {
   "mcpServers": {
     "awess": {
-      "command": "npx",
+      "command": "bunx",
       "args": ["awess"]
     }
   }
@@ -40,13 +40,13 @@ Add to your config file:
 ### Run directly
 
 ```bash
-npx awess
+bunx awess
 ```
 
 ### Test with MCP Inspector
 
 ```bash
-npx @modelcontextprotocol/inspector npx awess
+npx @modelcontextprotocol/inspector bunx awess
 ```
 
 ## Development
