@@ -43,8 +43,12 @@ Fetches READMEs from all awesome lists, parses them, enriches with GitHub metada
 
 ### MCP Tools
 
-The server exposes 5 tools: `search`, `get_list`, `top_lists`, `stats`, `get_items`. All return JSON text content.
+The server exposes 3 tools:
+
+- **`search_lists`** - Search/browse awesome lists by query, get by repo, filter by stars, sort by relevance/stars/updated
+- **`search_items`** - Search tools/libraries across all lists with filters (repo, category, language, minStars)
+- **`stats`** - Get collection statistics (list counts, star distribution, top languages/categories)
 
 ### Data Loading
 
-The server tries CDN first (`raw.githubusercontent.com/arimxyer/ass/main/data`), falls back to local `data/` directory for development.
+The server tries jsDelivr CDN first, falls back to GitHub raw, then local `data/` directory for development.
