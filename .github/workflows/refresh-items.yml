@@ -3,7 +3,7 @@ name: Refresh Items Index
 
 on:
   schedule:
-    - cron: '0 6 * * 0'  # Weekly on Sunday at 6am UTC
+    - cron: '0 6 * * *'  # Daily at 6am UTC
   workflow_dispatch:
     inputs:
       count:
