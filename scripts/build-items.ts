@@ -231,9 +231,13 @@ const newGithubItems = allAddedItems.filter(item =>
 );
 console.log(`\n${allAddedItems.length} new items, ${newGithubItems.length} are GitHub URLs`);
 
-// Collect ALL items missing GitHub metadata (not just new ones)
+// Determine which lists to enrich (only processed lists, not merged ones)
+const processedListRepos = new Set(lists.map(l => l.repo));
+
+// Collect items missing GitHub metadata from PROCESSED lists only
 const itemsToEnrich: (Item & { sourceList: string })[] = [];
 for (const [repo, entry] of Object.entries(index.lists)) {
+  if (!processedListRepos.has(repo)) continue; // Skip merged lists
   for (const item of entry.items) {
     if (item.url.startsWith("https://github.com/") && !item.github) {
       itemsToEnrich.push({ ...item, sourceList: repo });
