@@ -2,11 +2,7 @@
 import { parseReadme } from "../src/parser";
 import { batchEnrichItems, batchQueryListRepos } from "../src/enricher";
 import { diffItems } from "../src/diff";
-import type { ItemsIndex, ListEntry, Item } from "../src/types";
-
-// Configuration
-const STALE_DAYS = 7; // Re-enrich repos older than this
-const staleMs = STALE_DAYS * 24 * 60 * 60 * 1000;
+import type { ItemsIndex, Item } from "../src/types";
 
 // Load list of awesome lists
 const listsPath = new URL("../data/lists.json", import.meta.url);
@@ -27,24 +23,10 @@ if (filterRepo) {
 // Load existing items.json if available (for incremental enrichment)
 const outputPath = new URL("../data/items.json", import.meta.url);
 let existingIndex: ItemsIndex | null = null;
-const existingEnrichments = new Map<string, { lastEnriched: string; github: Item["github"] }>();
 
 try {
   existingIndex = await Bun.file(outputPath).json();
   console.log(`Loaded existing index: ${existingIndex!.itemCount} items from ${existingIndex!.listCount} lists`);
-
-  // Build map of existing enrichments by URL for fast lookup
-  for (const listEntry of Object.values(existingIndex!.lists)) {
-    for (const item of listEntry.items) {
-      if (item.lastEnriched && item.github) {
-        existingEnrichments.set(item.url, {
-          lastEnriched: item.lastEnriched,
-          github: item.github,
-        });
-      }
-    }
-  }
-  console.log(`Found ${existingEnrichments.size} previously enriched items`);
 } catch {
   console.log("No existing items.json found, starting fresh");
 }
@@ -80,15 +62,16 @@ const index: ItemsIndex = {
   lists: {},
 };
 
-// Fetch and parse each README
-let allItems: (Item & { sourceList: string })[] = [];
+// Process only stale lists
+let allAddedItems: (Item & { sourceList: string })[] = [];
+let failedLists: typeof staleLists = [];
 
 for (let i = 0; i < staleLists.length; i++) {
   const list = staleLists[i];
   const progress = `[${i + 1}/${staleLists.length}]`;
 
   try {
-    // Try main branch first, then master, with both README.md and readme.md
+    // Fetch README
     let readme: string | null = null;
     outer: for (const branch of ["main", "master"]) {
       for (const filename of ["README.md", "readme.md"]) {
@@ -106,69 +89,60 @@ for (let i = 0; i < staleLists.length; i++) {
       continue;
     }
 
-    const items = parseReadme(readme);
-    console.log(`${progress} ${list.repo} - ${items.length} items`);
+    // Parse new items
+    const newItems = parseReadme(readme);
+    const oldItems = existingIndex?.lists[list.repo]?.items ?? [];
 
-    // Store in index
+    // Diff
+    const diff = diffItems(oldItems, newItems);
+    console.log(
+      `${progress} ${list.repo} - +${diff.added.length} added, -${diff.removed.length} removed, ${diff.unchanged.length + diff.updated.length} kept`
+    );
+
+    // Store in index (unchanged + updated already have enrichment preserved)
+    const remote = listMetadata.get(list.repo);
     index.lists[list.repo] = {
       lastParsed: new Date().toISOString(),
-      pushedAt: "", // Will be filled by enrichment
-      items,
+      pushedAt: remote?.pushedAt ?? "",
+      items: [...diff.unchanged, ...diff.updated, ...diff.added],
     };
 
-    // Collect for enrichment
-    for (const item of items) {
-      allItems.push({ ...item, sourceList: list.repo });
+    // Collect added items for enrichment
+    for (const item of diff.added) {
+      allAddedItems.push({ ...item, sourceList: list.repo });
     }
 
     index.listCount++;
   } catch (error: any) {
     console.error(`${progress} ${list.repo} - Error: ${error.message}`);
+    failedLists.push(list);
   }
 }
 
-console.log(`\nParsed ${allItems.length} items from ${index.listCount} lists`);
-
-// Separate items into fresh (use cached) vs stale/new (need enrichment)
-const now = Date.now();
-const itemsToEnrich: typeof allItems = [];
-let cachedCount = 0;
-
-for (const item of allItems) {
-  const existing = existingEnrichments.get(item.url);
-  if (existing) {
-    const age = now - new Date(existing.lastEnriched).getTime();
-    if (age < staleMs) {
-      // Use cached enrichment
-      item.lastEnriched = existing.lastEnriched;
-      item.github = existing.github;
-      cachedCount++;
-      continue;
-    }
+// Copy fresh (unchanged) lists from existing index
+for (const list of freshLists) {
+  if (existingIndex?.lists[list.repo]) {
+    index.lists[list.repo] = existingIndex.lists[list.repo];
+    index.listCount++;
   }
-  // New or stale - needs enrichment
-  itemsToEnrich.push(item);
 }
 
-console.log(`\nIncremental enrichment: ${cachedCount} cached, ${itemsToEnrich.length} to enrich`);
+console.log(`\nDiff summary: ${allAddedItems.length} new items to enrich`);
 
-// Enrich only the items that need it
-let enriched: typeof allItems;
-if (itemsToEnrich.length > 0) {
+// Enrich only new items
+if (allAddedItems.length > 0) {
   console.log("\nEnriching with GitHub metadata...");
-  await batchEnrichItems(itemsToEnrich);
-}
-// Combine: allItems already has cached items updated, itemsToEnrich items are now enriched
-enriched = allItems;
+  await batchEnrichItems(allAddedItems);
 
-// Update index with enriched items
-for (const item of enriched) {
-  const { sourceList, ...cleanItem } = item as Item & { sourceList: string };
-  const listEntry = index.lists[sourceList];
-  if (listEntry) {
-    const idx = listEntry.items.findIndex(i => i.url === cleanItem.url);
-    if (idx >= 0) {
-      listEntry.items[idx] = cleanItem;
+  // Update index with enriched items
+  for (const item of allAddedItems) {
+    const { sourceList, ...cleanItem } = item;
+    const listEntry = index.lists[sourceList];
+    if (listEntry) {
+      const idx = listEntry.items.findIndex(i => i.url === cleanItem.url);
+      if (idx >= 0) {
+        listEntry.items[idx] = cleanItem;
+      }
     }
   }
 }
