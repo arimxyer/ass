@@ -157,9 +157,7 @@ for (let attempt = 1; attempt <= 3 && failedLists.length > 0; attempt++) {
       };
 
       for (const item of diff.added) {
-        if (item.url.startsWith("https://github.com/")) {
-          allAddedItems.push({ ...item, sourceList: list.repo });
-        }
+        allAddedItems.push({ ...item, sourceList: list.repo });
       }
 
       index.listCount++;
