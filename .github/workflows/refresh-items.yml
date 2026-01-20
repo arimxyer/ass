@@ -4,7 +4,12 @@ name: Refresh Items Index
 on:
   schedule:
     - cron: '0 6 * * 0'  # Weekly on Sunday at 6am UTC
-  workflow_dispatch:      # Manual trigger
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Number of lists to process (leave empty for all)'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -28,7 +33,12 @@ jobs:
             -o data/items.json.gz || echo "No existing index, starting fresh"
 
       - name: Build items index (incremental)
-        run: bun run scripts/build-items.ts
+        run: |
+          if [ -n "${{ inputs.count }}" ]; then
+            bun run scripts/build-items.ts --count ${{ inputs.count }}
+          else
+            bun run scripts/build-items.ts
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
