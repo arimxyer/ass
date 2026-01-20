@@ -187,6 +187,21 @@ for (const list of freshLists) {
   }
 }
 
+// Merge mode: when filtering, preserve unmodified lists from existing index
+if (filterRepo && existingIndex) {
+  let preserved = 0;
+  for (const [repo, entry] of Object.entries(existingIndex.lists)) {
+    if (!index.lists[repo]) {
+      index.lists[repo] = entry;
+      index.listCount++;
+      preserved++;
+    }
+  }
+  if (preserved > 0) {
+    console.log(`\nMerge mode: preserved ${preserved} other lists from existing index`);
+  }
+}
+
 // Filter to GitHub URLs only
 const githubItems = allAddedItems.filter(item =>
   item.url.startsWith("https://github.com/")
