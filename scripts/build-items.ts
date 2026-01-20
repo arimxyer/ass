@@ -44,15 +44,17 @@ if (startIndex > 0 || countLimit < Infinity) {
   console.log(`Range filter: lists ${startIndex} to ${startIndex + lists.length - 1} (${lists.length} of ${originalCount})`);
 }
 
-// Load existing items.json if available (for incremental enrichment)
-const outputPath = new URL("../data/items.json", import.meta.url);
+// Load existing items.json.gz if available (for incremental enrichment)
+const outputPath = new URL("../data/items.json.gz", import.meta.url);
 let existingIndex: ItemsIndex | null = null;
 
 try {
-  existingIndex = await Bun.file(outputPath).json();
+  const compressed = await Bun.file(outputPath).arrayBuffer();
+  const decompressed = Bun.gunzipSync(new Uint8Array(compressed));
+  existingIndex = JSON.parse(new TextDecoder().decode(decompressed));
   console.log(`Loaded existing index: ${existingIndex!.itemCount} items from ${existingIndex!.listCount} lists`);
 } catch {
-  console.log("No existing items.json found, starting fresh");
+  console.log("No existing items.json.gz found, starting fresh");
 }
 
 // Query all list repos for freshness
@@ -268,7 +270,11 @@ if (itemsToEnrich.length > 0) {
 // Count total items
 index.itemCount = Object.values(index.lists).reduce((sum, l) => sum + l.items.length, 0);
 
-// Write output
-await Bun.write(outputPath, JSON.stringify(index, null, 2));
+// Write output as gzipped JSON (smaller for CDN delivery)
+const jsonString = JSON.stringify(index);
+const gzipped = Bun.gzipSync(Buffer.from(jsonString));
+const gzipPath = new URL("../data/items.json.gz", import.meta.url);
+await Bun.write(gzipPath, gzipped);
 
-console.log(`\nWrote ${index.itemCount} items to data/items.json`);
+const sizeMB = (gzipped.length / 1024 / 1024).toFixed(1);
+console.log(`\nWrote ${index.itemCount} items to data/items.json.gz (${sizeMB}MB gzipped)`);

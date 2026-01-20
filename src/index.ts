@@ -14,14 +14,25 @@ interface AwesomeList {
   source: string;
 }
 
-// Data URL - GitHub raw (no file size limits, 5 min cache)
-const DATA_URL = "https://raw.githubusercontent.com/arimxyer/ass/main/data";
+// CDN URLs - jsDelivr primary (faster, global CDN), GitHub raw fallback
+const JSDELIVR_URL = "https://cdn.jsdelivr.net/gh/arimxyer/ass@main/data";
+const GITHUB_RAW_URL = "https://raw.githubusercontent.com/arimxyer/ass/main/data";
 
-// Load data from GitHub, fallback to local for development
+// Load data from CDN, fallback to local for development
 async function loadData<T>(filename: string): Promise<T> {
-  // Try remote first
+  // Try jsDelivr first (faster global CDN)
   try {
-    const res = await fetch(`${DATA_URL}/${filename}`);
+    const res = await fetch(`${JSDELIVR_URL}/${filename}`);
+    if (res.ok) {
+      return res.json();
+    }
+  } catch {
+    // jsDelivr failed, try GitHub raw
+  }
+
+  // Try GitHub raw as fallback
+  try {
+    const res = await fetch(`${GITHUB_RAW_URL}/${filename}`);
     if (res.ok) {
       return res.json();
     }
@@ -32,6 +43,39 @@ async function loadData<T>(filename: string): Promise<T> {
   // Fallback to local file
   const localPath = new URL(`../data/${filename}`, import.meta.url);
   return Bun.file(localPath).json();
+}
+
+// Load gzipped data from CDN, fallback to local
+async function loadGzippedData<T>(filename: string): Promise<T> {
+  // Try jsDelivr first
+  try {
+    const res = await fetch(`${JSDELIVR_URL}/${filename}`);
+    if (res.ok) {
+      const compressed = new Uint8Array(await res.arrayBuffer());
+      const decompressed = Bun.gunzipSync(compressed);
+      return JSON.parse(new TextDecoder().decode(decompressed));
+    }
+  } catch {
+    // jsDelivr failed, try GitHub raw
+  }
+
+  // Try GitHub raw as fallback
+  try {
+    const res = await fetch(`${GITHUB_RAW_URL}/${filename}`);
+    if (res.ok) {
+      const compressed = new Uint8Array(await res.arrayBuffer());
+      const decompressed = Bun.gunzipSync(compressed);
+      return JSON.parse(new TextDecoder().decode(decompressed));
+    }
+  } catch {
+    // Remote failed, try local
+  }
+
+  // Fallback to local file
+  const localPath = new URL(`../data/${filename}`, import.meta.url);
+  const compressed = new Uint8Array(await Bun.file(localPath).arrayBuffer());
+  const decompressed = Bun.gunzipSync(compressed);
+  return JSON.parse(new TextDecoder().decode(decompressed));
 }
 
 // Load curated data
@@ -225,7 +269,7 @@ server.tool(
 let itemsIndex: ItemsIndex | null = null;
 
 try {
-  itemsIndex = await loadData<ItemsIndex>("items.json");
+  itemsIndex = await loadGzippedData<ItemsIndex>("items.json.gz");
   console.error(`Loaded ${itemsIndex?.itemCount} items from ${itemsIndex?.listCount} lists`);
 } catch {
   console.error("No items.json found - get_items will be unavailable");
