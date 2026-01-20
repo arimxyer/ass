@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**awess** (Awesome Search Services) is an MCP server that provides searchable access to 631+ curated awesome lists and 164,000+ tools/libraries within them. It runs via `bunx awess` and exposes tools for searching lists, browsing items, and fetching GitHub metadata.
+**awess** (Awesome Search Services) is an MCP server that provides searchable access to 631+ curated awesome lists and 177,000+ tools/libraries within them. It runs via `bunx awess` and exposes tools for searching lists, browsing items, and fetching GitHub metadata.
 
 ## Commands
 
@@ -30,7 +30,7 @@ Fetches READMEs from all awesome lists, parses them, enriches with GitHub metada
 
 1. **`data/lists.json`** - Source list of 631 awesome repos (repo, name, stars)
 2. **`scripts/build-items.ts`** - Fetches READMEs, parses items, enriches with GitHub data
-3. **`data/items.json`** - Generated index (~42MB) with 164k items and their metadata
+3. **`data/items.json`** - Generated index (~65MB) with 177k items and their metadata
 4. **`src/index.ts`** - MCP server loads data from CDN (falls back to local), builds MiniSearch index
 
 ### Core Modules
