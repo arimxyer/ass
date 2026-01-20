@@ -99,14 +99,19 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
         throw new Error(json.errors[0]?.message || "GraphQL query failed");
       }
 
-      // Log any partial errors (repos that don't exist, etc.)
+      // Track repos that don't exist (from GraphQL errors)
+      const notFoundRepos = new Set<string>();
       if (json.errors) {
-        const failedRepos = json.errors
-          .filter((e: any) => e.path?.[0]?.startsWith("repo"))
-          .map((e: any) => batch[parseInt(e.path[0].slice(4))])
-          .filter(Boolean);
-        if (failedRepos.length > 0) {
-          console.log(`  [${batchNum}/${totalBatches}] ${failedRepos.length} repos not found`);
+        for (const error of json.errors) {
+          if (error.path?.[0]?.startsWith("repo")) {
+            const idx = parseInt(error.path[0].slice(4));
+            if (batch[idx]) {
+              notFoundRepos.add(batch[idx]);
+            }
+          }
+        }
+        if (notFoundRepos.size > 0) {
+          console.log(`  [${batchNum}/${totalBatches}] ${notFoundRepos.size} repos not found`);
         }
       }
 
@@ -127,17 +132,27 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
       }
 
       // Process results - now handles partial data correctly
+      const now = new Date().toISOString();
       for (let j = 0; j < batch.length; j++) {
+        const repo = batch[j];
         const data = result[`repo${j}`];
+        const itemsForRepo = repoMap.get(repo)!;
+
         if (data) {
-          const itemsForRepo = repoMap.get(batch[j])!;
+          // Repo exists - update metadata
           for (const item of itemsForRepo) {
             item.github = {
               stars: data.stargazerCount,
               language: data.primaryLanguage?.name || null,
               pushedAt: data.pushedAt,
             };
-            item.lastEnriched = new Date().toISOString();
+            item.lastEnriched = now;
+          }
+        } else if (notFoundRepos.has(repo)) {
+          // Repo confirmed dead - mark for removal
+          for (const item of itemsForRepo) {
+            item.github = { notFound: true, checkedAt: now };
+            item.lastEnriched = now;
           }
         }
       }

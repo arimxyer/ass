@@ -249,7 +249,34 @@ for (const [repo, entry] of Object.entries(index.lists)) {
 
 console.log(`${itemsToEnrich.length} GitHub URLs missing metadata`);
 
-// Enrich items missing GitHub metadata
+// Rolling re-check: collect oldest 1000 items by lastEnriched for staleness check
+const RECHECK_BATCH_SIZE = 1000;
+const allIndexedItems: (Item & { sourceList: string })[] = [];
+for (const [repo, entry] of Object.entries(index.lists)) {
+  for (const item of entry.items) {
+    if (
+      item.url.startsWith("https://github.com/") &&
+      item.github &&
+      !("notFound" in item.github) &&
+      item.lastEnriched
+    ) {
+      allIndexedItems.push({ ...item, sourceList: repo });
+    }
+  }
+}
+
+// Sort by lastEnriched (oldest first) and take oldest batch
+const staleItems = allIndexedItems
+  .sort((a, b) => (a.lastEnriched || "").localeCompare(b.lastEnriched || ""))
+  .slice(0, RECHECK_BATCH_SIZE);
+
+if (staleItems.length > 0) {
+  const oldestDate = staleItems[0].lastEnriched?.split("T")[0];
+  console.log(`${staleItems.length} items queued for staleness re-check (oldest from ${oldestDate})`);
+  itemsToEnrich.push(...staleItems);
+}
+
+// Enrich items (new + stale re-check)
 if (itemsToEnrich.length > 0) {
   console.log("\nEnriching with GitHub metadata...");
   await batchEnrichItems(itemsToEnrich);
@@ -265,6 +292,23 @@ if (itemsToEnrich.length > 0) {
       }
     }
   }
+}
+
+// Remove dead items (marked with notFound)
+let removedCount = 0;
+for (const entry of Object.values(index.lists)) {
+  const before = entry.items.length;
+  entry.items = entry.items.filter(item => {
+    if (item.github && "notFound" in item.github) {
+      return false; // Remove dead items
+    }
+    return true;
+  });
+  removedCount += before - entry.items.length;
+}
+
+if (removedCount > 0) {
+  console.log(`Removed ${removedCount} dead items (repos no longer exist)`);
 }
 
 // Count total items

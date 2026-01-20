@@ -1,5 +1,16 @@
 // src/types.ts
 
+export interface GitHubMetadata {
+  stars: number;
+  language: string | null;
+  pushedAt: string;
+}
+
+export interface GitHubNotFound {
+  notFound: true;
+  checkedAt: string;
+}
+
 export interface Item {
   name: string;
   url: string;
@@ -7,11 +18,7 @@ export interface Item {
   category: string;
   subcategory?: string;
   lastEnriched?: string;
-  github?: {
-    stars: number;
-    language: string | null;
-    pushedAt: string;
-  };
+  github?: GitHubMetadata | GitHubNotFound;
 }
 
 export interface ListEntry {
