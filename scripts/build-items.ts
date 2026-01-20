@@ -9,7 +9,19 @@ const staleMs = STALE_DAYS * 24 * 60 * 60 * 1000;
 
 // Load list of awesome lists
 const listsPath = new URL("../data/lists.json", import.meta.url);
-const lists: { repo: string; name: string; stars: number }[] = await Bun.file(listsPath).json();
+let lists: { repo: string; name: string; stars: number }[] = await Bun.file(listsPath).json();
+
+// Filter to specific repo if provided as CLI argument
+const filterRepo = process.argv[2];
+if (filterRepo) {
+  const filtered = lists.filter(l => l.repo.includes(filterRepo));
+  if (filtered.length === 0) {
+    console.error(`No lists found matching "${filterRepo}"`);
+    process.exit(1);
+  }
+  lists = filtered;
+  console.log(`Filtering to ${lists.length} list(s) matching "${filterRepo}"`);
+}
 
 // Load existing items.json if available (for incremental enrichment)
 const outputPath = new URL("../data/items.json", import.meta.url);
