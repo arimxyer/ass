@@ -1,6 +1,7 @@
 // scripts/build-items.ts
 import { parseReadme } from "../src/parser";
-import { batchEnrichItems } from "../src/enricher";
+import { batchEnrichItems, batchQueryListRepos } from "../src/enricher";
+import { diffItems } from "../src/diff";
 import type { ItemsIndex, ListEntry, Item } from "../src/types";
 
 // Configuration
@@ -48,7 +49,29 @@ try {
   console.log("No existing items.json found, starting fresh");
 }
 
-console.log(`\nBuilding items index for ${lists.length} lists...`);
+// Query all list repos for freshness
+console.log(`\nQuerying ${lists.length} list repos for freshness...`);
+const listMetadata = await batchQueryListRepos(lists.map(l => l.repo));
+
+// Determine which lists need re-parsing
+const staleLists: typeof lists = [];
+const freshLists: typeof lists = [];
+
+for (const list of lists) {
+  const cached = existingIndex?.lists[list.repo];
+  const remote = listMetadata.get(list.repo);
+
+  if (!cached || !remote || remote.pushedAt > cached.lastParsed) {
+    staleLists.push(list);
+  } else {
+    freshLists.push(list);
+  }
+}
+
+console.log(`  ${staleLists.length} lists need re-parsing`);
+console.log(`  ${freshLists.length} lists unchanged (using cache)`);
+
+console.log(`\nBuilding items index for ${staleLists.length} stale lists...`);
 
 const index: ItemsIndex = {
   generatedAt: new Date().toISOString(),
@@ -60,9 +83,9 @@ const index: ItemsIndex = {
 // Fetch and parse each README
 let allItems: (Item & { sourceList: string })[] = [];
 
-for (let i = 0; i < lists.length; i++) {
-  const list = lists[i];
-  const progress = `[${i + 1}/${lists.length}]`;
+for (let i = 0; i < staleLists.length; i++) {
+  const list = staleLists[i];
+  const progress = `[${i + 1}/${staleLists.length}]`;
 
   try {
     // Try main branch first, then master, with both README.md and readme.md
