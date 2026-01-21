@@ -3,6 +3,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import MiniSearch from "minisearch";
 import { z } from "zod";
+import { CONFIG } from "./config";
 import { loadData } from "./data-loader";
 import {
   type ItemsIndex,
@@ -130,10 +131,12 @@ server.tool(
     query: z.string().optional().describe("Search query (e.g., 'rust', 'machine learning')"),
     repo: z.string().optional().describe("Exact repo lookup (e.g., 'sindresorhus/awesome')"),
     sortBy: z.enum(["relevance", "stars", "updated"]).optional().describe("Sort order (default: 'stars', or 'relevance' if query provided)"),
-    minStars: z.number().optional().describe("Minimum star count filter"),
-    limit: z.number().optional().describe("Maximum results (default: 20)"),
+    minStars: z.number().int().min(0).optional().describe("Minimum star count filter"),
+    limit: z.number().int().min(1).max(CONFIG.search.maxLimit).optional()
+      .describe(`Maximum results (default: ${CONFIG.search.defaultListLimit}, max: ${CONFIG.search.maxLimit})`),
+    offset: z.number().int().min(0).optional().describe("Skip first N results (for pagination)"),
   },
-  async ({ query, repo, sortBy, minStars = 0, limit = 20 }) => {
+  async ({ query, repo, sortBy, minStars = 0, limit = CONFIG.search.defaultListLimit, offset = 0 }) => {
     // Exact repo lookup
     if (repo) {
       const list = lists.find(l => l.repo.toLowerCase() === repo.toLowerCase());
@@ -169,7 +172,7 @@ server.tool(
         .search(query)
         .map(r => lists[r.id])
         .filter(l => l.stars >= minStars)
-        .slice(0, limit)
+        .slice(offset, offset + limit)
         .map(l => ({
           repo: l.repo,
           name: l.name,
@@ -193,7 +196,7 @@ server.tool(
         filtered.sort((a, b) => b.stars - a.stars);
       }
 
-      results = filtered.slice(0, limit).map(l => ({
+      results = filtered.slice(offset, offset + limit).map(l => ({
         repo: l.repo,
         name: l.name,
         stars: l.stars,
@@ -217,11 +220,13 @@ server.tool(
     repo: z.string().optional().describe("Limit to a specific list (e.g., 'vinta/awesome-python')"),
     category: z.string().optional().describe("Filter by category"),
     language: z.string().optional().describe("Filter by programming language"),
-    minStars: z.number().optional().describe("Minimum GitHub stars"),
+    minStars: z.number().int().min(0).optional().describe("Minimum GitHub stars"),
     sortBy: z.enum(["relevance", "stars", "updated"]).optional().describe("Sort order (default: 'stars', or 'relevance' if query provided)"),
-    limit: z.number().optional().describe("Maximum results (default: 50)"),
+    limit: z.number().int().min(1).max(CONFIG.search.maxLimit).optional()
+      .describe(`Maximum results (default: ${CONFIG.search.defaultItemLimit}, max: ${CONFIG.search.maxLimit})`),
+    offset: z.number().int().min(0).optional().describe("Skip first N results (for pagination)"),
   },
-  async ({ query, repo, category, language, minStars = 0, sortBy, limit = 50 }) => {
+  async ({ query, repo, category, language, minStars = 0, sortBy, limit = CONFIG.search.defaultItemLimit, offset = 0 }) => {
     const effectiveSortBy = sortBy || (query ? "relevance" : "stars");
 
     let results: IndexedItem[];
@@ -239,30 +244,22 @@ server.tool(
       }
     }
 
-    // Apply filters
-    if (repo) {
-      const repoLower = repo.toLowerCase();
-      results = results.filter(i => i.listRepo.toLowerCase() === repoLower);
-    }
+    // Apply all filters in a single pass for better performance
+    const repoLower = repo?.toLowerCase();
+    const catLower = category?.toLowerCase();
+    const langLower = language?.toLowerCase();
 
-    if (category) {
-      const catLower = category.toLowerCase();
-      results = results.filter(i =>
-        i.category?.toLowerCase().includes(catLower) ||
-        i.subcategory?.toLowerCase().includes(catLower)
-      );
-    }
-
-    if (language) {
-      const langLower = language.toLowerCase();
-      results = results.filter(i =>
-        hasGitHubMetadata(i) && i.github.language?.toLowerCase() === langLower
-      );
-    }
-
-    if (minStars > 0) {
-      results = results.filter(i => hasGitHubMetadata(i) && i.github.stars >= minStars);
-    }
+    results = results.filter(item => {
+      if (repoLower && item.listRepo.toLowerCase() !== repoLower) return false;
+      if (catLower) {
+        const itemCat = item.category?.toLowerCase() ?? "";
+        const itemSubcat = item.subcategory?.toLowerCase() ?? "";
+        if (!itemCat.includes(catLower) && !itemSubcat.includes(catLower)) return false;
+      }
+      if (langLower && (!hasGitHubMetadata(item) || item.github.language?.toLowerCase() !== langLower)) return false;
+      if (minStars > 0 && (!hasGitHubMetadata(item) || item.github.stars < minStars)) return false;
+      return true;
+    });
 
     // Sort (if not already sorted by relevance)
     if (effectiveSortBy === "stars") {
@@ -279,8 +276,8 @@ server.tool(
       });
     }
 
-    // Apply limit and format
-    const limited = results.slice(0, limit);
+    // Apply offset and limit for pagination
+    const limited = results.slice(offset, offset + limit);
 
     const output = {
       totalMatches: results.length,
