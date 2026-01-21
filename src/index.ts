@@ -142,22 +142,20 @@ server.tool(
       const list = lists.find(l => l.repo.toLowerCase() === repo.toLowerCase());
       if (!list) {
         return {
-          content: [{ type: "text", text: `List not found: ${repo}` }],
+          content: [{ type: "text", text: JSON.stringify({ count: 0, items: [] }, null, 2) }],
         };
       }
+      const enrichedList = {
+        repo: list.repo,
+        name: list.name,
+        stars: list.stars,
+        description: list.description,
+        lastUpdated: list.pushed_at,
+        source: list.source,
+        githubUrl: `https://github.com/${list.repo}`,
+      };
       return {
-        content: [{
-          type: "text",
-          text: JSON.stringify({
-            repo: list.repo,
-            name: list.name,
-            stars: list.stars,
-            description: list.description,
-            lastUpdated: list.pushed_at,
-            source: list.source,
-            githubUrl: `https://github.com/${list.repo}`,
-          }, null, 2),
-        }],
+        content: [{ type: "text", text: JSON.stringify({ count: 1, items: [enrichedList] }, null, 2) }],
       };
     }
 
@@ -206,7 +204,7 @@ server.tool(
     }
 
     return {
-      content: [{ type: "text", text: JSON.stringify(results, null, 2) }],
+      content: [{ type: "text", text: JSON.stringify({ count: results.length, items: results }, null, 2) }],
     };
   }
 );
@@ -279,27 +277,57 @@ server.tool(
     // Apply offset and limit for pagination
     const limited = results.slice(offset, offset + limit);
 
-    const output = {
-      totalMatches: results.length,
-      returned: limited.length,
-      items: limited.map(i => {
-        const gh = hasGitHubMetadata(i) ? i.github : null;
-        return {
-          name: i.name,
-          url: i.url,
-          description: i.description,
-          category: i.category,
-          subcategory: i.subcategory,
-          stars: gh?.stars,
-          language: gh?.language,
-          lastUpdated: gh?.pushedAt,
-          list: i.listRepo,
-        };
-      }),
-    };
+    const items = limited.map(i => {
+      const gh = hasGitHubMetadata(i) ? i.github : null;
+      return {
+        name: i.name,
+        url: i.url,
+        description: i.description,
+        category: i.category,
+        subcategory: i.subcategory,
+        stars: gh?.stars,
+        language: gh?.language,
+        lastUpdated: gh?.pushedAt,
+        list: i.listRepo,
+      };
+    });
 
     return {
-      content: [{ type: "text", text: JSON.stringify(output, null, 2) }],
+      content: [{ type: "text", text: JSON.stringify({ count: items.length, items }, null, 2) }],
+    };
+  }
+);
+
+// Tool: Browse categories
+server.tool(
+  "browse_categories",
+  "List available categories with item counts",
+  {
+    repo: z.string().optional().describe("Filter to categories from specific list"),
+    limit: z.number().int().min(1).max(100).optional().describe("Maximum categories (default: 50)"),
+  },
+  async ({ repo, limit = 50 }) => {
+    const categoryCounts = new Map<string, number>();
+
+    const items = repo
+      ? allItems.filter(i => i.listRepo.toLowerCase() === repo.toLowerCase())
+      : allItems;
+
+    for (const item of items) {
+      const cat = item.category || "Uncategorized";
+      categoryCounts.set(cat, (categoryCounts.get(cat) || 0) + 1);
+    }
+
+    const categories = Array.from(categoryCounts.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, limit);
+
+    return {
+      content: [{
+        type: "text",
+        text: JSON.stringify({ count: categories.length, categories }, null, 2),
+      }],
     };
   }
 );
