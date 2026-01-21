@@ -46,7 +46,7 @@ try {
 // Initialize list search index
 const listSearch = new MiniSearch<AwesomeList>({
   fields: ["name", "repo", "description"],
-  storeFields: ["repo", "name", "stars", "description", "pushed_at", "source"],
+  storeFields: [],  // Store nothing - just return IDs, look up from lists array
   searchOptions: {
     boost: { name: 2, repo: 1.5, description: 1 },
     fuzzy: 0.2,
@@ -69,7 +69,7 @@ for (const [listRepo, entry] of Object.entries(itemsIndex.lists)) {
 // Initialize item search index
 const itemSearch = new MiniSearch<IndexedItem>({
   fields: ["name", "description", "category"],
-  storeFields: ["name", "url", "description", "category", "subcategory", "github", "listRepo"],
+  storeFields: [],  // Store nothing - just return IDs, look up from allItems
   searchOptions: {
     boost: { name: 2, category: 1.5, description: 1 },
     fuzzy: 0.2,
@@ -129,24 +129,25 @@ server.tool(
     let results: any[];
 
     if (query && effectiveSortBy === "relevance") {
-      // Search with relevance sorting
+      // Search with relevance sorting - look up from lists by ID (O(1) since id === array index)
       results = listSearch
         .search(query)
-        .filter(r => r.stars >= minStars)
+        .map(r => lists[r.id])
+        .filter(l => l.stars >= minStars)
         .slice(0, limit)
-        .map(r => ({
-          repo: r.repo,
-          name: r.name,
-          stars: r.stars,
-          description: r.description,
-          lastUpdated: r.pushed_at,
+        .map(l => ({
+          repo: l.repo,
+          name: l.name,
+          stars: l.stars,
+          description: l.description,
+          lastUpdated: l.pushed_at,
         }));
     } else {
       // Filter and sort manually
       let filtered = lists.filter(l => l.stars >= minStars);
 
       if (query) {
-        const searchResults = new Set(listSearch.search(query).map(r => r.repo));
+        const searchResults = new Set(listSearch.search(query).map(r => lists[r.id].repo));
         filtered = filtered.filter(l => searchResults.has(l.repo));
       }
 
@@ -191,17 +192,8 @@ server.tool(
     let results: IndexedItem[];
 
     if (query && effectiveSortBy === "relevance") {
-      // Search with relevance
-      results = itemSearch.search(query).map(r => ({
-        id: r.id,
-        name: r.name,
-        url: r.url,
-        description: r.description,
-        category: r.category,
-        subcategory: r.subcategory,
-        github: r.github,
-        listRepo: r.listRepo,
-      })) as IndexedItem[];
+      // Search with relevance - look up from allItems by ID (O(1) since id === array index)
+      results = itemSearch.search(query).map(r => allItems[r.id]);
     } else {
       // Start with all items or query results
       if (query) {
