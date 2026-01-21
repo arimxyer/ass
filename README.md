@@ -15,7 +15,7 @@ MCP server for searching 631+ curated awesome lists and 177,000+ tools/libraries
 ### Claude Code
 
 ```bash
-claude mcp add awess -- bunx awess
+claude mcp add awess -- bunx awess@latest
 ```
 
 ### Claude Desktop
@@ -41,13 +41,13 @@ Add to your config file:
 ### Run directly
 
 ```bash
-bunx awess
+bunx awess@latest
 ```
 
 ### Test with MCP Inspector
 
 ```bash
-npx @modelcontextprotocol/inspector bunx awess
+npx @modelcontextprotocol/inspector bunx awess@latest
 ```
 
 ## Tools
