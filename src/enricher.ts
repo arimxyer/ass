@@ -2,6 +2,14 @@
 import type { Item } from "./types";
 import { CONFIG } from "./config";
 
+// Regex to validate GitHub owner/repo names - prevents GraphQL injection
+// Valid characters: alphanumeric, underscore, hyphen, and dot
+const GITHUB_NAME_REGEX = /^[a-zA-Z0-9_.-]+$/;
+
+export function validateGitHubName(name: string): boolean {
+  return GITHUB_NAME_REGEX.test(name);
+}
+
 export function extractGitHubRepo(url: string): string | null {
   const match = url.match(/github\.com\/([^\/]+\/[^\/]+)/);
   if (!match) return null;
@@ -64,17 +72,34 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
     }
 
     // Include rateLimit in query to monitor usage
+    // Build repo queries with validation to prevent GraphQL injection
+    // Track which repos were actually queried to fix index alignment
+    const queriedRepos: string[] = [];
+    const repoQueries = batch.map((repo) => {
+      const [owner, name] = repo.split("/");
+      if (!validateGitHubName(owner) || !validateGitHubName(name)) {
+        console.warn(`Invalid repo name, skipping: ${repo}`);
+        return null;
+      }
+      const queryIdx = queriedRepos.length;
+      queriedRepos.push(repo);
+      return `repo${queryIdx}: repository(owner: "${owner}", name: "${name}") {
+        stargazerCount
+        primaryLanguage { name }
+        pushedAt
+      }`;
+    }).filter((q): q is string => q !== null);
+
+    // Skip batch if all repos were invalid
+    if (repoQueries.length === 0) {
+      console.log(`  [${batchNum}/${totalBatches}] All repos in batch invalid, skipping`);
+      continue;
+    }
+
     const query = `
       query {
         rateLimit { cost remaining resetAt }
-        ${batch.map((repo, idx) => {
-          const [owner, name] = repo.split("/");
-          return `repo${idx}: repository(owner: "${owner}", name: "${name}") {
-            stargazerCount
-            primaryLanguage { name }
-            pushedAt
-          }`;
-        }).join("\n")}
+        ${repoQueries.join("\n")}
       }
     `;
 
@@ -107,8 +132,8 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
         for (const error of json.errors) {
           if (error.path?.[0]?.startsWith("repo")) {
             const idx = parseInt(error.path[0].slice(4));
-            if (batch[idx]) {
-              notFoundRepos.add(batch[idx]);
+            if (queriedRepos[idx]) {
+              notFoundRepos.add(queriedRepos[idx]);
             }
           }
         }
@@ -133,10 +158,10 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
         console.log(`  ⚠️ Low rate limit (${rl.remaining}), increasing delay to ${currentDelay}ms`);
       }
 
-      // Process results - now handles partial data correctly
+      // Process results - use queriedRepos to align indices correctly
       const now = new Date().toISOString();
-      for (let j = 0; j < batch.length; j++) {
-        const repo = batch[j];
+      for (let j = 0; j < queriedRepos.length; j++) {
+        const repo = queriedRepos[j];
         const data = result[`repo${j}`];
         const itemsForRepo = repoMap.get(repo)!;
 
@@ -211,13 +236,31 @@ export async function batchQueryListRepos(
     const totalBatches = Math.ceil(repos.length / BATCH_SIZE);
     process.stdout.write(`  [${batchNum}/${totalBatches}]\r`);
 
-    // Build GraphQL query for this batch
-    const repoQueries = batch.map((repo, idx) => {
+    // Build GraphQL query for this batch with validation to prevent GraphQL injection
+    // Track which repos were actually queried to fix index alignment
+    const queriedRepos: string[] = [];
+    const repoQueries = batch.map((repo) => {
       const [owner, name] = repo.split("/");
-      return `repo${idx}: repository(owner: "${owner}", name: "${name}") {
+      if (!validateGitHubName(owner) || !validateGitHubName(name)) {
+        console.warn(`Invalid repo name, skipping: ${repo}`);
+        return null;
+      }
+      const queryIdx = queriedRepos.length;
+      queriedRepos.push(repo);
+      return `repo${queryIdx}: repository(owner: "${owner}", name: "${name}") {
         pushedAt
       }`;
-    });
+    }).filter((q): q is string => q !== null);
+
+    // Skip batch if all repos were invalid
+    if (repoQueries.length === 0) {
+      console.log(`  [${batchNum}/${totalBatches}] All repos in batch invalid, skipping`);
+      // Mark all as null since we can't query them
+      for (const repo of batch) {
+        results.set(repo, null);
+      }
+      continue;
+    }
 
     const query = `query { ${repoQueries.join("\n")} }`;
 
@@ -251,8 +294,8 @@ export async function batchQueryListRepos(
         continue;
       }
 
-      // Extract results
-      batch.forEach((repo, idx) => {
+      // Extract results - use queriedRepos to align indices correctly
+      queriedRepos.forEach((repo, idx) => {
         const data = json.data?.[`repo${idx}`];
         if (data?.pushedAt) {
           results.set(repo, { pushedAt: data.pushedAt });
@@ -260,6 +303,12 @@ export async function batchQueryListRepos(
           results.set(repo, null);
         }
       });
+      // Mark invalid repos (not in queriedRepos) as null
+      for (const repo of batch) {
+        if (!results.has(repo)) {
+          results.set(repo, null);
+        }
+      }
     } catch (error: any) {
       console.error(`  Error batch ${batchNum}:`, error.message);
       for (const repo of batch) {
