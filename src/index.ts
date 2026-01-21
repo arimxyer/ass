@@ -19,6 +19,17 @@ interface IndexedItem extends Item {
   listRepo: string;
 }
 
+/** Result type for list search results */
+interface ListResult {
+  repo: string;
+  name: string;
+  stars: number;
+  description: string;
+  lastUpdated?: string;
+  source?: string;
+  githubUrl?: string;
+}
+
 // Load required data with crash protection
 let lists: AwesomeList[];
 let itemsIndex: ItemsIndex;
@@ -162,7 +173,7 @@ server.tool(
     // Determine sort order
     const effectiveSortBy = sortBy || (query ? "relevance" : "stars");
 
-    let results: any[];
+    let results: ListResult[];
 
     if (query && effectiveSortBy === "relevance") {
       // Search with relevance sorting - look up from lists by ID (O(1) since id === array index)
@@ -332,72 +343,113 @@ server.tool(
   }
 );
 
+/** Result type for stats computation */
+interface StatsResult {
+  lists: {
+    total: number;
+    totalStars: number;
+    avgStars: number;
+    starDistribution: Record<string, number>;
+  };
+  items: {
+    totalItems: number;
+    enrichedItems: number;
+    listsWithItems: number;
+    topLanguages: Record<string, number>;
+    topCategories: Record<string, number>;
+  };
+}
+
+/** Cache for stats result since data doesn't change during runtime */
+let cachedStats: StatsResult | null = null;
+
+/**
+ * Compute collection statistics using single-pass algorithms.
+ * Results are cached since data is static during server lifetime.
+ */
+function computeStats(): StatsResult {
+  // Star distribution buckets for lists
+  const starBuckets: Record<string, number> = {
+    "10000+": 0,
+    "5000-9999": 0,
+    "1000-4999": 0,
+    "500-999": 0,
+    "<500": 0,
+  };
+
+  // Single pass over lists
+  let totalStars = 0;
+  for (const list of lists) {
+    totalStars += list.stars;
+    if (list.stars >= 10000) starBuckets["10000+"]++;
+    else if (list.stars >= 5000) starBuckets["5000-9999"]++;
+    else if (list.stars >= 1000) starBuckets["1000-4999"]++;
+    else if (list.stars >= 500) starBuckets["500-999"]++;
+    else starBuckets["<500"]++;
+  }
+
+  // Single pass over items
+  const languageCounts = new Map<string, number>();
+  const categoryCounts = new Map<string, number>();
+  let enrichedCount = 0;
+
+  for (const item of allItems) {
+    // Count categories
+    if (item.category) {
+      categoryCounts.set(item.category, (categoryCounts.get(item.category) || 0) + 1);
+    }
+
+    // Count enriched items and languages
+    if (hasGitHubMetadata(item)) {
+      enrichedCount++;
+      if (item.github.language) {
+        languageCounts.set(item.github.language, (languageCounts.get(item.github.language) || 0) + 1);
+      }
+    }
+  }
+
+  // Format top languages (top 10 by count)
+  const topLanguages = [...languageCounts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .reduce((acc, [lang, count]) => ({ ...acc, [lang]: count }), {} as Record<string, number>);
+
+  // Format top categories (top 10 by count)
+  const topCategories = [...categoryCounts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .reduce((acc, [cat, count]) => ({ ...acc, [cat]: count }), {} as Record<string, number>);
+
+  return {
+    lists: {
+      total: lists.length,
+      totalStars,
+      avgStars: Math.round(totalStars / lists.length),
+      starDistribution: starBuckets,
+    },
+    items: {
+      totalItems: allItems.length,
+      enrichedItems: enrichedCount,
+      listsWithItems: itemsIndex.listCount,
+      topLanguages,
+      topCategories,
+    },
+  };
+}
+
 // Tool: Stats (enhanced with item statistics)
 server.tool(
   "stats",
   "Get statistics about the curated awesome lists collection and items",
   {},
   async () => {
-    const totalLists = lists.length;
-    const totalStars = lists.reduce((sum, l) => sum + l.stars, 0);
-    const avgStars = Math.round(totalStars / totalLists);
-
-    const listStarBrackets = {
-      "10000+": lists.filter(l => l.stars >= 10000).length,
-      "5000-9999": lists.filter(l => l.stars >= 5000 && l.stars < 10000).length,
-      "1000-4999": lists.filter(l => l.stars >= 1000 && l.stars < 5000).length,
-      "500-999": lists.filter(l => l.stars >= 500 && l.stars < 1000).length,
-      "<500": lists.filter(l => l.stars < 500).length,
-    };
-
-    // Item statistics
-    const enrichedItems = allItems.filter(hasGitHubMetadata);
-
-    // Count languages
-    const languageCounts = new Map<string, number>();
-    for (const item of enrichedItems) {
-      const lang = item.github.language;
-      if (lang) {
-        languageCounts.set(lang, (languageCounts.get(lang) || 0) + 1);
-      }
+    if (!cachedStats) {
+      cachedStats = computeStats();
     }
-    const topLanguages = [...languageCounts.entries()]
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 10)
-      .reduce((acc, [lang, count]) => ({ ...acc, [lang]: count }), {});
-
-    // Count categories
-    const categoryCounts = new Map<string, number>();
-    for (const item of allItems) {
-      if (item.category) {
-        categoryCounts.set(item.category, (categoryCounts.get(item.category) || 0) + 1);
-      }
-    }
-    const topCategories = [...categoryCounts.entries()]
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 10)
-      .reduce((acc, [cat, count]) => ({ ...acc, [cat]: count }), {});
-
-    const itemStats = {
-      totalItems: allItems.length,
-      enrichedItems: enrichedItems.length,
-      listsWithItems: itemsIndex.listCount,
-      topLanguages,
-      topCategories,
-    };
-
     return {
       content: [{
         type: "text",
-        text: JSON.stringify({
-          lists: {
-            total: totalLists,
-            totalStars,
-            avgStars,
-            starDistribution: listStarBrackets,
-          },
-          items: itemStats,
-        }, null, 2),
+        text: JSON.stringify(cachedStats, null, 2),
       }],
     };
   }

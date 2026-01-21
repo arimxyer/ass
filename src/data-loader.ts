@@ -25,6 +25,11 @@ interface LoadOptions<T> {
  * - Optional Zod schema validation
  * - Supports both JSON and gzipped JSON
  *
+ * @param options - Load configuration
+ * @param options.filename - Filename to load (relative to data directory)
+ * @param options.schema - Optional Zod schema for runtime validation
+ * @param options.gzipped - Whether the file is gzipped (default: false)
+ * @returns Parsed and optionally validated data
  * @throws AggregateError if all sources fail
  */
 export async function loadData<T>(options: LoadOptions<T>): Promise<T> {
@@ -105,6 +110,11 @@ export async function loadData<T>(options: LoadOptions<T>): Promise<T> {
 /**
  * Convenience function to load gzipped data.
  * Equivalent to loadData({ filename, gzipped: true, schema }).
+ *
+ * @param filename - Filename to load (relative to data directory)
+ * @param schema - Optional Zod schema for runtime validation
+ * @returns Parsed and optionally validated data
+ * @throws AggregateError if all sources fail
  */
 export async function loadGzippedData<T>(
   filename: string,

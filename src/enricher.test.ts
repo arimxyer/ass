@@ -118,7 +118,7 @@ describe("batchEnrichItems (mocked)", () => {
 
     globalThis.fetch = mock(() =>
       Promise.resolve(new Response(JSON.stringify(mockResponse), { status: 200 }))
-    );
+    ) as unknown as typeof fetch;
 
     const items: Item[] = [
       { name: "Test Repo", url: "https://github.com/owner/repo", description: "A test repo", category: "Testing" },
@@ -156,7 +156,7 @@ describe("batchEnrichItems (mocked)", () => {
 
     globalThis.fetch = mock(() =>
       Promise.resolve(new Response(JSON.stringify(mockResponse), { status: 200 }))
-    );
+    ) as unknown as typeof fetch;
 
     const items: Item[] = [
       { name: "Exists", url: "https://github.com/owner/exists", description: "Exists", category: "Test" },
@@ -183,7 +183,7 @@ describe("batchEnrichItems (mocked)", () => {
 
     globalThis.fetch = mock(() =>
       Promise.resolve(new Response(JSON.stringify(mockResponse), { status: 200 }))
-    );
+    ) as unknown as typeof fetch;
 
     const items: Item[] = [
       { name: "Test", url: "https://github.com/owner/repo", description: "Test", category: "Test" },
@@ -198,7 +198,7 @@ describe("batchEnrichItems (mocked)", () => {
   test("handles HTTP error response", async () => {
     globalThis.fetch = mock(() =>
       Promise.resolve(new Response("Unauthorized", { status: 401 }))
-    );
+    ) as unknown as typeof fetch;
 
     const items: Item[] = [
       { name: "Test", url: "https://github.com/owner/repo", description: "Test", category: "Test" },
@@ -213,7 +213,7 @@ describe("batchEnrichItems (mocked)", () => {
   test("handles network timeout", async () => {
     globalThis.fetch = mock(() =>
       Promise.reject(new Error("The operation was aborted due to timeout"))
-    );
+    ) as unknown as typeof fetch;
 
     const items: Item[] = [
       { name: "Test", url: "https://github.com/owner/repo", description: "Test", category: "Test" },
@@ -239,7 +239,7 @@ describe("batchEnrichItems (mocked)", () => {
 
     globalThis.fetch = mock(() =>
       Promise.resolve(new Response(JSON.stringify(mockResponse), { status: 200 }))
-    );
+    ) as unknown as typeof fetch;
 
     const items: Item[] = [
       { name: "GitHub Item", url: "https://github.com/owner/repo", description: "GitHub", category: "Test" },
@@ -271,7 +271,7 @@ describe("batchEnrichItems (mocked)", () => {
 
     globalThis.fetch = mock(() =>
       Promise.resolve(new Response(JSON.stringify(mockResponse), { status: 200 }))
-    );
+    ) as unknown as typeof fetch;
 
     const items: Item[] = [
       { name: "No Lang", url: "https://github.com/owner/nolang", description: "No language", category: "Test" },
@@ -320,7 +320,7 @@ describe("batchQueryListRepos (mocked)", () => {
 
     globalThis.fetch = mock(() =>
       Promise.resolve(new Response(JSON.stringify(mockResponse), { status: 200 }))
-    );
+    ) as unknown as typeof fetch;
 
     const repos = ["owner/repo1", "owner/repo2"];
     const result = await batchQueryListRepos(repos);
@@ -347,7 +347,7 @@ describe("batchQueryListRepos (mocked)", () => {
 
     globalThis.fetch = mock(() =>
       Promise.resolve(new Response(JSON.stringify(mockResponse), { status: 200 }))
-    );
+    ) as unknown as typeof fetch;
 
     const repos = ["owner/exists", "owner/gone"];
     const result = await batchQueryListRepos(repos);
@@ -359,7 +359,7 @@ describe("batchQueryListRepos (mocked)", () => {
   test("handles HTTP error response", async () => {
     globalThis.fetch = mock(() =>
       Promise.resolve(new Response("Internal Server Error", { status: 500 }))
-    );
+    ) as unknown as typeof fetch;
 
     const repos = ["owner/repo"];
     const result = await batchQueryListRepos(repos);
@@ -370,7 +370,7 @@ describe("batchQueryListRepos (mocked)", () => {
   test("handles network error", async () => {
     globalThis.fetch = mock(() =>
       Promise.reject(new Error("Network connection failed"))
-    );
+    ) as unknown as typeof fetch;
 
     const repos = ["owner/repo"];
     const result = await batchQueryListRepos(repos);

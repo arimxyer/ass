@@ -93,3 +93,32 @@ Some intro text.
     expect(regularTool?.category).toBe("Category One");
   });
 });
+
+describe("parseReadme edge cases", () => {
+  test("handles empty input", () => {
+    expect(parseReadme("")).toEqual([]);
+  });
+
+  test("handles input with no h2 headers", () => {
+    const md = "# Title\n\n- [Link](https://example.com) - Description";
+    const items = parseReadme(md);
+    expect(items[0].category).toBe("Uncategorized");
+  });
+
+  test("handles malformed links gracefully", () => {
+    const md = "## Category\n\n- [Incomplete](";
+    expect(() => parseReadme(md)).not.toThrow();
+  });
+
+  test("handles nested lists", () => {
+    const md = "## Category\n\n- Parent\n  - [Nested](https://example.com) - Desc";
+    const items = parseReadme(md);
+    expect(items.length).toBeGreaterThan(0);
+  });
+
+  test("handles unicode in names and descriptions", () => {
+    const md = "## Category\n\n- [日本語](https://example.com) - 説明文";
+    const items = parseReadme(md);
+    expect(items[0].name).toBe("日本語");
+  });
+});

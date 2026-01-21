@@ -147,3 +147,11 @@ export interface GraphQLResponse {
   };
   errors?: GraphQLError[];
 }
+
+/** Simpler GraphQL response for list repo queries (pushedAt only) */
+export interface GraphQLListRepoResponse {
+  data?: {
+    [key: `repo${number}`]: { pushedAt: string } | null;
+  };
+  errors?: GraphQLError[];
+}

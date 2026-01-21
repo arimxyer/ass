@@ -28,7 +28,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/mdast": "^4.0.4"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",

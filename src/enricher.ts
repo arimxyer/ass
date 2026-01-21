@@ -1,15 +1,30 @@
 // src/enricher.ts
-import type { Item } from "./types";
+import type { Item, GraphQLResponse, GraphQLListRepoResponse } from "./types";
 import { CONFIG } from "./config";
 
 // Regex to validate GitHub owner/repo names - prevents GraphQL injection
 // Valid characters: alphanumeric, underscore, hyphen, and dot
 const GITHUB_NAME_REGEX = /^[a-zA-Z0-9_.-]+$/;
 
+/**
+ * Validate a GitHub owner or repository name to prevent GraphQL injection.
+ * Valid characters: alphanumeric, underscore, hyphen, and dot.
+ *
+ * @param name - GitHub owner or repository name to validate
+ * @returns true if the name contains only valid characters
+ */
 export function validateGitHubName(name: string): boolean {
   return GITHUB_NAME_REGEX.test(name);
 }
 
+/**
+ * Extract the owner/repo path from a GitHub URL.
+ * Handles various URL formats including those with .git suffix,
+ * query parameters, and fragment identifiers.
+ *
+ * @param url - URL to parse (e.g., "https://github.com/owner/repo")
+ * @returns The owner/repo string (e.g., "owner/repo"), or null if not a valid GitHub repo URL
+ */
 export function extractGitHubRepo(url: string): string | null {
   const match = url.match(/github\.com\/([^\/]+\/[^\/]+)/);
   if (!match) return null;
@@ -35,6 +50,16 @@ function sleep(ms: number, jitter = 0.2): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms + jitterMs));
 }
 
+/**
+ * Batch enrich items with GitHub metadata using the GraphQL API.
+ * Extracts unique GitHub repos from item URLs and fetches stars,
+ * language, and last push date. Handles rate limiting with exponential backoff.
+ *
+ * Requires GITHUB_TOKEN environment variable. Without it, returns items unchanged.
+ *
+ * @param items - Array of items to enrich
+ * @returns The same array with github metadata populated where available
+ */
 export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
   const token = process.env.GITHUB_TOKEN;
   if (!token) {
@@ -120,7 +145,7 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
         throw new Error(`HTTP ${response.status}`);
       }
 
-      const json: any = await response.json();
+      const json = (await response.json()) as GraphQLResponse;
 
       // Check for complete failure (errors but no data)
       if (json.errors && !json.data) {
@@ -143,27 +168,28 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
         }
       }
 
-      const result = json.data;
+      const result = json.data!;
 
       // Log rate limit status periodically
       const rl = result.rateLimit;
-      if (batchNum % 10 === 0 || rl?.remaining < 100) {
+      if (batchNum % 10 === 0 || (rl?.remaining !== undefined && rl.remaining < 100)) {
         console.log(`  [${batchNum}/${totalBatches}] Rate limit: ${rl?.remaining} remaining, cost: ${rl?.cost}`);
       } else {
         process.stdout.write(`  [${batchNum}/${totalBatches}]\r`);
       }
 
       // If running low on points, slow down
-      if (rl?.remaining < 500) {
+      if (rl?.remaining !== undefined && rl.remaining < 500) {
         currentDelay = Math.min(currentDelay * 1.5, 5000);
-        console.log(`  ⚠️ Low rate limit (${rl.remaining}), increasing delay to ${currentDelay}ms`);
+        console.log(`  Low rate limit (${rl.remaining}), increasing delay to ${currentDelay}ms`);
       }
 
       // Process results - use queriedRepos to align indices correctly
       const now = new Date().toISOString();
       for (let j = 0; j < queriedRepos.length; j++) {
         const repo = queriedRepos[j];
-        const data = result[`repo${j}`];
+        const repoKey = `repo${j}` as const;
+        const data = result[repoKey];
         const itemsForRepo = repoMap.get(repo)!;
 
         if (data) {
@@ -194,11 +220,14 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
       batchRetryCount = 0;
       currentDelay = Math.max(currentDelay * 0.9, baseDelayMs); // Gradually speed up
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       consecutiveErrors++;
 
+      // Extract error message safely
+      const message = error instanceof Error ? error.message : String(error);
+
       // Check for secondary rate limit
-      const isRateLimitError = error.message?.includes("SecondaryRateLimit") || error.message?.includes("403");
+      const isRateLimitError = message.includes("SecondaryRateLimit") || message.includes("403");
       if (isRateLimitError && batchRetryCount < CONFIG.github.maxRetries) {
         batchRetryCount++;
         // Exponential backoff with jitter
@@ -216,7 +245,7 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
       }
 
       // Log other errors but continue
-      console.error(`  Error batch ${batchNum}: ${error.message?.slice(0, 100)}`);
+      console.error(`  Error batch ${batchNum}: ${message.slice(0, 100)}`);
 
       // If too many consecutive errors, slow down
       if (consecutiveErrors >= 3) {
@@ -230,6 +259,15 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
   return items;
 }
 
+/**
+ * Batch query multiple GitHub repositories for their last push date.
+ * Used to determine which awesome list READMEs need re-parsing.
+ *
+ * Requires GITHUB_TOKEN environment variable. Without it, returns an empty Map.
+ *
+ * @param repos - Array of repo identifiers in "owner/repo" format
+ * @returns Map from repo identifier to push date info, or null if repo not found
+ */
 export async function batchQueryListRepos(
   repos: string[]
 ): Promise<Map<string, { pushedAt: string } | null>> {
@@ -296,7 +334,7 @@ export async function batchQueryListRepos(
         continue;
       }
 
-      const json = await response.json();
+      const json = (await response.json()) as GraphQLListRepoResponse;
 
       if (json.errors && !json.data) {
         console.error(`  Error batch ${batchNum}:`, json.errors[0]?.message);
@@ -322,7 +360,8 @@ export async function batchQueryListRepos(
 
       // Extract results - use queriedRepos to align indices correctly
       queriedRepos.forEach((repo, idx) => {
-        const data = json.data?.[`repo${idx}`];
+        const repoKey = `repo${idx}` as const;
+        const data = json.data?.[repoKey];
         if (data?.pushedAt) {
           results.set(repo, { pushedAt: data.pushedAt });
         } else if (notFoundRepos.has(repo)) {
@@ -340,8 +379,9 @@ export async function batchQueryListRepos(
           results.set(repo, null);
         }
       }
-    } catch (error: any) {
-      console.error(`  Error batch ${batchNum}:`, error.message);
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.error(`  Error batch ${batchNum}:`, message);
       for (const repo of batch) {
         results.set(repo, null);
       }
