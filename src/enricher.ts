@@ -1,5 +1,6 @@
 // src/enricher.ts
 import type { Item } from "./types";
+import { CONFIG } from "./config";
 
 export function extractGitHubRepo(url: string): string | null {
   const match = url.match(/github\.com\/([^\/]+\/[^\/]+)/);
@@ -47,9 +48,9 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
   console.log(`Enriching ${repos.length} unique repos...`);
 
   // Tuned for GitHub's secondary rate limits
-  const batchSize = 50;        // Smaller batches = lower query cost
-  const baseDelayMs = 500;     // Base delay between batches
-  let currentDelay = baseDelayMs;
+  const batchSize = CONFIG.github.batchSize;
+  const baseDelayMs = CONFIG.github.baseDelayMs;
+  let currentDelay: number = baseDelayMs;
   let consecutiveErrors = 0;
 
   for (let i = 0; i < repos.length; i += batchSize) {
@@ -79,13 +80,14 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
 
     try {
       // Use fetch instead of octokit.graphql to handle partial results
-      const response = await fetch("https://api.github.com/graphql", {
+      const response = await fetch(CONFIG.github.graphqlEndpoint, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ query }),
+        signal: AbortSignal.timeout(CONFIG.network.timeout),
       });
 
       if (!response.ok) {
@@ -167,7 +169,7 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
       // Check for secondary rate limit
       if (error.message?.includes("SecondaryRateLimit") || error.message?.includes("403")) {
         // Exponential backoff with jitter
-        const backoffMs = Math.min(baseDelayMs * Math.pow(2, consecutiveErrors), 60000);
+        const backoffMs = Math.min(baseDelayMs * Math.pow(2, consecutiveErrors), CONFIG.github.maxBackoffMs);
         console.log(`  ⚠️ Secondary rate limit hit, backing off for ${backoffMs}ms...`);
         await sleep(backoffMs, 0.3);
         currentDelay = backoffMs; // Keep the higher delay
@@ -180,7 +182,7 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
 
       // If too many consecutive errors, slow down
       if (consecutiveErrors >= 3) {
-        currentDelay = Math.min(currentDelay * 2, 10000);
+        currentDelay = Math.min(currentDelay * 2, CONFIG.github.maxDelayMs);
         console.log(`  Multiple errors, slowing to ${currentDelay}ms`);
       }
     }
@@ -201,7 +203,7 @@ export async function batchQueryListRepos(
     return results;
   }
 
-  const BATCH_SIZE = 50;
+  const BATCH_SIZE = CONFIG.github.batchSize;
 
   for (let i = 0; i < repos.length; i += BATCH_SIZE) {
     const batch = repos.slice(i, i + BATCH_SIZE);
@@ -220,13 +222,14 @@ export async function batchQueryListRepos(
     const query = `query { ${repoQueries.join("\n")} }`;
 
     try {
-      const response = await fetch("https://api.github.com/graphql", {
+      const response = await fetch(CONFIG.github.graphqlEndpoint, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ query }),
+        signal: AbortSignal.timeout(CONFIG.network.timeout),
       });
 
       if (!response.ok) {

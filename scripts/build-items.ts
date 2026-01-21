@@ -2,6 +2,7 @@
 import { parseReadme } from "../src/parser";
 import { batchEnrichItems, batchQueryListRepos } from "../src/enricher";
 import { diffItems } from "../src/diff";
+import { CONFIG } from "../src/config";
 import type { ItemsIndex, Item } from "../src/types";
 
 // Load list of awesome lists
@@ -114,7 +115,9 @@ for (let i = 0; i < staleLists.length; i++) {
     outer: for (const branch of ["main", "master"]) {
       for (const filename of ["README.md", "readme.md"]) {
         const url = `https://raw.githubusercontent.com/${list.repo}/${branch}/${filename}`;
-        const res = await fetch(url);
+        const res = await fetch(url, {
+          signal: AbortSignal.timeout(CONFIG.network.timeout),
+        });
         if (res.ok) {
           readme = await res.text();
           break outer;
@@ -168,7 +171,9 @@ for (let attempt = 1; attempt <= 3 && failedLists.length > 0; attempt++) {
       outer: for (const branch of ["main", "master"]) {
         for (const filename of ["README.md", "readme.md"]) {
           const url = `https://raw.githubusercontent.com/${list.repo}/${branch}/${filename}`;
-          const res = await fetch(url);
+          const res = await fetch(url, {
+            signal: AbortSignal.timeout(CONFIG.network.timeout),
+          });
           if (res.ok) {
             readme = await res.text();
             break outer;
