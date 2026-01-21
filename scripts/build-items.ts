@@ -267,6 +267,12 @@ if (failedLists.length > 0) {
   for (const list of failedLists) {
     console.warn(`  - ${list.repo}`);
   }
+
+  const threshold = Math.ceil(lists.length * CONFIG.build.failureThreshold);
+  if (failedLists.length > threshold) {
+    console.error(`\nFAILURE: ${failedLists.length} failures exceeds ${CONFIG.build.failureThreshold * 100}% threshold (${threshold})`);
+    process.exit(1);
+  }
 }
 
 // Copy fresh (unchanged) lists from existing index
