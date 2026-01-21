@@ -102,7 +102,55 @@ const index: ItemsIndex = {
   lists: {},
 };
 
-// Process only stale lists
+// Helper function to fetch README from a repo
+async function fetchReadme(repo: string): Promise<string | null> {
+  const branches = ["main", "master"];
+  const filenames = ["README.md", "readme.md"];
+
+  for (const branch of branches) {
+    for (const filename of filenames) {
+      try {
+        const url = `https://raw.githubusercontent.com/${repo}/${branch}/${filename}`;
+        const res = await fetch(url, {
+          signal: AbortSignal.timeout(CONFIG.network.timeout),
+        });
+        if (res.ok) return res.text();
+      } catch {
+        continue;
+      }
+    }
+  }
+  return null;
+}
+
+// Fetch all READMEs in parallel batches
+const CONCURRENCY = CONFIG.build.fetchConcurrency;
+const readmeCache: Map<string, string> = new Map();
+const fetchFailedRepos: Set<string> = new Set();
+
+console.log(`Fetching READMEs with concurrency ${CONCURRENCY}...`);
+for (let i = 0; i < staleLists.length; i += CONCURRENCY) {
+  const batch = staleLists.slice(i, i + CONCURRENCY);
+  const promises = batch.map(async (list) => {
+    try {
+      const readme = await fetchReadme(list.repo);
+      if (readme) {
+        readmeCache.set(list.repo, readme);
+      } else {
+        fetchFailedRepos.add(list.repo);
+      }
+    } catch {
+      fetchFailedRepos.add(list.repo);
+    }
+  });
+  await Promise.all(promises);
+  console.log(`Fetched ${Math.min(i + CONCURRENCY, staleLists.length)}/${staleLists.length} READMEs`);
+}
+
+console.log(`  ${readmeCache.size} READMEs fetched successfully`);
+console.log(`  ${fetchFailedRepos.size} READMEs failed to fetch`);
+
+// Process only stale lists using cached READMEs
 let allAddedItems: (Item & { sourceList: string })[] = [];
 let failedLists: typeof staleLists = [];
 
@@ -111,23 +159,13 @@ for (let i = 0; i < staleLists.length; i++) {
   const progress = `[${i + 1}/${staleLists.length}]`;
 
   try {
-    // Fetch README
-    let readme: string | null = null;
-    outer: for (const branch of ["main", "master"]) {
-      for (const filename of ["README.md", "readme.md"]) {
-        const url = `https://raw.githubusercontent.com/${list.repo}/${branch}/${filename}`;
-        const res = await fetch(url, {
-          signal: AbortSignal.timeout(CONFIG.network.timeout),
-        });
-        if (res.ok) {
-          readme = await res.text();
-          break outer;
-        }
-      }
-    }
+    // Get README from cache
+    const readme = readmeCache.get(list.repo);
 
     if (!readme) {
-      console.log(`${progress} ${list.repo} - README not found, skipping`);
+      if (fetchFailedRepos.has(list.repo)) {
+        console.log(`${progress} ${list.repo} - README not found, skipping`);
+      }
       continue;
     }
 
@@ -164,23 +202,33 @@ for (let i = 0; i < staleLists.length; i++) {
 // Deferred retry passes (up to 3)
 for (let attempt = 1; attempt <= 3 && failedLists.length > 0; attempt++) {
   console.log(`\nRetry pass ${attempt}: ${failedLists.length} lists`);
+
+  // Parallel fetch READMEs for failed lists
+  const retryReadmes: Map<string, string> = new Map();
+  const retryFetchFailed: Set<string> = new Set();
+
+  for (let i = 0; i < failedLists.length; i += CONCURRENCY) {
+    const batch = failedLists.slice(i, i + CONCURRENCY);
+    const promises = batch.map(async (list) => {
+      try {
+        const readme = await fetchReadme(list.repo);
+        if (readme) {
+          retryReadmes.set(list.repo, readme);
+        } else {
+          retryFetchFailed.add(list.repo);
+        }
+      } catch {
+        retryFetchFailed.add(list.repo);
+      }
+    });
+    await Promise.all(promises);
+  }
+
   const stillFailed: typeof failedLists = [];
 
   for (const list of failedLists) {
     try {
-      let readme: string | null = null;
-      outer: for (const branch of ["main", "master"]) {
-        for (const filename of ["README.md", "readme.md"]) {
-          const url = `https://raw.githubusercontent.com/${list.repo}/${branch}/${filename}`;
-          const res = await fetch(url, {
-            signal: AbortSignal.timeout(CONFIG.network.timeout),
-          });
-          if (res.ok) {
-            readme = await res.text();
-            break outer;
-          }
-        }
-      }
+      const readme = retryReadmes.get(list.repo);
 
       if (!readme) {
         console.log(`  ${list.repo} - README still not found`);
