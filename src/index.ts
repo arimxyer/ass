@@ -34,6 +34,10 @@ try {
     gzipped: true,
   });
 } catch (e) {
+  if (e instanceof z.ZodError) {
+    console.error("Data validation failed:");
+    console.error(e.issues.map((issue: z.core.$ZodIssue) => `  ${issue.path.join(".")}: ${issue.message}`).join("\n"));
+  }
   console.error("FATAL: Could not load required data");
   console.error((e as Error).message);
   process.exit(1);
