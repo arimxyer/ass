@@ -22,7 +22,7 @@ bun test src/parser.test.ts  # Run single test file
 GITHUB_TOKEN=xxx bun scripts/build-items.ts
 ```
 
-Fetches READMEs from all awesome lists, parses them, enriches with GitHub metadata, and writes `data/items.json`. Uses incremental enrichment (7-day cache) to avoid re-fetching.
+Fetches READMEs from all awesome lists, parses them, enriches with GitHub metadata, and writes `data/items.json.gz`. Uses incremental enrichment (7-day cache) to avoid re-fetching.
 
 ## Architecture
 
@@ -30,7 +30,7 @@ Fetches READMEs from all awesome lists, parses them, enriches with GitHub metada
 
 1. **`data/lists.json`** - Source list of 631 awesome repos (repo, name, stars)
 2. **`scripts/build-items.ts`** - Fetches READMEs, parses items, enriches with GitHub data
-3. **`data/items.json`** - Generated index (~65MB) with 177k items and their metadata
+3. **`data/items.json.gz`** - Generated gzipped index with 177k items and their metadata
 4. **`src/index.ts`** - MCP server loads data from CDN (falls back to local), builds MiniSearch index
 
 ### Core Modules
@@ -39,14 +39,19 @@ Fetches READMEs from all awesome lists, parses them, enriches with GitHub metada
 
 - **`src/enricher.ts`** - Batch enriches items with GitHub metadata via GraphQL API. Handles rate limiting with exponential backoff.
 
+- **`src/diff.ts`** - Calculates differences between old and new item lists. Preserves GitHub metadata from old items when unchanged or updated.
+
+- **`src/retry.ts`** - Retry utilities (sleep with jitter, exponential backoff calculation) used by the enricher.
+
 - **`src/types.ts`** - Shared types (`Item`, `ListEntry`, `ItemsIndex`). Hub file imported by all other modules.
 
 ### MCP Tools
 
-The server exposes 3 tools:
+The server exposes 4 tools:
 
 - **`search_lists`** - Search/browse awesome lists by query, get by repo, filter by stars, sort by relevance/stars/updated
 - **`search_items`** - Search tools/libraries across all lists with filters (repo, category, language, minStars)
+- **`browse_categories`** - List available categories with item counts, optionally filtered by repo
 - **`stats`** - Get collection statistics (list counts, star distribution, top languages/categories)
 
 ### Data Loading

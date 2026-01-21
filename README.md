@@ -62,6 +62,7 @@ Search curated awesome lists. Returns lists sorted by relevance (if query provid
 - `sortBy` (optional): "relevance" | "stars" | "updated" (default: "stars", or "relevance" if query provided)
 - `minStars` (optional): Minimum star count filter
 - `limit` (optional): Maximum results (default: 20)
+- `offset` (optional): Skip first N results (for pagination)
 
 **Examples:**
 ```json
@@ -90,6 +91,7 @@ Search tools, libraries, and resources across all awesome lists. Supports global
 - `minStars` (optional): Minimum GitHub stars
 - `sortBy` (optional): "relevance" | "stars" | "updated" (default: "stars", or "relevance" if query provided)
 - `limit` (optional): Maximum results (default: 50)
+- `offset` (optional): Skip first N results (for pagination)
 
 **Examples:**
 ```json
@@ -104,6 +106,23 @@ Search tools, libraries, and resources across all awesome lists. Supports global
 
 // Top items by stars globally
 { "sortBy": "stars", "limit": 20 }
+```
+
+### browse_categories
+
+List available categories with item counts.
+
+**Parameters:**
+- `repo` (optional): Filter to categories from a specific list
+- `limit` (optional): Maximum categories (default: 50)
+
+**Examples:**
+```json
+// Get top categories across all lists
+{ "limit": 20 }
+
+// Categories from a specific list
+{ "repo": "vinta/awesome-python" }
 ```
 
 ### stats
