@@ -367,7 +367,7 @@ let cachedStats: StatsResult | null = null;
  * Compute collection statistics using single-pass algorithms.
  * Results are cached since data is static during server lifetime.
  */
-function computeStats(): StatsResult {
+export function computeStats(): StatsResult {
   // Star distribution buckets for lists
   const starBuckets: Record<string, number> = {
     "10000+": 0,

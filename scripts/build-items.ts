@@ -198,8 +198,9 @@ for (let i = 0; i < staleLists.length; i++) {
     }
 
     index.listCount++;
-  } catch (error: any) {
-    console.error(`${progress} ${list.repo} - Error: ${error.message}`);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error(`${progress} ${list.repo} - Error: ${message}`);
     failedLists.push(list);
   }
 }
@@ -258,8 +259,9 @@ for (let attempt = 1; attempt <= 3 && failedLists.length > 0; attempt++) {
       }
 
       index.listCount++;
-    } catch (error: any) {
-      console.log(`  ${list.repo} - still failing: ${error.message}`);
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.log(`  ${list.repo} - still failing: ${message}`);
       stillFailed.push(list);
     }
   }
@@ -358,15 +360,20 @@ if (itemsToEnrich.length > 0) {
   console.log("\nEnriching with GitHub metadata...");
   await batchEnrichItems(itemsToEnrich);
 
-  // Update index with enriched items
+  // Build URL->index map for each list (O(1) lookups instead of O(n) findIndex)
+  const urlToIndex = new Map<string, Map<string, number>>();
+  for (const [listRepo, entry] of Object.entries(index.lists)) {
+    const map = new Map<string, number>();
+    entry.items.forEach((item, idx) => map.set(item.url, idx));
+    urlToIndex.set(listRepo, map);
+  }
+
+  // Update index with enriched items using O(1) lookups
   for (const item of itemsToEnrich) {
     const { sourceList, ...cleanItem } = item;
-    const listEntry = index.lists[sourceList];
-    if (listEntry) {
-      const idx = listEntry.items.findIndex(i => i.url === cleanItem.url);
-      if (idx >= 0) {
-        listEntry.items[idx] = cleanItem;
-      }
+    const idx = urlToIndex.get(sourceList)?.get(cleanItem.url);
+    if (idx !== undefined) {
+      index.lists[sourceList].items[idx] = cleanItem;
     }
   }
 }

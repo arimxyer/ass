@@ -1,5 +1,13 @@
 import type { Item, DiffResult } from "./types";
 
+/**
+ * Calculate the difference between old and new item lists.
+ * Preserves GitHub metadata from old items when unchanged or updated.
+ *
+ * @param oldItems - Previous list of items
+ * @param newItems - New list of items from README parse
+ * @returns Object containing added, removed, unchanged, and updated items
+ */
 export function diffItems(oldItems: Item[], newItems: Item[]): DiffResult {
   const oldByUrl = new Map(oldItems.map(i => [i.url, i]));
   const newByUrl = new Map(newItems.map(i => [i.url, i]));

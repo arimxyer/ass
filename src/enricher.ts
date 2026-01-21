@@ -1,6 +1,7 @@
 // src/enricher.ts
 import type { Item, GraphQLResponse, GraphQLListRepoResponse } from "./types";
 import { CONFIG } from "./config";
+import { sleep, calculateBackoff } from "./retry";
 
 // Regex to validate GitHub owner/repo names - prevents GraphQL injection
 // Valid characters: alphanumeric, underscore, hyphen, and dot
@@ -42,12 +43,6 @@ export function extractGitHubRepo(url: string): string | null {
   }
 
   return repo;
-}
-
-// Sleep helper with jitter
-function sleep(ms: number, jitter = 0.2): Promise<void> {
-  const jitterMs = ms * jitter * (Math.random() - 0.5) * 2;
-  return new Promise(resolve => setTimeout(resolve, ms + jitterMs));
 }
 
 /**
@@ -231,7 +226,7 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
       if (isRateLimitError && batchRetryCount < CONFIG.github.maxRetries) {
         batchRetryCount++;
         // Exponential backoff with jitter
-        const backoffMs = Math.min(baseDelayMs * Math.pow(2, consecutiveErrors), CONFIG.github.maxBackoffMs);
+        const backoffMs = calculateBackoff(consecutiveErrors, baseDelayMs, CONFIG.github.maxBackoffMs);
         console.warn(`  Rate limited, retry ${batchRetryCount}/${CONFIG.github.maxRetries}, backing off for ${backoffMs}ms...`);
         await sleep(backoffMs, 0.3);
         currentDelay = backoffMs; // Keep the higher delay
