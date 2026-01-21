@@ -43,21 +43,38 @@ try {
   process.exit(1);
 }
 
-// Initialize list search index
-const listSearch = new MiniSearch<AwesomeList>({
-  fields: ["name", "repo", "description"],
-  storeFields: [],  // Store nothing - just return IDs, look up from lists array
-  searchOptions: {
-    boost: { name: 2, repo: 1.5, description: 1 },
-    fuzzy: 0.2,
-    prefix: true,
-  },
-});
+// Load pre-built list search index (built by scripts/build-items.ts)
+let listSearch: MiniSearch<AwesomeList>;
+try {
+  const listSearchData = await loadData({
+    filename: "list-search-index.json.gz",
+    gzipped: true,
+  });
+  listSearch = MiniSearch.loadJSON<AwesomeList>(JSON.stringify(listSearchData), {
+    fields: ["name", "repo", "description"],
+    storeFields: [],
+    searchOptions: {
+      boost: { name: 2, repo: 1.5, description: 1 },
+      fuzzy: 0.2,
+      prefix: true,
+    },
+  });
+} catch {
+  // Fallback: build index at runtime if pre-built not available
+  console.error("Pre-built list search index not found, building at runtime...");
+  listSearch = new MiniSearch<AwesomeList>({
+    fields: ["name", "repo", "description"],
+    storeFields: [],
+    searchOptions: {
+      boost: { name: 2, repo: 1.5, description: 1 },
+      fuzzy: 0.2,
+      prefix: true,
+    },
+  });
+  listSearch.addAll(lists.map((list, i) => ({ id: i, ...list })));
+}
 
-// Index all lists
-listSearch.addAll(lists.map((list, i) => ({ id: i, ...list })));
-
-// Build flat list of all items for global search
+// Build flat list of all items for global search (needed for ID lookups)
 const allItems: IndexedItem[] = [];
 let itemId = 0;
 for (const [listRepo, entry] of Object.entries(itemsIndex.lists)) {
@@ -66,18 +83,36 @@ for (const [listRepo, entry] of Object.entries(itemsIndex.lists)) {
   }
 }
 
-// Initialize item search index
-const itemSearch = new MiniSearch<IndexedItem>({
-  fields: ["name", "description", "category"],
-  storeFields: [],  // Store nothing - just return IDs, look up from allItems
-  searchOptions: {
-    boost: { name: 2, category: 1.5, description: 1 },
-    fuzzy: 0.2,
-    prefix: true,
-  },
-});
-
-itemSearch.addAll(allItems);
+// Load pre-built item search index (built by scripts/build-items.ts)
+let itemSearch: MiniSearch<IndexedItem>;
+try {
+  const itemSearchData = await loadData({
+    filename: "item-search-index.json.gz",
+    gzipped: true,
+  });
+  itemSearch = MiniSearch.loadJSON<IndexedItem>(JSON.stringify(itemSearchData), {
+    fields: ["name", "description", "category"],
+    storeFields: [],
+    searchOptions: {
+      boost: { name: 2, category: 1.5, description: 1 },
+      fuzzy: 0.2,
+      prefix: true,
+    },
+  });
+} catch {
+  // Fallback: build index at runtime if pre-built not available
+  console.error("Pre-built item search index not found, building at runtime...");
+  itemSearch = new MiniSearch<IndexedItem>({
+    fields: ["name", "description", "category"],
+    storeFields: [],
+    searchOptions: {
+      boost: { name: 2, category: 1.5, description: 1 },
+      fuzzy: 0.2,
+      prefix: true,
+    },
+  });
+  itemSearch.addAll(allItems);
+}
 
 console.error(`Loaded ${itemsIndex.itemCount} items from ${itemsIndex.listCount} lists`);
 

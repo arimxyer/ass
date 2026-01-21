@@ -4,6 +4,7 @@ import { batchEnrichItems, batchQueryListRepos } from "../src/enricher";
 import { diffItems } from "../src/diff";
 import { CONFIG } from "../src/config";
 import type { ItemsIndex, Item } from "../src/types";
+import MiniSearch from "minisearch";
 
 // Load list of awesome lists
 const listsPath = new URL("../data/lists.json", import.meta.url);
@@ -345,3 +346,68 @@ console.log(`\nWrote ${index.itemCount} items to data/items.json.gz (${sizeMB}MB
 const deadUrlsList = Array.from(deadUrls).sort();
 await Bun.write(deadUrlsPath, JSON.stringify(deadUrlsList, null, 2));
 console.log(`Wrote ${deadUrlsList.length} URLs to deadUrls.json`);
+
+// Build search indexes for fast startup
+console.log("\nBuilding search indexes...");
+
+// Build flat list of all items for indexing
+interface IndexedItem extends Item {
+  id: number;
+  listRepo: string;
+}
+
+const allItemsForSearch: IndexedItem[] = [];
+let itemIdCounter = 0;
+for (const [listRepo, entry] of Object.entries(index.lists)) {
+  for (const item of entry.items) {
+    allItemsForSearch.push({ ...item, id: itemIdCounter++, listRepo });
+  }
+}
+
+// Build items search index with same config as runtime
+const itemSearch = new MiniSearch<IndexedItem>({
+  fields: ["name", "description", "category"],
+  storeFields: [], // Store nothing - just return IDs, look up from allItems
+  searchOptions: {
+    boost: { name: 2, category: 1.5, description: 1 },
+    fuzzy: 0.2,
+    prefix: true,
+  },
+});
+
+itemSearch.addAll(allItemsForSearch);
+
+// Serialize and write item search index (gzipped for CDN delivery)
+const itemSearchJson = JSON.stringify(itemSearch);
+const itemSearchGzipped = Bun.gzipSync(Buffer.from(itemSearchJson));
+const itemSearchPath = new URL("../data/item-search-index.json.gz", import.meta.url);
+await Bun.write(itemSearchPath, itemSearchGzipped);
+
+const itemSearchSizeMB = (itemSearchGzipped.length / 1024 / 1024).toFixed(1);
+console.log(`Wrote item search index: ${allItemsForSearch.length} items (${itemSearchSizeMB}MB gzipped)`);
+
+// Load lists.json for list search index
+const listsForSearch: { repo: string; name: string; stars: number; description?: string }[] =
+  await Bun.file(listsPath).json();
+
+// Build lists search index with same config as runtime
+const listSearch = new MiniSearch<{ id: number; repo: string; name: string; description?: string }>({
+  fields: ["name", "repo", "description"],
+  storeFields: [], // Store nothing - just return IDs, look up from lists array
+  searchOptions: {
+    boost: { name: 2, repo: 1.5, description: 1 },
+    fuzzy: 0.2,
+    prefix: true,
+  },
+});
+
+listSearch.addAll(listsForSearch.map((list, i) => ({ id: i, ...list })));
+
+// Serialize and write list search index (gzipped for CDN delivery)
+const listSearchJson = JSON.stringify(listSearch);
+const listSearchGzipped = Bun.gzipSync(Buffer.from(listSearchJson));
+const listSearchPath = new URL("../data/list-search-index.json.gz", import.meta.url);
+await Bun.write(listSearchPath, listSearchGzipped);
+
+const listSearchSizeMB = (listSearchGzipped.length / 1024 / 1024).toFixed(1);
+console.log(`Wrote list search index: ${listsForSearch.length} lists (${listSearchSizeMB}MB gzipped)`);
