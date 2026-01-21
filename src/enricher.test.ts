@@ -1,7 +1,7 @@
 // src/enricher.test.ts
 import { expect, test, describe } from "bun:test";
 import { extractGitHubRepo, batchEnrichItems, batchQueryListRepos } from "./enricher";
-import type { Item } from "./types";
+import type { Item, GitHubMetadata } from "./types";
 
 describe("extractGitHubRepo", () => {
   test("extracts owner/repo from GitHub URL", () => {
@@ -35,8 +35,9 @@ describe("batchEnrichItems", () => {
     const enriched = await batchEnrichItems(items);
 
     expect(enriched[0].github).toBeDefined();
-    expect(enriched[0].github?.stars).toBeGreaterThan(0);
-    expect(enriched[0].github?.language).toBe("Zig");
+    const gh = enriched[0].github as GitHubMetadata;
+    expect(gh.stars).toBeGreaterThan(0);
+    expect(gh.language).toBe("Zig");
   });
 });
 

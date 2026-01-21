@@ -3,7 +3,12 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import MiniSearch from "minisearch";
 import { z } from "zod";
-import type { ItemsIndex, Item } from "./types";
+import type { ItemsIndex, Item, GitHubMetadata } from "./types";
+
+// Type guard to check if github metadata is valid (not notFound)
+function hasGitHubMetadata<T extends { github?: Item["github"] }>(item: T): item is T & { github: GitHubMetadata } {
+  return item.github !== undefined && !("notFound" in item.github);
+}
 
 interface AwesomeList {
   repo: string;
@@ -283,21 +288,27 @@ if (itemsIndex && itemSearch) {
       if (language) {
         const langLower = language.toLowerCase();
         results = results.filter(i =>
-          i.github?.language?.toLowerCase() === langLower
+          hasGitHubMetadata(i) && i.github.language?.toLowerCase() === langLower
         );
       }
 
       if (minStars > 0) {
-        results = results.filter(i => (i.github?.stars || 0) >= minStars);
+        results = results.filter(i => hasGitHubMetadata(i) && i.github.stars >= minStars);
       }
 
       // Sort (if not already sorted by relevance)
       if (effectiveSortBy === "stars") {
-        results.sort((a, b) => (b.github?.stars || 0) - (a.github?.stars || 0));
+        results.sort((a, b) => {
+          const aStars = hasGitHubMetadata(a) ? a.github.stars : 0;
+          const bStars = hasGitHubMetadata(b) ? b.github.stars : 0;
+          return bStars - aStars;
+        });
       } else if (effectiveSortBy === "updated") {
-        results.sort((a, b) =>
-          (b.github?.pushedAt || "").localeCompare(a.github?.pushedAt || "")
-        );
+        results.sort((a, b) => {
+          const aDate = hasGitHubMetadata(a) ? a.github.pushedAt : "";
+          const bDate = hasGitHubMetadata(b) ? b.github.pushedAt : "";
+          return bDate.localeCompare(aDate);
+        });
       }
 
       // Apply limit and format
@@ -306,17 +317,20 @@ if (itemsIndex && itemSearch) {
       const output = {
         totalMatches: results.length,
         returned: limited.length,
-        items: limited.map(i => ({
-          name: i.name,
-          url: i.url,
-          description: i.description,
-          category: i.category,
-          subcategory: i.subcategory,
-          stars: i.github?.stars,
-          language: i.github?.language,
-          lastUpdated: i.github?.pushedAt,
-          list: i.listRepo,
-        })),
+        items: limited.map(i => {
+          const gh = hasGitHubMetadata(i) ? i.github : null;
+          return {
+            name: i.name,
+            url: i.url,
+            description: i.description,
+            category: i.category,
+            subcategory: i.subcategory,
+            stars: gh?.stars,
+            language: gh?.language,
+            lastUpdated: gh?.pushedAt,
+            list: i.listRepo,
+          };
+        }),
       };
 
       return {
@@ -347,12 +361,12 @@ server.tool(
     // Item statistics
     let itemStats: any = null;
     if (itemsIndex && allItems.length > 0) {
-      const enrichedItems = allItems.filter(i => i.github);
+      const enrichedItems = allItems.filter(hasGitHubMetadata);
 
       // Count languages
       const languageCounts = new Map<string, number>();
       for (const item of enrichedItems) {
-        const lang = item.github?.language;
+        const lang = item.github.language;
         if (lang) {
           languageCounts.set(lang, (languageCounts.get(lang) || 0) + 1);
         }

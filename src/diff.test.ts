@@ -1,6 +1,6 @@
 import { describe, it, expect } from "bun:test";
 import { diffItems } from "./diff";
-import type { Item } from "./types";
+import type { Item, GitHubMetadata } from "./types";
 
 describe("diffItems", () => {
   const makeItem = (url: string, name = "Test", desc = "Desc"): Item => ({
@@ -55,7 +55,7 @@ describe("diffItems", () => {
     const result = diffItems(oldItems, newItems);
 
     expect(result.unchanged).toHaveLength(1);
-    expect(result.unchanged[0].github?.stars).toBe(100);
+    expect((result.unchanged[0].github as GitHubMetadata)?.stars).toBe(100);
     expect(result.unchanged[0].lastEnriched).toBe("2026-01-01T00:00:00Z");
   });
 
@@ -71,6 +71,6 @@ describe("diffItems", () => {
 
     expect(result.updated).toHaveLength(1);
     expect(result.updated[0].name).toBe("New");
-    expect(result.updated[0].github?.stars).toBe(100);
+    expect((result.updated[0].github as GitHubMetadata)?.stars).toBe(100);
   });
 });
