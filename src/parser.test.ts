@@ -45,6 +45,26 @@ describe("parseReadme", () => {
     expect(hasAnchor).toBe(false);
   });
 
+  test("rejects dangerous URL schemes", () => {
+    const readmeWithDangerousUrls = `
+# Awesome Test
+
+## Tools
+
+- [Safe Tool](https://example.com/safe) - A safe tool.
+- [XSS Tool](javascript:alert('xss')) - This should be rejected.
+- [Data Tool](data:text/html,<script>evil()</script>) - This should be rejected.
+- [FTP Tool](ftp://example.com/file) - This should be rejected.
+- [Another Safe](http://example.com/also-safe) - HTTP is allowed.
+`;
+
+    const items = parseReadme(readmeWithDangerousUrls);
+
+    expect(items.length).toBe(2);
+    expect(items.map(i => i.name)).toEqual(["Safe Tool", "Another Safe"]);
+    expect(items.every(i => i.url.startsWith("http://") || i.url.startsWith("https://"))).toBe(true);
+  });
+
   test("captures items before first h2 as Uncategorized", () => {
     const readmeWithEarlyItems = `
 # Awesome Test

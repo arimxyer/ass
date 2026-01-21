@@ -59,13 +59,18 @@ try {
   console.log("No existing items.json.gz found, starting fresh");
 }
 
-// Load dead URLs blocklist
+// Load dead URLs blocklist (normalized without .git suffix for consistent matching)
 const deadUrlsPath = new URL("../data/deadUrls.json", import.meta.url);
 let deadUrls: Set<string> = new Set();
 
+// Helper to normalize URLs by removing .git suffix
+function normalizeUrl(url: string): string {
+  return url.replace(/\.git$/, "");
+}
+
 try {
   const deadUrlsList: string[] = await Bun.file(deadUrlsPath).json();
-  deadUrls = new Set(deadUrlsList);
+  deadUrls = new Set(deadUrlsList.map(normalizeUrl));
   console.log(`Loaded ${deadUrls.size} dead URLs in blocklist`);
 } catch {
   console.log("No deadUrls.json found, starting with empty blocklist");
@@ -169,8 +174,8 @@ for (let i = 0; i < staleLists.length; i++) {
       continue;
     }
 
-    // Parse new items and filter out dead URLs
-    const newItems = parseReadme(readme).filter(item => !deadUrls.has(item.url));
+    // Parse new items and filter out dead URLs (using normalized comparison)
+    const newItems = parseReadme(readme).filter(item => !deadUrls.has(normalizeUrl(item.url)));
     const oldItems = existingIndex?.lists[list.repo]?.items ?? [];
 
     // Diff
@@ -236,7 +241,7 @@ for (let attempt = 1; attempt <= 3 && failedLists.length > 0; attempt++) {
         continue;
       }
 
-      const newItems = parseReadme(readme).filter(item => !deadUrls.has(item.url));
+      const newItems = parseReadme(readme).filter(item => !deadUrls.has(normalizeUrl(item.url)));
       const oldItems = existingIndex?.lists[list.repo]?.items ?? [];
       const diff = diffItems(oldItems, newItems);
       console.log(`  ${list.repo} - success (+${diff.added.length}, -${diff.removed.length})`);
@@ -372,7 +377,7 @@ for (const entry of Object.values(index.lists)) {
   const before = entry.items.length;
   entry.items = entry.items.filter(item => {
     if (item.github && "notFound" in item.github) {
-      deadUrls.add(item.url); // Add to blocklist
+      deadUrls.add(normalizeUrl(item.url)); // Add normalized URL to blocklist
       return false; // Remove dead items
     }
     return true;

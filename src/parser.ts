@@ -2,6 +2,17 @@
 import { fromMarkdown } from "mdast-util-from-markdown";
 import type { Item } from "./types";
 
+const ALLOWED_SCHEMES = ["http:", "https:"];
+
+function isValidUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return ALLOWED_SCHEMES.includes(parsed.protocol);
+  } catch {
+    return false;
+  }
+}
+
 export function parseReadme(markdown: string): Item[] {
   const tree = fromMarkdown(markdown);
   const items: Item[] = [];
@@ -41,8 +52,8 @@ export function parseReadme(markdown: string): Item[] {
             .replace(/^\s*[-–—]\s*/, "")
             .trim();
 
-          // Skip anchor links and empty names
-          if (name && url && !url.startsWith("#")) {
+          // Skip anchor links, empty names, and invalid URLs
+          if (name && url && !url.startsWith("#") && isValidUrl(url)) {
             items.push({
               name,
               url,
