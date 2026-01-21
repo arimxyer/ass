@@ -177,11 +177,15 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
             item.lastEnriched = now;
           }
         } else if (notFoundRepos.has(repo)) {
-          // Repo confirmed dead - mark for removal
+          // Repo explicitly not found via GraphQL error - mark as dead
           for (const item of itemsForRepo) {
             item.github = { notFound: true, checkedAt: now };
             item.lastEnriched = now;
           }
+        } else {
+          // Unknown state - null without explicit error
+          // Don't update - leave for next enrichment cycle
+          console.warn(`Repo ${repo} returned null without error, leaving for recheck`);
         }
       }
 
@@ -303,12 +307,30 @@ export async function batchQueryListRepos(
         continue;
       }
 
+      // Track repos that don't exist (from GraphQL errors)
+      const notFoundRepos = new Set<string>();
+      if (json.errors) {
+        for (const error of json.errors) {
+          if (error.path?.[0]?.startsWith("repo")) {
+            const idx = parseInt(error.path[0].slice(4));
+            if (queriedRepos[idx]) {
+              notFoundRepos.add(queriedRepos[idx]);
+            }
+          }
+        }
+      }
+
       // Extract results - use queriedRepos to align indices correctly
       queriedRepos.forEach((repo, idx) => {
         const data = json.data?.[`repo${idx}`];
         if (data?.pushedAt) {
           results.set(repo, { pushedAt: data.pushedAt });
+        } else if (notFoundRepos.has(repo)) {
+          // Explicitly not found - set to null
+          results.set(repo, null);
         } else {
+          // Unknown state - null without explicit error, leave for recheck
+          console.warn(`Repo ${repo} returned null without error in list query, leaving for recheck`);
           results.set(repo, null);
         }
       });
