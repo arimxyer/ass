@@ -3,93 +3,41 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import MiniSearch from "minisearch";
 import { z } from "zod";
-import type { ItemsIndex, Item, GitHubMetadata } from "./types";
-
-// Type guard to check if github metadata is valid (not notFound)
-function hasGitHubMetadata<T extends { github?: Item["github"] }>(item: T): item is T & { github: GitHubMetadata } {
-  return item.github !== undefined && !("notFound" in item.github);
-}
-
-interface AwesomeList {
-  repo: string;
-  name: string;
-  stars: number;
-  description: string;
-  pushed_at?: string;
-  source: string;
-}
+import { loadData } from "./data-loader";
+import {
+  type ItemsIndex,
+  type Item,
+  type AwesomeList,
+  hasGitHubMetadata,
+  AwesomeListSchema,
+  ItemsIndexSchema,
+} from "./types";
 
 interface IndexedItem extends Item {
   id: number;
   listRepo: string;
 }
 
-// CDN URLs - jsDelivr primary (faster, global CDN), GitHub raw fallback
-const JSDELIVR_URL = "https://cdn.jsdelivr.net/gh/arimxyer/ass@main/data";
-const GITHUB_RAW_URL = "https://raw.githubusercontent.com/arimxyer/ass/main/data";
+// Load required data with crash protection
+let lists: AwesomeList[];
+let itemsIndex: ItemsIndex;
 
-// Load data from CDN, fallback to local for development
-async function loadData<T>(filename: string): Promise<T> {
-  // Try jsDelivr first (faster global CDN)
-  try {
-    const res = await fetch(`${JSDELIVR_URL}/${filename}`);
-    if (res.ok) {
-      return res.json();
-    }
-  } catch {
-    // jsDelivr failed, try GitHub raw
-  }
+try {
+  lists = await loadData({
+    filename: "lists.json",
+    schema: z.array(AwesomeListSchema),
+  });
 
-  // Try GitHub raw as fallback
-  try {
-    const res = await fetch(`${GITHUB_RAW_URL}/${filename}`);
-    if (res.ok) {
-      return res.json();
-    }
-  } catch {
-    // Remote failed, try local
-  }
-
-  // Fallback to local file
-  const localPath = new URL(`../data/${filename}`, import.meta.url);
-  return Bun.file(localPath).json();
+  itemsIndex = await loadData({
+    filename: "items.json.gz",
+    schema: ItemsIndexSchema,
+    gzipped: true,
+  });
+} catch (e) {
+  console.error("FATAL: Could not load required data");
+  console.error((e as Error).message);
+  process.exit(1);
 }
-
-// Load gzipped data from CDN, fallback to local
-async function loadGzippedData<T>(filename: string): Promise<T> {
-  // Try jsDelivr first
-  try {
-    const res = await fetch(`${JSDELIVR_URL}/${filename}`);
-    if (res.ok) {
-      const compressed = new Uint8Array(await res.arrayBuffer());
-      const decompressed = Bun.gunzipSync(compressed);
-      return JSON.parse(new TextDecoder().decode(decompressed));
-    }
-  } catch {
-    // jsDelivr failed, try GitHub raw
-  }
-
-  // Try GitHub raw as fallback
-  try {
-    const res = await fetch(`${GITHUB_RAW_URL}/${filename}`);
-    if (res.ok) {
-      const compressed = new Uint8Array(await res.arrayBuffer());
-      const decompressed = Bun.gunzipSync(compressed);
-      return JSON.parse(new TextDecoder().decode(decompressed));
-    }
-  } catch {
-    // Remote failed, try local
-  }
-
-  // Fallback to local file
-  const localPath = new URL(`../data/${filename}`, import.meta.url);
-  const compressed = new Uint8Array(await Bun.file(localPath).arrayBuffer());
-  const decompressed = Bun.gunzipSync(compressed);
-  return JSON.parse(new TextDecoder().decode(decompressed));
-}
-
-// Load curated data
-const lists: AwesomeList[] = await loadData("lists.json");
 
 // Initialize list search index
 const listSearch = new MiniSearch<AwesomeList>({
@@ -105,39 +53,29 @@ const listSearch = new MiniSearch<AwesomeList>({
 // Index all lists
 listSearch.addAll(lists.map((list, i) => ({ id: i, ...list })));
 
-// Load items index
-let itemsIndex: ItemsIndex | null = null;
-let allItems: IndexedItem[] = [];
-let itemSearch: MiniSearch<IndexedItem> | null = null;
-
-try {
-  itemsIndex = await loadGzippedData<ItemsIndex>("items.json.gz");
-
-  // Build flat list of all items for global search
-  let itemId = 0;
-  for (const [listRepo, entry] of Object.entries(itemsIndex.lists)) {
-    for (const item of entry.items) {
-      allItems.push({ ...item, id: itemId++, listRepo });
-    }
+// Build flat list of all items for global search
+const allItems: IndexedItem[] = [];
+let itemId = 0;
+for (const [listRepo, entry] of Object.entries(itemsIndex.lists)) {
+  for (const item of entry.items) {
+    allItems.push({ ...item, id: itemId++, listRepo });
   }
-
-  // Initialize item search index
-  itemSearch = new MiniSearch<IndexedItem>({
-    fields: ["name", "description", "category"],
-    storeFields: ["name", "url", "description", "category", "subcategory", "github", "listRepo"],
-    searchOptions: {
-      boost: { name: 2, category: 1.5, description: 1 },
-      fuzzy: 0.2,
-      prefix: true,
-    },
-  });
-
-  itemSearch.addAll(allItems);
-
-  console.error(`Loaded ${itemsIndex.itemCount} items from ${itemsIndex.listCount} lists`);
-} catch {
-  console.error("No items.json.gz found - item search will be unavailable");
 }
+
+// Initialize item search index
+const itemSearch = new MiniSearch<IndexedItem>({
+  fields: ["name", "description", "category"],
+  storeFields: ["name", "url", "description", "category", "subcategory", "github", "listRepo"],
+  searchOptions: {
+    boost: { name: 2, category: 1.5, description: 1 },
+    fuzzy: 0.2,
+    prefix: true,
+  },
+});
+
+itemSearch.addAll(allItems);
+
+console.error(`Loaded ${itemsIndex.itemCount} items from ${itemsIndex.listCount} lists`);
 
 // Create MCP server
 const server = new McpServer({
@@ -231,114 +169,112 @@ server.tool(
 );
 
 // Tool: Search items (global search with filters)
-if (itemsIndex && itemSearch) {
-  server.tool(
-    "search_items",
-    "Search tools, libraries, and resources across all awesome lists. Supports global search or filtering within a specific list.",
-    {
-      query: z.string().optional().describe("Search item names/descriptions"),
-      repo: z.string().optional().describe("Limit to a specific list (e.g., 'vinta/awesome-python')"),
-      category: z.string().optional().describe("Filter by category"),
-      language: z.string().optional().describe("Filter by programming language"),
-      minStars: z.number().optional().describe("Minimum GitHub stars"),
-      sortBy: z.enum(["relevance", "stars", "updated"]).optional().describe("Sort order (default: 'stars', or 'relevance' if query provided)"),
-      limit: z.number().optional().describe("Maximum results (default: 50)"),
-    },
-    async ({ query, repo, category, language, minStars = 0, sortBy, limit = 50 }) => {
-      const effectiveSortBy = sortBy || (query ? "relevance" : "stars");
+server.tool(
+  "search_items",
+  "Search tools, libraries, and resources across all awesome lists. Supports global search or filtering within a specific list.",
+  {
+    query: z.string().optional().describe("Search item names/descriptions"),
+    repo: z.string().optional().describe("Limit to a specific list (e.g., 'vinta/awesome-python')"),
+    category: z.string().optional().describe("Filter by category"),
+    language: z.string().optional().describe("Filter by programming language"),
+    minStars: z.number().optional().describe("Minimum GitHub stars"),
+    sortBy: z.enum(["relevance", "stars", "updated"]).optional().describe("Sort order (default: 'stars', or 'relevance' if query provided)"),
+    limit: z.number().optional().describe("Maximum results (default: 50)"),
+  },
+  async ({ query, repo, category, language, minStars = 0, sortBy, limit = 50 }) => {
+    const effectiveSortBy = sortBy || (query ? "relevance" : "stars");
 
-      let results: IndexedItem[];
+    let results: IndexedItem[];
 
-      if (query && effectiveSortBy === "relevance") {
-        // Search with relevance
-        results = itemSearch!.search(query).map(r => ({
-          id: r.id,
-          name: r.name,
-          url: r.url,
-          description: r.description,
-          category: r.category,
-          subcategory: r.subcategory,
-          github: r.github,
-          listRepo: r.listRepo,
-        })) as IndexedItem[];
+    if (query && effectiveSortBy === "relevance") {
+      // Search with relevance
+      results = itemSearch.search(query).map(r => ({
+        id: r.id,
+        name: r.name,
+        url: r.url,
+        description: r.description,
+        category: r.category,
+        subcategory: r.subcategory,
+        github: r.github,
+        listRepo: r.listRepo,
+      })) as IndexedItem[];
+    } else {
+      // Start with all items or query results
+      if (query) {
+        const searchResultIds = new Set(itemSearch.search(query).map(r => r.id));
+        results = allItems.filter(i => searchResultIds.has(i.id));
       } else {
-        // Start with all items or query results
-        if (query) {
-          const searchResultIds = new Set(itemSearch!.search(query).map(r => r.id));
-          results = allItems.filter(i => searchResultIds.has(i.id));
-        } else {
-          results = [...allItems];
-        }
+        results = [...allItems];
       }
-
-      // Apply filters
-      if (repo) {
-        const repoLower = repo.toLowerCase();
-        results = results.filter(i => i.listRepo.toLowerCase() === repoLower);
-      }
-
-      if (category) {
-        const catLower = category.toLowerCase();
-        results = results.filter(i =>
-          i.category?.toLowerCase().includes(catLower) ||
-          i.subcategory?.toLowerCase().includes(catLower)
-        );
-      }
-
-      if (language) {
-        const langLower = language.toLowerCase();
-        results = results.filter(i =>
-          hasGitHubMetadata(i) && i.github.language?.toLowerCase() === langLower
-        );
-      }
-
-      if (minStars > 0) {
-        results = results.filter(i => hasGitHubMetadata(i) && i.github.stars >= minStars);
-      }
-
-      // Sort (if not already sorted by relevance)
-      if (effectiveSortBy === "stars") {
-        results.sort((a, b) => {
-          const aStars = hasGitHubMetadata(a) ? a.github.stars : 0;
-          const bStars = hasGitHubMetadata(b) ? b.github.stars : 0;
-          return bStars - aStars;
-        });
-      } else if (effectiveSortBy === "updated") {
-        results.sort((a, b) => {
-          const aDate = hasGitHubMetadata(a) ? a.github.pushedAt : "";
-          const bDate = hasGitHubMetadata(b) ? b.github.pushedAt : "";
-          return bDate.localeCompare(aDate);
-        });
-      }
-
-      // Apply limit and format
-      const limited = results.slice(0, limit);
-
-      const output = {
-        totalMatches: results.length,
-        returned: limited.length,
-        items: limited.map(i => {
-          const gh = hasGitHubMetadata(i) ? i.github : null;
-          return {
-            name: i.name,
-            url: i.url,
-            description: i.description,
-            category: i.category,
-            subcategory: i.subcategory,
-            stars: gh?.stars,
-            language: gh?.language,
-            lastUpdated: gh?.pushedAt,
-            list: i.listRepo,
-          };
-        }),
-      };
-
-      return {
-        content: [{ type: "text", text: JSON.stringify(output, null, 2) }],
-      };
     }
-  );
-}
+
+    // Apply filters
+    if (repo) {
+      const repoLower = repo.toLowerCase();
+      results = results.filter(i => i.listRepo.toLowerCase() === repoLower);
+    }
+
+    if (category) {
+      const catLower = category.toLowerCase();
+      results = results.filter(i =>
+        i.category?.toLowerCase().includes(catLower) ||
+        i.subcategory?.toLowerCase().includes(catLower)
+      );
+    }
+
+    if (language) {
+      const langLower = language.toLowerCase();
+      results = results.filter(i =>
+        hasGitHubMetadata(i) && i.github.language?.toLowerCase() === langLower
+      );
+    }
+
+    if (minStars > 0) {
+      results = results.filter(i => hasGitHubMetadata(i) && i.github.stars >= minStars);
+    }
+
+    // Sort (if not already sorted by relevance)
+    if (effectiveSortBy === "stars") {
+      results.sort((a, b) => {
+        const aStars = hasGitHubMetadata(a) ? a.github.stars : 0;
+        const bStars = hasGitHubMetadata(b) ? b.github.stars : 0;
+        return bStars - aStars;
+      });
+    } else if (effectiveSortBy === "updated") {
+      results.sort((a, b) => {
+        const aDate = hasGitHubMetadata(a) ? a.github.pushedAt : "";
+        const bDate = hasGitHubMetadata(b) ? b.github.pushedAt : "";
+        return bDate.localeCompare(aDate);
+      });
+    }
+
+    // Apply limit and format
+    const limited = results.slice(0, limit);
+
+    const output = {
+      totalMatches: results.length,
+      returned: limited.length,
+      items: limited.map(i => {
+        const gh = hasGitHubMetadata(i) ? i.github : null;
+        return {
+          name: i.name,
+          url: i.url,
+          description: i.description,
+          category: i.category,
+          subcategory: i.subcategory,
+          stars: gh?.stars,
+          language: gh?.language,
+          lastUpdated: gh?.pushedAt,
+          list: i.listRepo,
+        };
+      }),
+    };
+
+    return {
+      content: [{ type: "text", text: JSON.stringify(output, null, 2) }],
+    };
+  }
+);
 
 // Tool: Stats (enhanced with item statistics)
 server.tool(
@@ -359,43 +295,40 @@ server.tool(
     };
 
     // Item statistics
-    let itemStats: any = null;
-    if (itemsIndex && allItems.length > 0) {
-      const enrichedItems = allItems.filter(hasGitHubMetadata);
+    const enrichedItems = allItems.filter(hasGitHubMetadata);
 
-      // Count languages
-      const languageCounts = new Map<string, number>();
-      for (const item of enrichedItems) {
-        const lang = item.github.language;
-        if (lang) {
-          languageCounts.set(lang, (languageCounts.get(lang) || 0) + 1);
-        }
+    // Count languages
+    const languageCounts = new Map<string, number>();
+    for (const item of enrichedItems) {
+      const lang = item.github.language;
+      if (lang) {
+        languageCounts.set(lang, (languageCounts.get(lang) || 0) + 1);
       }
-      const topLanguages = [...languageCounts.entries()]
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 10)
-        .reduce((acc, [lang, count]) => ({ ...acc, [lang]: count }), {});
-
-      // Count categories
-      const categoryCounts = new Map<string, number>();
-      for (const item of allItems) {
-        if (item.category) {
-          categoryCounts.set(item.category, (categoryCounts.get(item.category) || 0) + 1);
-        }
-      }
-      const topCategories = [...categoryCounts.entries()]
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 10)
-        .reduce((acc, [cat, count]) => ({ ...acc, [cat]: count }), {});
-
-      itemStats = {
-        totalItems: allItems.length,
-        enrichedItems: enrichedItems.length,
-        listsWithItems: itemsIndex.listCount,
-        topLanguages,
-        topCategories,
-      };
     }
+    const topLanguages = [...languageCounts.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .reduce((acc, [lang, count]) => ({ ...acc, [lang]: count }), {});
+
+    // Count categories
+    const categoryCounts = new Map<string, number>();
+    for (const item of allItems) {
+      if (item.category) {
+        categoryCounts.set(item.category, (categoryCounts.get(item.category) || 0) + 1);
+      }
+    }
+    const topCategories = [...categoryCounts.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10)
+      .reduce((acc, [cat, count]) => ({ ...acc, [cat]: count }), {});
+
+    const itemStats = {
+      totalItems: allItems.length,
+      enrichedItems: enrichedItems.length,
+      listsWithItems: itemsIndex.listCount,
+      topLanguages,
+      topCategories,
+    };
 
     return {
       content: [{
