@@ -44,4 +44,32 @@ describe("parseReadme", () => {
 
     expect(hasAnchor).toBe(false);
   });
+
+  test("captures items before first h2 as Uncategorized", () => {
+    const readmeWithEarlyItems = `
+# Awesome Test
+
+Some intro text.
+
+- [Early Tool](https://example.com/early) - This appears before any h2.
+
+## Category One
+
+- [Regular Tool](https://github.com/org/tool) - After h2.
+`;
+
+    const items = parseReadme(readmeWithEarlyItems);
+
+    expect(items.length).toBe(2);
+
+    const earlyTool = items.find(i => i.name === "Early Tool");
+    expect(earlyTool).toBeDefined();
+    expect(earlyTool?.category).toBe("Uncategorized");
+    expect(earlyTool?.url).toBe("https://example.com/early");
+    expect(earlyTool?.description).toBe("This appears before any h2.");
+    expect(earlyTool?.subcategory).toBeUndefined();
+
+    const regularTool = items.find(i => i.name === "Regular Tool");
+    expect(regularTool?.category).toBe("Category One");
+  });
 });

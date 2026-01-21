@@ -5,15 +5,15 @@ import type { Item } from "./types";
 export function parseReadme(markdown: string): Item[] {
   const tree = fromMarkdown(markdown);
   const items: Item[] = [];
-  let currentCategory = "";
-  let currentSubcategory = "";
+  let currentCategory = "Uncategorized";  // Default so items before first h2 are captured
+  let currentSubcategory: string | undefined;
 
   function walk(node: any) {
     // Track h2 headings as categories
     if (node.type === "heading" && node.depth === 2) {
       const text = node.children?.find((c: any) => c.type === "text")?.value || "";
       currentCategory = text;
-      currentSubcategory = "";
+      currentSubcategory = undefined;
     }
 
     // Track h3 headings as subcategories
@@ -23,7 +23,7 @@ export function parseReadme(markdown: string): Item[] {
     }
 
     // Extract list items with links
-    if (node.type === "listItem" && currentCategory) {
+    if (node.type === "listItem") {
       const paragraph = node.children?.find((c: any) => c.type === "paragraph");
       if (paragraph) {
         const link = paragraph.children?.find((c: any) => c.type === "link");
