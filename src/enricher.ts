@@ -60,6 +60,7 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
   const baseDelayMs = CONFIG.github.baseDelayMs;
   let currentDelay: number = baseDelayMs;
   let consecutiveErrors = 0;
+  let batchRetryCount = 0;
 
   for (let i = 0; i < repos.length; i += batchSize) {
     const batch = repos.slice(i, i + batchSize);
@@ -186,19 +187,27 @@ export async function batchEnrichItems(items: Item[]): Promise<Item[]> {
 
       // Reset on success
       consecutiveErrors = 0;
+      batchRetryCount = 0;
       currentDelay = Math.max(currentDelay * 0.9, baseDelayMs); // Gradually speed up
 
     } catch (error: any) {
       consecutiveErrors++;
 
       // Check for secondary rate limit
-      if (error.message?.includes("SecondaryRateLimit") || error.message?.includes("403")) {
+      const isRateLimitError = error.message?.includes("SecondaryRateLimit") || error.message?.includes("403");
+      if (isRateLimitError && batchRetryCount < CONFIG.github.maxRetries) {
+        batchRetryCount++;
         // Exponential backoff with jitter
         const backoffMs = Math.min(baseDelayMs * Math.pow(2, consecutiveErrors), CONFIG.github.maxBackoffMs);
-        console.log(`  ⚠️ Secondary rate limit hit, backing off for ${backoffMs}ms...`);
+        console.warn(`  Rate limited, retry ${batchRetryCount}/${CONFIG.github.maxRetries}, backing off for ${backoffMs}ms...`);
         await sleep(backoffMs, 0.3);
         currentDelay = backoffMs; // Keep the higher delay
         i -= batchSize; // Retry this batch
+        continue;
+      } else if (isRateLimitError) {
+        console.error(`  Rate limit exceeded ${CONFIG.github.maxRetries} retries, skipping batch ${batchNum}`);
+        batchRetryCount = 0; // Reset for next batch
+        // Don't retry - let the loop continue to next batch
         continue;
       }
 
