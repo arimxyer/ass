@@ -131,7 +131,7 @@ console.error(`Loaded ${itemsIndex.itemCount} items from ${itemsIndex.listCount}
 // Create MCP server
 const server = new McpServer({
   name: "awess",
-  version: "0.3.0",
+  version: "0.4.0",
 });
 
 // Tool: Search awesome lists (unified search, top_lists, get_list)
