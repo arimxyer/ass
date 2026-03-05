@@ -513,6 +513,7 @@
   "https://github.com/lucidrains/PaLM-rlhf-pytorch",
   "https://github.com/lucidrains/memorizing-transformers-pytorch",
   "https://github.com/lucidrains/palm-rlhf-pytorch",
+  "https://github.com/lucidrains/vit-pytorch#distillation",
   "https://github.com/luijait/darkgpt",
   "https://github.com/lukechilds/cacheable-request",
   "https://github.com/lukecrum/SpicyButton",
